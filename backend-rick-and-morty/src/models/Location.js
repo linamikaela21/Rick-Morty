@@ -1,21 +1,17 @@
 const { DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => {
-    sequelize.define('character', {
+    sequelize.define('location', {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        image: {
+        type: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        gender: {
-            type: DataTypes.ENUM('Male', 'Female', 'unknown'),
-            allowNull: false
-        },
-        status: {
-            type: DataTypes.ENUM('Alive', 'Dead', 'unknown'),
+        dimension: {
+            type: DataTypes.STRING,
             allowNull: false
         }
     })

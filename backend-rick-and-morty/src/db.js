@@ -31,10 +31,13 @@ let entries = Object.entries(sequelize.models)
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]])
 sequelize.models = Object.fromEntries(capsEntries)
 
-const { Episode, Character } = sequelize.models
+const { Episode, Character, Location } = sequelize.models
 
-Episode.belongsToMany(Character, {through: 'characters_episodes'})
-Character.belongsToMany(Episode, {through: 'characters_episodes'})
+Episode.belongsToMany(Character, {through: 'character_episode'})
+Character.belongsToMany(Episode, {through: 'character_episode'})
+
+Character.belongsTo(Location, {through: 'character_location'})
+Location.belongsToMany(Character, {through: 'character_location'})
 
 module.exports = {
   ...sequelize.models,
