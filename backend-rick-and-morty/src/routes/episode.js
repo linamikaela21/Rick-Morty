@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const { getEpisodes, getEpisodeByID, postEpisode } = require('../controllers/episode')
+const { getAllEpisodes } = require('../controllers/episodes/getAllEpisodes')
+const { getEpisodeByID } = require('../controllers/episodes/getEpisodesByID')
+const { postEpisode } = require('../controllers/episodes/postEpisodes')
 
-router.get('/episodes', getEpisodes)
+router.get('/episodes', getAllEpisodes)
 router.get('/episodes/:id', getEpisodeByID)
 router.post('/episodes', postEpisode)
 

@@ -1,15 +1,16 @@
 import {
-  //SET_LOGGED,
+  GET_CHARACTERS,
+  GET_CHARACTER_NAME
 } from '../actions/constants'
 
 const initialState = {
-  //logged: false,
+  characters: [],
 }
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case SET_LOGGED:
-    //   return { ...state, logged: action.payload }
+    case GET_CHARACTERS:
+      return { ...state, characters: action.payload }
       
     default:
       return state

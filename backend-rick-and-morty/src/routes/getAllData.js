@@ -3,6 +3,6 @@ const getAllData  = require('../controllers/getAllData')
 const router = express.Router()
 
 
-router.get('/api', getAllData)
+router.get('/', getAllData)
 
 module.exports = router
