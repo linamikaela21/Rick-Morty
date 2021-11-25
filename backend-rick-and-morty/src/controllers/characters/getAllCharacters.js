@@ -2,11 +2,11 @@ const { Episode, Character } = require('../../db')
 
 const { Op } = require('sequelize')
 
-const getAllData = require('../getAllData')
+const { getAllDataCharacters } = require('../getAllData')
 
 exports.getAllCharacters = async (req, res, next) => {
 
-    const getAllDataApi = await getAllData()
+    const getAllDataApi = await getAllDataCharacters()
 
     const { name } = req.query
 
@@ -14,6 +14,8 @@ exports.getAllCharacters = async (req, res, next) => {
 
         let infoDB = await Character.findAll()
         if (!infoDB.length) await Character.bulkCreate(getAllDataApi)
+
+        console.log(infoDB)
 
         if (name) {
             try {

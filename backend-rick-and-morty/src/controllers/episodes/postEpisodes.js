@@ -11,7 +11,7 @@ exports.postEpisode = async (req, res, next) => {
             }
         })
 
-        console.log(created)
+        console.log(created, epi)
 
         await epi.setEpisodes(episode.charId)
 

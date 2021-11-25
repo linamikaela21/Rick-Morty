@@ -36,7 +36,7 @@ const { Episode, Character, Location } = sequelize.models
 Episode.belongsToMany(Character, {through: 'character_episode'})
 Character.belongsToMany(Episode, {through: 'character_episode'})
 
-Character.belongsTo(Location, {through: 'character_location'})
+Character.hasOne(Location, {through: 'character_location'})
 Location.belongsToMany(Character, {through: 'character_location'})
 
 module.exports = {

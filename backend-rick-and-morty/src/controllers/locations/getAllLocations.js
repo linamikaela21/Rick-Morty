@@ -1,26 +1,26 @@
-const { Episode } = require('../../db')
+const { Location, characters_locations } = require('../../db')
 
 const { Op } = require('sequelize')
 
-const { getAllDataEpisodes } = require('../getAllData')
+const { getAllDataLocations } = require('../getAllData')
 
-exports.getAllEpisodes = async (req, res, next) => {
+exports.getAllLocations = async (req, res, next) => {
 
-    const getAllDataApi = await getAllDataEpisodes()
+    const getAllDataApi = await getAllDataLocations()
 
     const { name } = req.query
 
     try {
 
-        let infoDB = await Episode.findAll()
+        let infoDB = await Location.findAll()
 
         console.log(infoDB)
 
-        if(!infoDB.length) await Episode.bulkCreate(getAllDataApi)
+        if(!infoDB.length) await Location.bulkCreate(getAllDataApi)
 
         if(name) {
             try {
-                let epi = await Episode.findAll({
+                let loc = await Location.findAll({
                     where: {
                         name: {
                           [Op.iLike]: `%${name}%`
@@ -28,12 +28,13 @@ exports.getAllEpisodes = async (req, res, next) => {
                       }
                 })
     
-                return res.json(epi)
+                return res.json(loc)
     
             } catch (error) {
                 next(error)
             }
         }
+
         return res.json(infoDB)
 
     } catch (error) {

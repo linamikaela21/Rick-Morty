@@ -5,6 +5,10 @@ module.exports = (sequelize) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        episode: {
+            type: DataTypes.STRING,
+            allowNull: true,
         }
     })
 }
