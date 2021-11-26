@@ -1,23 +1,37 @@
-const { Episode } = require('../../db')
+const { Episode, Character } = require('../../db')
 
 exports.postEpisode = async (req, res, next) => {
 
-    const episode = req.body
-
-    //const shortId = Math.floor(Math.random() * 100000)
+    const { name, episode, characterId } = req.body
 
     try {
-        let [epi, created] = await Episode.findOrCreate({
-            where: {
-                id: Math.floor(Math.random() * 100000),
-                name: episode.name,
-                episode: episode.episode
-            }
+        if (!name) return res.status(404).json({})
+
+        const newEpisode = await Episode.create({
+            id: Math.floor(Math.random() * 100000),
+            name: name,
+            episode: episode,
         })
 
-        await epi.setEpisodes(episode.charId)
+        for (let i = 0; i < characterId.length; i++) {
+            await newEpisode.addCharacters(characterId[i], { through: 'character_episode' })
+        }
 
-        return res.status(201).json(epi)
+        const episodes_characters = await Episode.findAll({
+            where: {
+                name: name
+            },
+            attributes: {
+                exclude: ['character_episode', 'createdAt', 'updatedAt']
+            },
+            include: 
+                {
+                    model: Character,
+                    attributes: ['name']
+                }
+        })
+
+        return res.status(201).json(episodes_characters)
 
     } catch (error) {
         next(error)

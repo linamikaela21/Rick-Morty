@@ -32,7 +32,7 @@ export const getCharacterName = (name) => {
 export const getCharacterId = (id) => {
   return async function (dispatch) {
       try {
-        const charId = await axios.get(`${ApiURL}characters/${id}`)
+        const charId = await axios.get(`${ApiURL}/characters/${id}`)
         return dispatch({ type: GET_CHARACTER_ID, payload: charId.data })
       } catch (error) {
           console.log(error)

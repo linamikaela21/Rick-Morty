@@ -4,12 +4,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: rebeccapurple;
-    border: red solid 5px;
-    border-radius: 50px;
+    justify-content: space-between;
     padding: 20px;
     margin: 20px;
+    background-color: rebeccapurple;
+    border-radius: 50px;
+    font-size: x-large;
 }
 
 .divCard {
@@ -20,5 +20,5 @@
 .rowContent {
     display: flex;
     justify-content: center;
-    width: 350px;
+    width: 300px;
 }

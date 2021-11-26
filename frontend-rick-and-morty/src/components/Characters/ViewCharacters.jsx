@@ -11,6 +11,7 @@ export const ViewCharacters = (props) => {
                image={char.image}
                buttonText='Show me more'
                link={`characters/${char.id}`}
+               height='500px'
                />
            ))}
     </div>
