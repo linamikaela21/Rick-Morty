@@ -12,7 +12,6 @@ const getAllDataCharacters = async () => {
 
 const getAllDataEpisodes = async () => {
     const info = await axios(URL_EPISODES)
-    console.log(info.data.results)
     return info.data.results
 }
 

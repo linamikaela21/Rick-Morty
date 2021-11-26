@@ -3,7 +3,8 @@ import { ApiURL } from '../../config/config'
 
 import {
     GET_CHARACTER_NAME,
-    GET_CHARACTERS
+    GET_CHARACTERS,
+    GET_CHARACTER_ID
 } from './constants'
 
 export const getCharacters = () => {
@@ -22,6 +23,17 @@ export const getCharacterName = (name) => {
       try {
         const charName = await axios.get(`${ApiURL}/characters?name=${name}`)
         return dispatch({ type: GET_CHARACTER_NAME, payload: charName.data })
+      } catch (error) {
+          console.log(error)
+      }
+  }
+}
+
+export const getCharacterId = (id) => {
+  return async function (dispatch) {
+      try {
+        const charId = await axios.get(`${ApiURL}characters/${id}`)
+        return dispatch({ type: GET_CHARACTER_ID, payload: charId.data })
       } catch (error) {
           console.log(error)
       }

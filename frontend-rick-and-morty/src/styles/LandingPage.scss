@@ -3,7 +3,7 @@
 .fondo {
     //   background-image: url("../../Images/Landind.jpg");
     background-color: $color-negro;
-    height: 348px;
+    height: 412px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -23,7 +23,7 @@
 }
 
 .title {
-    font-size: 125px;
+    font-size: 115px;
     color: $color-blanco;
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     text-shadow: 10px 10px $color-negro;
@@ -50,6 +50,6 @@
     color: $color-negro;
     background-color: $color-verde;
     border: solid 8px $color-negro;
-    box-shadow: 0px 0px 0px 3.5px $color-blanco, 0px 2px 8px 5px $color-verde, 0px 0px 0px 10px $color-blanco,
+    box-shadow: 0px 0px 0px 4px $color-blanco, 0px 2px 8px 8px $color-verde, 0px 0px 0px 10px $color-negro,
         0px 0px 0px 10.5px $color-verde;
 }

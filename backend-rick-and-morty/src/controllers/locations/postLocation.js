@@ -6,7 +6,7 @@ exports.postLocation = async (req, res, next) => {
     const location = req.body
 
     try {
-        let [loc, created] = await Location.findOrCreate({
+        let [loc] = await Location.findOrCreate({
             where: {
                 locationId: Math.floor(Math.random() * 100000),
                 name: location.name,
@@ -14,8 +14,6 @@ exports.postLocation = async (req, res, next) => {
                 dimension: location.dimension
             }
         })
-
-        console.log(created, loc)
 
         await loc.setCharacters(location.charId)
 

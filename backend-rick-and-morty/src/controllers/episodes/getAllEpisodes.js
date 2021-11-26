@@ -14,8 +14,6 @@ exports.getAllEpisodes = async (req, res, next) => {
 
         let infoDB = await Episode.findAll()
 
-        console.log(infoDB)
-
         if(!infoDB.length) await Episode.bulkCreate(getAllDataApi)
 
         if(name) {

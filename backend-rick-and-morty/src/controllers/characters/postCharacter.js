@@ -17,8 +17,6 @@ exports.postCharacter = async (req, res, next) => {
             species: species,
         })
 
-        console.log(req.body, 'body')
-
         for (let i = 0; i < epiId.length; i++) {
             await newCharacter.addEpisodes(epiId[i], { through: 'character_episode' })
         }

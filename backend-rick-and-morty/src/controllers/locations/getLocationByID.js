@@ -6,7 +6,6 @@ exports.getLocationByID = async (req, res, next) => {
 
     try {
         let locId = await Location.findByPk(id) 
-        console.log(locId, 'soy IF')
         return res.json(locId)
     } catch (error) {
         next(error)

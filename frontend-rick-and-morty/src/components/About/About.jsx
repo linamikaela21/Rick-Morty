@@ -9,8 +9,8 @@ import './../../styles/Commun/index.scss'
 
 export const About = () => {
   return (
-    <div className='container'>
-      <div className='content'>
+    <div className='cardContainer'>
+      <div className='content' style={{backgroundColor:'#fdfd'}}>
         <h1>THANK YOU FOR VISITING <br /> 'RICK AND MORTY PROYECT'</h1>
         <br />
         <div className='ulLi'>
@@ -142,7 +142,7 @@ export const About = () => {
         </div>
       </div>
       <Link to='/home'>
-        <button className='buttonVolver'>Go back</button>
+        <button className='button'>Go back</button>
       </Link>
     </div>
   )

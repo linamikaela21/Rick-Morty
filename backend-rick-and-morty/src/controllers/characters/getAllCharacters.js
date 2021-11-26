@@ -15,8 +15,6 @@ exports.getAllCharacters = async (req, res, next) => {
         let infoDB = await Character.findAll()
         if (!infoDB.length) await Character.bulkCreate(getAllDataApi)
 
-        console.log(infoDB)
-
         if (name) {
             try {
                 let char = await Character.findAll({

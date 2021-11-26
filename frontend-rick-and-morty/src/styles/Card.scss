@@ -1,0 +1,24 @@
+@import "./variables.scss";
+
+.columnContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rebeccapurple;
+    border: red solid 5px;
+    border-radius: 50px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.divCard {
+    display: flex;
+    justify-content: center;
+}
+
+.rowContent {
+    display: flex;
+    justify-content: center;
+    width: 350px;
+}

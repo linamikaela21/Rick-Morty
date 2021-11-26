@@ -14,8 +14,6 @@ exports.getAllLocations = async (req, res, next) => {
 
         let infoDB = await Location.findAll()
 
-        console.log(infoDB)
-
         if(!infoDB.length) await Location.bulkCreate(getAllDataApi)
 
         if(name) {
