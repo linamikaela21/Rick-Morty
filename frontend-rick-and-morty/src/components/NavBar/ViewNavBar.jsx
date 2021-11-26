@@ -1,29 +1,32 @@
 import { NavLink } from 'react-router-dom'
-import logo from '../../Images/Redux.jpg'
+import logo from '../../Images/logo.jpg'
 
 import './../../styles/NavBar.scss'
 import './../../styles/Commun/index.scss'
+import { SearchBar } from '../SearchBar/SearchBar'
 
 export const ViewNavBar = () => {
     return (
-        <div>
             <div className='navContainer'>
-            <div className='navLinks'><NavLink to='/'><img src={logo} alt='No found' width='100px'/></NavLink></div>
+            <div className='navLinks'><NavLink to='/'><img src={logo} alt='No found' width='120px'/></NavLink></div>
+            <div className='navLinks'><SearchBar/></div>
                 <div className='navLinks'>
+            <div>
                     <NavLink
                         to='/home'
-                        activeClassName='nav-link-active'
                         className='navLink'
                     >
                         HOME
                     </NavLink>
+                    </div>
+                    <div>
                     <NavLink
                         to='/about'
-                        activeClassName='nav-link-active'
                         className='navLink'
                     >
                         ABOUT
                     </NavLink>
+                    </div>
                     <div>
                         <button className='button'>
                             <NavLink className='navLink' to='/create'>
@@ -33,6 +36,5 @@ export const ViewNavBar = () => {
                     </div>
                 </div>
             </div>
-        </div>
     )
 }

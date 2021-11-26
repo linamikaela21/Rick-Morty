@@ -2,21 +2,26 @@
 
 .navContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: $color-negro;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 25px;
   }
   
   .navLinks {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
   }
-  
-//   .navContainer img {
-//     width: 100px;
-//     margin: 15px;
-//     border-radius: 12px;
-//   }
+
+  .navLinks img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: 5px solid $color-gris;
+  }
   
   .navLink {
     margin: 10px;
@@ -24,13 +29,12 @@
     color: white;
     font-weight: bold;
     text-decoration: none;
-    padding: 2px;
     margin-left: 30px;
   }
   
   .LinklinkMakeRecipe {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: $color-blanco;
     font-size: xx-large;
     font-family: fantasy;
     font-variant: inherit;

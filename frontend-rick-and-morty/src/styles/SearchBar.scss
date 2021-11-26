@@ -1,0 +1,17 @@
+@import "variables.scss";
+
+.containerSearchBar {
+    display: flex;
+    margin-top: 20px;
+}
+
+.inputSearchBar {
+    width: 80%;
+    color: $color-negro;
+    font-size: x-large;
+    font-weight: 200;
+    padding: 10px;
+    border-radius: 12px;
+    border-color: $color-negro;
+    border-style: solid;
+}
