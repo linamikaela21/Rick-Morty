@@ -1,0 +1,17 @@
+@import "variables.scss";
+
+.footerElements {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+  background-color: $color-negro;
+}
+
+.footerIcon  {
+  width: 120px;
+  padding: 15px;
+  border-radius: 25px;
+}

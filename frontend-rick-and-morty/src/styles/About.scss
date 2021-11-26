@@ -1,0 +1,42 @@
+ p {
+  padding: 20px;
+  color: rgb(255, 255, 255);
+  background-color: black;
+}
+
+// /* CONTACT */
+
+.contact {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.about h2 {
+  padding: 10px;
+}
+
+.contact_item {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  background-color: #ccc;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.contact_item_img {
+  width: 125px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.contact_item a {
+  font-size: large;
+  font-weight: bold;
+  padding: 5px;
+  text-decoration: none;
+}

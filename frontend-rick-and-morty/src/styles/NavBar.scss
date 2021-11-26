@@ -1,0 +1,38 @@
+@import "variables.scss";
+
+.navContainer {
+    display: flex;
+    justify-content: space-around;
+    background-color: $color-negro;
+  }
+  
+  .navLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  
+//   .navContainer img {
+//     width: 100px;
+//     margin: 15px;
+//     border-radius: 12px;
+//   }
+  
+  .navLink {
+    margin: 10px;
+    font-size: x-large;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 2px;
+    margin-left: 30px;
+  }
+  
+  .LinklinkMakeRecipe {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: xx-large;
+    font-family: fantasy;
+    font-variant: inherit;
+  }
+  

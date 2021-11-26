@@ -1,13 +1,11 @@
-import axios from 'axios'
-import { ApiURL } from './config/config'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { RouterWeb } from './RouterWeb'
-import { NavBar } from './components/NavBar/NavBar'
+import { NavBar } from './components/NavBar/NavBar.jsx'
 import { Footer } from './components/Footer/Footer'
 import { getCharacters } from './redux/actions/characterActions'
 
-const App = () => {
+export const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -26,5 +24,3 @@ const App = () => {
     </div>
   )
 }
-
-export default App

@@ -4,10 +4,14 @@ exports.postEpisode = async (req, res, next) => {
 
     const episode = req.body
 
+    //const shortId = Math.floor(Math.random() * 100000)
+
     try {
         let [epi, created] = await Episode.findOrCreate({
             where: {
-                name: episode.name
+                id: Math.floor(Math.random() * 100000),
+                name: episode.name,
+                episode: episode.episode
             }
         })
 
