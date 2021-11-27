@@ -11,7 +11,7 @@ import {
 const initialState = {
   characters: [],
   episodes: [],
-  location: [],
+  locations: [],
   details: []
 }
 

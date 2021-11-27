@@ -19,7 +19,7 @@ export const RouterWeb = () => {
       <Route exact path='/characters' element={<Characters/>} />
       <Route exact path='/characters/:id' element={<CharacterDetails />} />
       <Route exact path='/episodes' element={<Episodes/>} />
-      <Route exact path='/location' element={<Location/>} />
+      <Route exact path='/locations' element={<Location/>} />
       <Route element={<NotFound />} />
     </Routes>
   )

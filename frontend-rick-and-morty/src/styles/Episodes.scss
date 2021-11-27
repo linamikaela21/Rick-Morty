@@ -1,0 +1,30 @@
+.epiContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: solid 5px red;
+}
+
+.epiContent {
+    display: block;
+    height: 200px;
+    font-size: small;
+    border: solid 5px blue;
+    margin: 25px;
+}
+
+.epiDiv {
+    width: 250px;
+    height: 100px;
+    border: solid 5px forestgreen;
+}
+
+.epiDiv h1 {
+    font-size: 30px;
+    background-color: burlywood;
+}
+
+.epiDiv ul li {
+    font-size: 15px;
+}
+
