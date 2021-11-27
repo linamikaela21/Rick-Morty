@@ -1,11 +1,27 @@
-const { Character } = require('../../db')
+const { Character, Episode, Location } = require('../../db')
 
 exports.getCharactersByID = async (req, res, next) => {
 
     const { id } = req.params
 
     try {
-        let charID = await Character.findByPk(id)
+        let charID = await Character.findOne({
+            where: {
+                id: id,
+              },
+              include: 
+              [
+                  {
+                      model: Episode,
+                      attributes: ['name'],
+                  },
+                  {
+                      model: Location,
+                      attributes: ['name']
+                  }
+              ]
+        })
+        
         return res.json(charID)
     } catch (error) {
         next(error)

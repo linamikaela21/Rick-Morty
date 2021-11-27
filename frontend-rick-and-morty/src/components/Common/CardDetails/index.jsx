@@ -14,6 +14,8 @@ export const CardDetails = (props) => {
                     <h3 className='cardText'>{props.textOne}</h3>
                     <h3 className='cardText'>{props.textTwo}</h3>
                     <h3 className='cardText'>{props.textThree}</h3>
+                    <h3 className='cardText'>{props.textFour}</h3>
+                    <h3 className='cardText'>{props.textFive}</h3>
                 </div>
             </div>
             <div>

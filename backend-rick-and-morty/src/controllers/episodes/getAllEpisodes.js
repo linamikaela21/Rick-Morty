@@ -1,4 +1,4 @@
-const { Episode } = require('../../db')
+const { Episode, Character } = require('../../db')
 
 const { Op } = require('sequelize')
 
@@ -12,7 +12,12 @@ exports.getAllEpisodes = async (req, res, next) => {
 
     try {
 
-        let infoDB = await Episode.findAll()
+        let infoDB = await Episode.findAll({
+            include: {
+                model: Character,
+                attributes: ['name']
+            }
+        })
 
         if(!infoDB.length) await Episode.bulkCreate(getAllDataApi)
 
@@ -22,6 +27,10 @@ exports.getAllEpisodes = async (req, res, next) => {
                     where: {
                         name: {
                           [Op.iLike]: `%${name}%`
+                        },
+                        include: {
+                            model: Character,
+                            attributes: ['name']
                         }
                       }
                 })

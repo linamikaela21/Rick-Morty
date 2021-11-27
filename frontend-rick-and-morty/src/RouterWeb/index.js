@@ -6,6 +6,7 @@ import { LandingPage } from "../components/LandingPage/LandingPage"
 import { About } from "../components/About/About"
 import { Characters } from "../components/Characters/Characters"
 import { Episodes } from "../components/Episodes/Episodes"
+import { Location } from "../components/Location/Location"
 
 
 export const RouterWeb = () => {
@@ -18,6 +19,7 @@ export const RouterWeb = () => {
       <Route exact path='/characters' element={<Characters/>} />
       <Route exact path='/characters/:id' element={<CharacterDetails />} />
       <Route exact path='/episodes' element={<Episodes/>} />
+      <Route exact path='/location' element={<Location/>} />
       <Route element={<NotFound />} />
     </Routes>
   )
