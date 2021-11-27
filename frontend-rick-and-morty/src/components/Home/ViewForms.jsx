@@ -1,0 +1,27 @@
+import { BigCard } from '../Common/BigCard'
+import './../../styles/Home.scss'
+import episodes from '../../Images/rick-morty-episodes.jpg'
+import characters from '../../Images/rick-morty-characters.jpg'
+import locations from '../../Images/rick-morty-location.jpg'
+
+export const ViewForms = () => {
+    return (
+        <div className='homeContent'>
+            <BigCard
+                title='Create your episodes'
+                image={episodes}
+                link='create/episode'
+            />
+            <BigCard
+                title='Create your characters'
+                image={characters}
+                link='create/character'
+            />
+            <BigCard
+                title='Create your locations'
+                image={locations}
+                link='create/location'
+            />
+        </div>
+    )
+}

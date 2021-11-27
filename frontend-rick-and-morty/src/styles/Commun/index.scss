@@ -4,8 +4,57 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     background-color: $color-gris;
+}
+
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 20px;
+  border: solid 5px rgb(23, 211, 54);
+  font-size: large;
+  width: 50%;
+}
+
+.rowContainer {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  
+}
+
+/*FORM*/
+
+.form {
+  display: block;
+  justify-content: center;
+  align-content: center;
+  width: 80%;
+  border: solid 5px rgb(63, 33, 119);
+  padding: 25px;
+}
+
+.rowContainer input {
+  font-size: large;
+  width: 100%;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.rowContainer fieldset {
+  border-radius: 12px;
+}
+
+.rowContainer label {
+  font-size: x-large;
+  padding-right: 25px;
+}
+
+.rowContainer legend {
+  font-size: large;
 }
 
 .content {
