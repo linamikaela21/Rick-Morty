@@ -8,6 +8,7 @@ import { Characters } from "../components/Characters/Characters"
 import { Episodes } from "../components/Episodes/Episodes"
 import { Location } from "../components/Location/Location"
 import { ViewForms } from "../components/Home/ViewForms"
+import { CharactersViewForm } from "../components/Forms/CharactersViewForm"
 
 
 export const RouterWeb = () => {
@@ -19,9 +20,10 @@ export const RouterWeb = () => {
       <Route exact path="/about" element={<About />} />
       <Route exact path='/characters' element={<Characters/>} />
       <Route exact path='/characters/:id' element={<CharacterDetails />} />
+      <Route exact path='/create' element={<ViewForms/>} />
       <Route exact path='/episodes' element={<Episodes/>} />
       <Route exact path='/locations' element={<Location/>} />
-      <Route exact path='/create' element={<ViewForms/>} />
+      <Route exact path='/character' element={<CharactersViewForm />} />
       <Route element={<NotFound />} />
     </Routes>
   )

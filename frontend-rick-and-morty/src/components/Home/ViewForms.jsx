@@ -10,17 +10,17 @@ export const ViewForms = () => {
             <BigCard
                 title='Create your episodes'
                 image={episodes}
-                link='create/episode'
+                link='episodes'
             />
             <BigCard
                 title='Create your characters'
                 image={characters}
-                link='create/character'
+                link='character'
             />
             <BigCard
                 title='Create your locations'
                 image={locations}
-                link='create/location'
+                link='locations'
             />
         </div>
     )

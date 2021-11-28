@@ -2,25 +2,23 @@ export const ViewLocation = (props) => {
     return (
         <div className='container'>
             {
-                props.location?.map(loc => (
-                    <>
-                        <h3>{loc.name}</h3>
-                        <h4>{loc.locsode}</h4>
-                        {loc.characters ? <label>Characters</label> : null}
+                props.locations?.map(loc => (
+                    <div className='columnContainer' style={{ width: '100%'}}>
+                        <div className='rowContainer'><h3>{loc.name}</h3></div>
+                        <div className='rowContainer'><h4>{loc.type}</h4></div>
+                        <div className='rowContainer'>
                         {
                             loc.characters?.map(cha => (
-                                <span>
-                                    <input
-                                        type="checkbox"
-                                        name="characters"
-                                        value={cha.id}
-                                    //onChange={(e) => handleCheckbox(e)}
-                                    />
-                                    <label>{cha?.name.toUpperCase()}</label>
-                                </span>
+                                <div className='container'>
+                                <ul>
+                                    <li key={cha?.id}><label>{cha?.name}</label></li>
+                                </ul>
+                                </div>
+                                    
                             ))
                         }
-                    </>
+                        </div>
+                    </div>
                 ))}
         </div>
     )

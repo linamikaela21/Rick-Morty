@@ -7,12 +7,10 @@ export const Episodes = () => {
     return (
         <div className='rowContainer'>
             <div className='columnContainer'>
-            <ViewEpisodes
-            episodes={episodes}
-            />
+                <ViewEpisodes episodes={episodes} />
             </div>
             <div className='columnContainer'>
-            <EpisodesViewForm />
+                <EpisodesViewForm />
             </div>
         </div>
     )

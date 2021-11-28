@@ -1,12 +1,13 @@
 import { CardDetails } from "../Common/CardDetails"
 import { useSelector } from 'react-redux'
 
-export const ViewCharacterDetails = (props) => {
+export const ViewCharacterDetails = () => {
 
     const details = useSelector(state => state.details)
 
     return (
         <div className='container'>
+            {details.episodes?.map(ep => (
             <CardDetails
                 key={details.id}
                 name={details.name}
@@ -15,15 +16,13 @@ export const ViewCharacterDetails = (props) => {
                 textTwo={`Gender: ${details.gender}`}
                 textThree={`Status: ${details.status}`}
                 textFour={`Location: ${details.location?.name}`}
-                textFive={
-                    details.episodes?.map(ep => (
-                        <h3>{ep?.name}</h3>
-                    ))
-                }
+                elections='Characters'
+                textElections={ep?.name}
                 link='home'
                 buttonText='Go Back'
             />
-            )
+            ))}
         </div>
     )
 }
+

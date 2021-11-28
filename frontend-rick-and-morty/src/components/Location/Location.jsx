@@ -1,13 +1,20 @@
 import { ViewLocation } from "./ViewLocation"
 import { useSelector } from "react-redux"
+import { LocationsViewForm } from "../Forms/LocationsViewForm"
 
 export const Location = () => {
-    const location = useSelector(state => state.location)
+
+    const locations = useSelector(state => state.locations)
+    
     return (
-        <div>
-            <ViewLocation
-            location={location}
-            />
+        <div className='rowContainer'>
+            <div className='columnContainer'>
+            <ViewLocation locations={locations} />
+            </div>
+            <div className='columnContainer'>
+            <LocationsViewForm />
+            </div>
         </div>
     )
 }
+

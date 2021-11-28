@@ -1,6 +1,6 @@
 export const Input = (props) => {
     return (
-        <div>
+        <div className='inputContainer'>
             <div className='rowContainer'>
             <label
                 htmlFor={props.label}>

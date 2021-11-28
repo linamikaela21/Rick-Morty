@@ -1,12 +1,13 @@
 import { Input } from './Input'
+import { useSelector } from 'react-redux'
 
-export const LocationsViewForm = () => {
+export const LocationsViewForm = (props) => {
 
-    "name": "jjjjjjjjjjj",
-        "type": "Planet",
-            "dimension": "dimension",
-                "charId": [1, 2]
+    const characters = useSelector(state => state.characters)
+    const locations = useSelector(state => state.locations)
 
+    let location = locations.map(t => t.type)
+    let unique = [...new Set(location)]
 
     return (
         <form className='form'>
@@ -17,11 +18,17 @@ export const LocationsViewForm = () => {
                 value={props.name}
             // onChange={(e) => props.setName(e.target.value)}
             />
-            <div className='select-wrapper'>
-                <label for='select-choice'>Type</label>
-                <div className='styled-select' for='select-choice'>
+            <div className='inputContainer'>
+                <div for='' className='rowContainer'><label for=''>Type</label></div>
+                <div for='' className='rowContainer'>
                     <select name='type' id='type'>
-                        <option value='Choice 1'>Choice 1</option>
+                        {
+                            unique.map(ty => {
+                                return (
+                                    <option key={ty} value={ty}>{ty}</option>
+                                )
+                            })
+                        }
                     </select>
                 </div>
             </div>
@@ -32,19 +39,31 @@ export const LocationsViewForm = () => {
                 value={props.name}
             // onChange={(e) => props.setName(e.target.value)}
             />
-            <fieldset>
-                <legend>Characters</legend>
-                <div className='rowContainer'>
-                    <Input
-                        label='Name'
-                        type='radio'
-                        placeholder='Enter a name'
-                        value={props.name}
-                    // onChange={(e) => props.setName(e.target.value)}
-                    />
-                </div>
-            </fieldset>
-            <div className='rowContainer'><button className='button'>Add Character</button></div>
+            <div className='inputContainer'>
+                <fieldset >
+                    <legend>Characters</legend>
+                    <div className=''>
+                        {
+                            characters?.map(ch => {
+                                return (
+                                    <div style={{ width: '350px', display: 'flex', justifyContent: 'center' }}>
+                                        <label for="">{ch.name}</label>
+                                        <input
+                                            id={ch.id}
+                                            type='checkbox'
+                                            placeholder='Enter a character'
+                                            name={ch.name}
+                                        // onChange={(e) => props.setName(e.target.value)}
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className='rowContainer'><button className='button' style={{ backgroundColor: 'blue' }}>Add Character</button></div>
+                </fieldset>
+            </div>
+            <div className='rowContainer'><button className='button'>Create Location</button></div>
         </form>
     )
 }
