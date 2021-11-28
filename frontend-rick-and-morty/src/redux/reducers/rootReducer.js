@@ -6,13 +6,18 @@ import {
   GET_EPISODE_NAME,
   GET_LOCATION,
   GET_LOCATION_NAME,
+  GET_CHARACTER_NAME_FORM,
+  CLEAR_CHARACTER_NAME_FORM
 } from '../actions/constants'
 
 const initialState = {
   characters: [],
   episodes: [],
   locations: [],
-  details: []
+  details: [],
+  newCharacter: [],
+  newEpisode: [],
+  newLocation: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -26,6 +31,12 @@ const rootReducer = (state = initialState, action) => {
 
     case GET_CHARACTER_ID:
       return { ...state, details: action.payload }
+
+      case GET_CHARACTER_NAME_FORM:
+      return { ...state, newEpisode: action.payload }
+
+      case CLEAR_CHARACTER_NAME_FORM:
+      return { ...state, newEpisode: [] }
 
     case GET_EPISODES:
       return { ...state, episodes: action.payload }

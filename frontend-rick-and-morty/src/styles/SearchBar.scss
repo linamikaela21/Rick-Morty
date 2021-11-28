@@ -15,3 +15,12 @@
     border-color: $color-negro;
     border-style: solid;
 }
+
+.searchContainer {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: $color-negro;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 15px;
+  }

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ApiURL } from '../../config/config'
+import { URL_ALL_EPISODES, URL_EPISODES_NAME } from '../../config/config'
 
 import {
     GET_EPISODES,
@@ -9,7 +9,7 @@ import {
 export const getEpisodes = () => {
     return async function (dispatch) {
         try {
-          const epi = await axios.get(`${ApiURL}/episodes`)
+          const epi = await axios.get(URL_ALL_EPISODES)
           return dispatch({ type: GET_EPISODES, payload: epi.data })
         } catch (error) {
             console.log(error)
@@ -20,11 +20,22 @@ export const getEpisodes = () => {
 export const getEpisodeName = (name) => {
   return async function (dispatch) {
       try {
-        const epiName = await axios.get(`${ApiURL}/episodes?name=${name}`)
+        const epiName = await axios.get(URL_EPISODES_NAME + name)
         return dispatch({ type: GET_EPISODE_NAME, payload: epiName.data })
       } catch (error) {
           console.log(error)
       }
+  }
+}
+
+export const postEpisode = (name, charId) => {
+  return async function (dispatch) {
+    const newEpisode = await axios.post(URL_ALL_EPISODES, {
+      name,
+      charId
+    })
+    console.log(newEpisode)
+    return newEpisode
   }
 }
 

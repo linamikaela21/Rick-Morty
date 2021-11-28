@@ -86,7 +86,7 @@ select {
   display: flex;
   justify-content: center;
   text-align:center;
-  width: 80%;
+  width: 100%;
   padding: 12px;
   border: none;
   border-radius: 5px;
@@ -98,6 +98,7 @@ select {
 select option {
   margin: 25px;
   font-size: large;
+  padding: 12px;
 }
 
 .content {
@@ -139,7 +140,6 @@ a {
 /* BOTON */
 
 .button {
-  display: flex;
   justify-content: center;
   align-items: center;
   font-size: x-large;

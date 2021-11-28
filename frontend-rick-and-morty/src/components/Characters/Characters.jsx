@@ -1,26 +1,21 @@
 import { ViewCharacters } from "./ViewCharacters"
-import { useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { getCharacters } from '../../redux/actions/characterActions'
+import { useSelector } from "react-redux"
+import { SearchBar } from "../SearchBar/SearchBar"
 
 export const Characters = () => {
-    
-    const dispatch = useDispatch()
-    
+
+
     const characters = useSelector(state => state.characters)
 
-    useEffect(() => {
-        const fetchData = async () => {
-            dispatch(getCharacters())
-        }
-        fetchData()
-    }, [dispatch])
-
     return (
-        <div>
-            <ViewCharacters
-                characters={characters}
-            />
+        <div className=''>
+            <div className='navContainer'>
+                <SearchBar />
+            </div>
+            <div className='rowContainer'>
+                <ViewCharacters characters={characters} />
+            </div>
         </div>
     )
 }
+

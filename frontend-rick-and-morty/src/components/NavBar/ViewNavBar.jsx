@@ -3,38 +3,36 @@ import logo from '../../Images/logo.jpg'
 
 import './../../styles/NavBar.scss'
 import './../../styles/Commun/index.scss'
-import { SearchBar } from '../SearchBar/SearchBar'
 
 export const ViewNavBar = () => {
     return (
-            <div className='navContainer'>
-            <div className='navLinks'><NavLink to='/'><img src={logo} alt='No found' width='120px'/></NavLink></div>
-            <div className='navLinks'><SearchBar/></div>
-                <div className='navLinks'>
-            <div>
+        <div className='navContainer'>
+            <div className='navLinks'  style={{border: '2px solid green'}}><NavLink to='/'><img src={logo} alt='No found' width='80px' /></NavLink></div>
+            <div className='navLinks' style={{border: '2px solid green'}}>
+                <div style={{border: '2px solid red'}}>
                     <NavLink
                         to='/home'
                         className='navLink'
                     >
                         HOME
                     </NavLink>
-                    </div>
-                    <div>
+                </div>
+                <div style={{border: '2px solid red', padding: '15px'}}>
                     <NavLink
                         to='/about'
                         className='navLink'
                     >
                         ABOUT
                     </NavLink>
-                    </div>
-                    <div>
-                        <button className='button'>
-                            <NavLink className='navLink' to='/create'>
-                                CREATE YOUR SHOW
-                            </NavLink>
-                        </button>
-                    </div>
                 </div>
+                <button className='button'>
+                    <NavLink className='navLink' to='/create'>
+                        CREATE YOUR SHOW
+                    </NavLink>
+                </button>
             </div>
+            <div style={{border: '2px solid green'}}>
+            </div>
+        </div>
     )
 }

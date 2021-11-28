@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { getCharacterName } from '../../redux/actions/characterActions'
 import { getEpisodeName } from '../../redux/actions/episodesActions'
 import { getLocationName } from '../../redux/actions/locationsActions'
+import { Filters } from './Filters/Filters'
 
 export const SearchBar = () => {
 
@@ -18,6 +19,7 @@ export const SearchBar = () => {
         dispatch(getLocationName(search))
         //Esto es para borrar el imput despues de la busqueda
         setSearch(prev => [...prev, search])
+        setSearch(search)
         setSearch('')
     }
 
@@ -28,13 +30,18 @@ export const SearchBar = () => {
     }
 
     return (
-        <div>
-            <SearchBarView
-                onChange={onChangeSearchBar}
-                handleSubmitSearchBar={handleSubmitSearchBar}
-                search={search}
-                setSearch={setSearch}
-            />
+        <div className='searchContainer'>
+            <div style={{ border: '2px solid red', padding: '15px' }}>
+                <SearchBarView
+                    onChange={onChangeSearchBar}
+                    handleSubmitSearchBar={handleSubmitSearchBar}
+                    search={search}
+                    setSearch={setSearch}
+                />
+            </div>
+            <div style={{ border: '2px solid red', padding: '15px' }}>
+                <Filters />
+            </div>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ApiURL } from '../../config/config'
+import { URL_ALL_LOCATIONS, URL_LOCATIONS_NAME } from '../../config/config'
 
 import {
     GET_LOCATION,
@@ -9,7 +9,7 @@ import {
 export const getLocations = () => {
     return async function (dispatch) {
         try {
-          const loc = await axios.get(`${ApiURL}/locations`)
+          const loc = await axios.get(URL_ALL_LOCATIONS)
           return dispatch({ type: GET_LOCATION, payload: loc.data })
         } catch (error) {
             console.log(error)
@@ -20,7 +20,7 @@ export const getLocations = () => {
 export const getLocationName = (name) => {
   return async function (dispatch) {
       try {
-        const locName = await axios.get(`${ApiURL}/locations?name=${name}`)
+        const locName = await axios.get(URL_LOCATIONS_NAME + name)
         return dispatch({ type: GET_LOCATION_NAME, payload: locName.data })
       } catch (error) {
           console.log(error)

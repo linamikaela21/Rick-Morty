@@ -1,4 +1,4 @@
-import { Input } from './Input'
+import { Input } from '../Common/Input/index'
 
 export const EpisodesViewForm = (props) => {
     return (

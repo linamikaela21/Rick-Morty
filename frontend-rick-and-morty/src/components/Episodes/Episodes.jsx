@@ -1,26 +1,17 @@
 import { ViewEpisodes } from "./ViewEpisodes"
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { EpisodesViewForm } from "../Forms/EpisodesViewForm"
-import { getEpisodes } from '../../redux/actions/episodesActions'
-
-
+import { SearchBar } from "../SearchBar/SearchBar"
 
 export const Episodes = () => {
 
-    const dispatch = useDispatch()
-    
     const episodes = useSelector(state => state.episodes)
 
-    useEffect(() => {
-        const fetchData = async () => {
-            dispatch(getEpisodes())
-        }
-        fetchData()
-    }, [dispatch])
-
-
     return (
+        <div className=''>
+        <div className='navContainer'>
+            <SearchBar />
+        </div>
         <div className='rowContainer'>
             <div className='columnContainer'>
                 <ViewEpisodes episodes={episodes} />
@@ -28,6 +19,7 @@ export const Episodes = () => {
             <div className='columnContainer'>
                 <EpisodesViewForm />
             </div>
+        </div>
         </div>
     )
 }

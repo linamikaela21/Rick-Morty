@@ -1,4 +1,4 @@
-import { Input } from './Input'
+import { Input } from '../Common/Input/index'
 import { useSelector } from 'react-redux'
 
 export const LocationsViewForm = (props) => {

@@ -1,5 +1,6 @@
-import { Input } from './Input'
+import { Input } from '../Common/Input/index'
 import { useSelector } from 'react-redux'
+import { Select } from '../Common/Select'
 
 export const CharactersViewForm = (props) => {
     const locations = useSelector(state => state.locations)
@@ -53,17 +54,13 @@ export const CharactersViewForm = (props) => {
                         // onChange={(e) => props.setName(e.target.value)}
                         />
 
-
-                        <div class='select-wrapper'>
-                            <label for='select-choice'>Status</label>
-                            <div class='styled-select' for='select-choice'>
-                                <select name='select-choice' id='select-status'>
-                                    <option value='Alive'>Alive</option>
-                                    <option value='Dead'>Dead</option>
-                                    <option value='Unknow'>Unknow</option>
-                                </select>
-                            </div>
-                        </div>
+                        <Select 
+                        label='Status'
+                        optionOne='Alive'
+                        optionTwo='Dead'
+                        optionThree='Unknow'
+                        />
+                        
                     </div>
                     <div style={{ border: '5px solid blue' }} className='columnContainer'>
                         <Input

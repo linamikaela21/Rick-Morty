@@ -52,7 +52,7 @@ exports.getAllCharacters = async (req, res, next) => {
                     },
                     limit: 6,
                     offset: req.query.page,
-                    order: [['name', req.query.order]],
+                    order: [['name', req.query.order]], //ASC-DESC
                     include: { model: Episode }
                 })
                 return res.status(200).json(char)
