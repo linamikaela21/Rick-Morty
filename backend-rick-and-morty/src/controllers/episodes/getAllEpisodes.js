@@ -27,10 +27,6 @@ exports.getAllEpisodes = async (req, res, next) => {
                     where: {
                         name: {
                           [Op.iLike]: `%${name}%`
-                        },
-                        include: {
-                            model: Character,
-                            attributes: ['name']
                         }
                       }
                 })

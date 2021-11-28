@@ -17,7 +17,7 @@ export const getEpisodes = () => {
     }
   }
 
-export const getEpisodesName = (name) => {
+export const getEpisodeName = (name) => {
   return async function (dispatch) {
       try {
         const epiName = await axios.get(`${ApiURL}/episodes?name=${name}`)

@@ -1,31 +1,39 @@
 import { SearchBarView } from './ViewSearchBar'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-// import { getRecipeByName } from '../../redux/actions/index'
+import { getCharacterName } from '../../redux/actions/characterActions'
+import { getEpisodeName } from '../../redux/actions/episodesActions'
+import { getLocationName } from '../../redux/actions/locationsActions'
 
 export const SearchBar = () => {
 
-    const [name, setName] = useState('')
+    const dispatch = useDispatch()
 
-    //   const dispatch = useDispatch(getRecipeByName)
+    const [search, setSearch] = useState('')
 
-    const handleChangeSearchBar = e => {
+    const handleSubmitSearchBar = e => {
         e.preventDefault()
-        setName(e.target.value)
+        dispatch(getCharacterName(search))
+        dispatch(getEpisodeName(search))
+        dispatch(getLocationName(search))
+        //Esto es para borrar el imput despues de la busqueda
+        setSearch(prev => [...prev, search])
+        setSearch('')
     }
 
-    const handleSubmitSearchBar = (e) => {
+    const onChangeSearchBar = (e) => {
         e.preventDefault()
-        // dispatch(getRecipeByName(name))
-        //Esto es para borrar el imput despues de la busqueda
-        setName('')
+        console.log(e.target.value)
+        setSearch(e.target.value)
     }
 
     return (
         <div>
             <SearchBarView
-                handleChangeSearchBar={handleChangeSearchBar}
+                onChange={onChangeSearchBar}
                 handleSubmitSearchBar={handleSubmitSearchBar}
+                search={search}
+                setSearch={setSearch}
             />
         </div>
     )

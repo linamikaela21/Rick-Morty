@@ -17,7 +17,7 @@ export const getLocations = () => {
     }
   }
 
-export const getLocationsName = (name) => {
+export const getLocationName = (name) => {
   return async function (dispatch) {
       try {
         const locName = await axios.get(`${ApiURL}/locations?name=${name}`)

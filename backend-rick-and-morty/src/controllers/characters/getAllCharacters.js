@@ -34,18 +34,7 @@ exports.getAllCharacters = async (req, res, next) => {
                     where: {
                         name: {
                             [Op.iLike]: `%${name}%`
-                        },
-                        include: 
-                        [
-                            {
-                                model: Episode,
-                                attributes: ['name'],
-                            },
-                            {
-                                model: Location,
-                                attributes: ['name']
-                            }
-                        ]
+                        }
                     }
                 })
 

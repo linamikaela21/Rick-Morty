@@ -12,12 +12,10 @@ exports.getCharactersByID = async (req, res, next) => {
               include: 
               [
                   {
-                      model: Episode,
-                      attributes: ['name'],
+                      model: Episode
                   },
                   {
-                      model: Location,
-                      attributes: ['name']
+                      model: Location
                   }
               ]
         })

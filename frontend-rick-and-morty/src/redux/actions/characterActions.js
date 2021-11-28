@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ApiURL } from '../../config/config'
+import { URL_ALL_CHARACTERS, URL_BASE } from '../../config/config'
 
 import {
     GET_CHARACTER_NAME,
@@ -10,7 +10,7 @@ import {
 export const getCharacters = () => {
     return async function (dispatch) {
         try {
-          const chars = await axios.get(`${ApiURL}/characters`)
+          const chars = await axios.get(URL_ALL_CHARACTERS)
           return dispatch({ type: GET_CHARACTERS, payload: chars.data })
         } catch (error) {
             console.log(error)
