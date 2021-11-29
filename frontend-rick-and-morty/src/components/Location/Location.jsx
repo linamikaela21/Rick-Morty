@@ -2,6 +2,7 @@ import { ViewLocation } from "./ViewLocation"
 import { useSelector } from "react-redux"
 import { LocationsViewForm } from "../Forms/LocationsViewForm"
 import { SearchBar } from "../SearchBar/SearchBar"
+import { FilterLocation } from "../SearchBar/Filters/FilterLocation"
 
 export const Location = () => {
 
@@ -11,6 +12,7 @@ export const Location = () => {
         <div className=''>
             <div className='navContainer'>
                 <SearchBar />
+                <FilterLocation />
             </div>
             <div className='rowContainer'>
                 <div className='columnContainer'>

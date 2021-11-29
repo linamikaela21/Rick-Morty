@@ -1,12 +1,82 @@
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { getCharacters, postCharacter } from '../../redux/actions/characterActions'
+import { getEpisodes } from '../../redux/actions/episodesActions'
+import { getLocations } from '../../redux/actions/locationsActions'
 import { Input } from '../Common/Input/index'
-import { useSelector } from 'react-redux'
-import { Select } from '../Common/Select'
 
 export const CharactersViewForm = (props) => {
+
+    // {
+    //     "name":"oooo", "image":"image", "gender":"Male", "status":"Alive", "species":"species", "epiId":[8], "locatId":5
+    // }
+
+    const dispatch = useDispatch()
+
     const locations = useSelector(state => state.locations)
+    const episodes = useSelector(state => state.episodes)
 
     let location = locations.map(t => t.type)
     let unique = [...new Set(location)]
+
+    const [newCharacter, setNewCharacter] = useState({
+        name: '',
+        image: '',
+        gender: '',
+        status: '',
+        species: '',
+        locatId: '',
+        epiId: []
+    })
+
+    useEffect(() => {
+        dispatch(getEpisodes())
+        dispatch(getLocations())
+      }, [dispatch])
+
+      const onInputChange = (e) => {
+        setNewCharacter({
+            ...newCharacter,
+            [e.target.name]: e.target.value
+        })
+        // setErrors(
+        //     validations({
+        //       ...recipe,
+        //       [e.target.name]: e.target.value,
+        //     })
+        //   )
+      } 
+
+      const handleCheckbox = (e) => {
+        if (e.target.checked) {
+            setNewCharacter({
+            ...newCharacter,
+            episodes: [...newCharacter.episodes, e.target.value],
+          });
+        } else {
+            setNewCharacter({
+            ...newCharacter,
+            diets: newCharacter.episodes.filter(epi => epi !== e.target.value),
+          })
+        }
+      }
+
+      const handleSubmit = (e) => {
+          e.preventDefault()
+          dispatch(postCharacter(newCharacter))
+          alert('Your own character has been created!')
+          setNewCharacter({
+            name: '',
+            gender: '',
+            location: '',
+            status: '',
+            episodes: [],
+            image: ''
+        })
+        dispatch(getCharacters())
+        }
+
     return (
         <div style={{ border: '5px solid #a8c8c8' }} className='container'>
             <form className='form' onSubmit=''>
@@ -46,51 +116,35 @@ export const CharactersViewForm = (props) => {
                                 />
                             </div>
                         </fieldset>
+
                         <Input
-                            label='Characters'
+                            label='Episodes'
                             type='text'
                             placeholder='Enter characters'
                             value={props.name}
                         // onChange={(e) => props.setName(e.target.value)}
                         />
 
-                        <Select 
-                        label='Status'
-                        optionOne='Alive'
-                        optionTwo='Dead'
-                        optionThree='Unknow'
-                        />
-                        
+                        <div>
+                            <h4>Status</h4>
+                            <select onChange={props.onChange}>
+                                <option value='All'>ALL</option>
+                                <option value='Alive'>ALIVE</option>
+                                <option value='Dead'>DEAD</option>
+                                <option value='unknow'>UNKNOW</option>
+                            </select>
+                        </div>
                     </div>
+
                     <div style={{ border: '5px solid blue' }} className='columnContainer'>
                         <Input
-                            label='Name'
+                            label='Location'
                             type='text'
-                            placeholder='Enter a name'
+                            placeholder='Enter a Location'
                             value={props.name}
                         // onChange={(e) => props.setName(e.target.value)}
                         />
-                        <div className='inputContainer'>
-                            <div for='' className='rowContainer'><label for=''>Type</label></div>
-                            <div for='' className='rowContainer'>
-                                <select name='type' id='type'>
-                                    {
-                                        unique.map(ty => {
-                                            return (
-                                                <option key={ty} value={ty}>{ty}</option>
-                                            )
-                                        })
-                                    }
-                                </select>
-                            </div>
-                        </div>
-                        <Input
-                            label='Dimension'
-                            type='text'
-                            placeholder='Enter characters'
-                            value={props.name}
-                        // onChange={(e) => props.setName(e.target.value)}
-                        />
+
                         <div className='rowContainer'><button className='button' style={{ backgroundColor: 'blue' }}>Add Location</button></div>
                     </div>
 

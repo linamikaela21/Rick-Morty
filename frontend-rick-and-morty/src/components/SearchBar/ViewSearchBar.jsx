@@ -5,22 +5,24 @@ import './../../styles/Commun/index.scss'
 
 
 export const SearchBarView = ({
-    onChangeSearchBar,
+    handleChangeSearchBar,
     handleSubmitSearchBar,
     setSearch,
     search
 }) => {
 
+    console.log(search, 'veeeeeeeeee')
+
     return (
         <div className='containerSearchBar'>
             <div><FiSearch size={50} style={{ color: 'white' }} /></div>
-            <input
-                type='text'
-                placeholder='Search..'
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                className='inputSearchBar'
-            />
+                <input
+                    type='text'
+                    placeholder='Search..'
+                    value={search}
+                    onChange={e => setSearch(e.target.value)}
+                    className='inputSearchBar'
+                />
             <button
                 type='submit'
                 className='button'
@@ -31,5 +33,4 @@ export const SearchBarView = ({
         </div>
     )
 }
-
 

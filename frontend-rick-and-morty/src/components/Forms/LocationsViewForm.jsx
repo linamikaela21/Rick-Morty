@@ -19,7 +19,7 @@ export const LocationsViewForm = (props) => {
             // onChange={(e) => props.setName(e.target.value)}
             />
             <div className='inputContainer'>
-                <div for='' className='rowContainer'><label for=''>Type</label></div>
+                <div for='' className='rowContainer'><label htmlFor=''>Type</label></div>
                 <div for='' className='rowContainer'>
                     <select name='type' id='type'>
                         {
@@ -47,7 +47,7 @@ export const LocationsViewForm = (props) => {
                             characters?.map(ch => {
                                 return (
                                     <div style={{ width: '350px', display: 'flex', justifyContent: 'center' }}>
-                                        <label for="">{ch.name}</label>
+                                        <label htmlFor="">{ch.name}</label>
                                         <input
                                             id={ch.id}
                                             type='checkbox'

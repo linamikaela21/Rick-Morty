@@ -11,8 +11,9 @@ export const Input = (props) => {
             <input
                 type={props.type}
                 name={props.name}
-                id={props.name}
+                value={props.name}
                 placeholder={props.placeholder}
+                onChange={props.onChange}
             />
             </div>
         </div>

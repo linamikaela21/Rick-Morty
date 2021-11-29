@@ -44,15 +44,28 @@ exports.getAllCharacters = async (req, res, next) => {
                 next(error)
             }
 
-        } else if (req.query.filter) {
+        } else if (req.query.status || req.query.gender) {
             try {
                 let char = await Character.findAll({
                     where: {
-                        status: req.query.filter
+                        status: req.query.status,
+                        gender: req.query.gender
                     },
-                    limit: 6,
+                    limit: 3,
                     offset: req.query.page,
-                    order: [['name', req.query.order]], //ASC-DESC
+                    //order: [['name', req.query.order]], //ASC-DESC
+                    include: { model: Episode }
+                })
+                return res.status(200).json(char)
+            } catch (error) {
+                next(error)
+            }
+        } else {
+            try {
+                let char = await Character.findAll({
+                    limit: 3,
+                    offset: req.body.page,
+                    order: [['name']], //ASC-DESC
                     include: { model: Episode }
                 })
                 return res.status(200).json(char)

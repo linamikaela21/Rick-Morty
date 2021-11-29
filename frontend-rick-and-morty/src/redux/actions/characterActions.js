@@ -9,10 +9,10 @@ import {
     CLEAR_CHARACTER_NAME_FORM
 } from './constants'
 
-export const getCharacters = () => {
+export const getCharacters = (pages, order, status, gender) => {
     return async function (dispatch) {
         try {
-          const chars = await axios.get(URL_ALL_CHARACTERS)
+          const chars = await axios.get(URL_ALL_CHARACTERS + `?page=${pages}&status=${status}&gender=${gender}` )
           return dispatch({ type: GET_CHARACTERS, payload: chars.data })
         } catch (error) {
             console.log(error)
@@ -53,9 +53,14 @@ export const getCharacterNameForm = (name) => {
   }
 }
 
-export const clearCharacterNameForm = () => {
-  return function (dispatch) {
-    return dispatch({type: CLEAR_CHARACTER_NAME_FORM})
+export const postCharacter = (payload) => {
+  return async function (dispatch) {
+    try {
+      const newCharacter = await axios.post(URL_ALL_CHARACTERS, payload)
+      return newCharacter
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 

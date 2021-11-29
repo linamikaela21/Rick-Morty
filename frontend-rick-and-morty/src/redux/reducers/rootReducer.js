@@ -35,9 +35,6 @@ const rootReducer = (state = initialState, action) => {
       case GET_CHARACTER_NAME_FORM:
       return { ...state, newEpisode: action.payload }
 
-      case CLEAR_CHARACTER_NAME_FORM:
-      return { ...state, newEpisode: [] }
-
     case GET_EPISODES:
       return { ...state, episodes: action.payload }
 
