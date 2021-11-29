@@ -19,20 +19,26 @@ exports.getAllEpisodes = async (req, res, next) => {
             }
         })
 
-        if(!infoDB.length) await Episode.bulkCreate(getAllDataApi)
+        if (!infoDB.length) await Episode.bulkCreate(getAllDataApi)
 
-        if(name) {
+        if (name) {
             try {
                 let epi = await Episode.findAll({
                     where: {
                         name: {
-                          [Op.iLike]: `%${name}%`
+                            [Op.iLike]: `%${name}%`
                         }
-                      }
+                    },
+                    offset: req.query.page,
+                    order: [['name', req.query.order]], //ASC-DESC
+                    include: {
+                        model: Character,
+                        attributes: ['id', 'name']
+                    }
                 })
-    
+
                 return res.json(epi)
-    
+
             } catch (error) {
                 next(error)
             }

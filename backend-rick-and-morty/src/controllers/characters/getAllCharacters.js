@@ -17,7 +17,7 @@ exports.getAllCharacters = async (req, res, next) => {
             [
                 {
                     model: Episode,
-                    attributes: ['name', 'id'],
+                    attributes: ['name'],
                 },
                 {
                     model: Location,
@@ -35,7 +35,20 @@ exports.getAllCharacters = async (req, res, next) => {
                         name: {
                             [Op.iLike]: `%${name}%`
                         }
-                    }
+                    },
+                    offset: req.query.page,
+                    order: [['name', req.query.order]], //ASC-DESC
+                        include: 
+                        [
+                            {
+                                model: Episode,
+                                attributes: ['id', 'name'],
+                            },
+                            {
+                                model: Location,
+                                attributes: ['id', 'name']
+                            }
+                        ]
                 })
 
                 return res.json(char)
@@ -54,7 +67,17 @@ exports.getAllCharacters = async (req, res, next) => {
                     limit: 3,
                     offset: req.query.page,
                     order: [['name', req.query.order]], //ASC-DESC
-                    include: { model: Episode }
+                        include: 
+                        [
+                            {
+                                model: Episode,
+                                attributes: ['id', 'name'],
+                            },
+                            {
+                                model: Location,
+                                attributes: ['id', 'name']
+                            }
+                        ]
                 })
                 return res.status(200).json(char)
             } catch (error) {
@@ -63,10 +86,20 @@ exports.getAllCharacters = async (req, res, next) => {
         } else {
             try {
                 let char = await Character.findAll({
-                    limit: 3,
+                    limit: 4,
                     offset: req.body.page,
                     order: [['name']], //ASC-DESC
-                    include: { model: Episode }
+                    include: 
+                    [
+                        {
+                            model: Episode,
+                            attributes: ['id', 'name'],
+                        },
+                        {
+                            model: Location,
+                            attributes: ['id', 'name']
+                        }
+                    ]
                 })
                 return res.status(200).json(char)
             } catch (error) {
