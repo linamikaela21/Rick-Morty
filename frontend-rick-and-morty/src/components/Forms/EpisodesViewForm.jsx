@@ -64,8 +64,6 @@ export const EpisodesViewForm = () => {
         setCharId([...unique])
     }
 
-    let filtrado = (id) => charObj.filter(c => c.id !== id)
-
     return (
         <form
             className='form'

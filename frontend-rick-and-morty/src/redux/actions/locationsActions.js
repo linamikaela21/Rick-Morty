@@ -27,3 +27,14 @@ export const getLocationName = (name) => {
       }
   }
 }
+
+export const postLocation = (payload) => {
+  return async function (dispatch) {
+    try {
+      const newLocation = await axios.post(URL_ALL_LOCATIONS, payload)
+      return newLocation
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}

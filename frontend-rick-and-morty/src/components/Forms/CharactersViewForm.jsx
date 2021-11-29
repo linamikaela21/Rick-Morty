@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { getCharacters, postCharacter } from '../../redux/actions/characterActions'
 import { getEpisodes } from '../../redux/actions/episodesActions'
 import { getLocations } from '../../redux/actions/locationsActions'
@@ -66,27 +65,28 @@ export const CharactersViewForm = (props) => {
           e.preventDefault()
           dispatch(postCharacter(newCharacter))
           alert('Your own character has been created!')
-          setNewCharacter({
-            name: '',
-            gender: '',
-            location: '',
-            status: '',
-            episodes: [],
-            image: ''
-        })
+        //   setNewCharacter({
+        //     name: '',
+        //     gender: '',
+        //     location: '',
+        //     status: '',
+        //     episodes: [],
+        //     image: ''
+        // })
         dispatch(getCharacters())
+        window.location.replace('/characters')
         }
 
     return (
         <div style={{ border: '5px solid #a8c8c8' }} className='container'>
-            <form className='form' onSubmit=''>
+            <form className='form' onSubmit={e => handleSubmit(e)}>
                 <div className='rowContainer'>
                     <div style={{ border: '5px solid red' }} className='columnContainer'>
                         <Input
                             label='Episode Name'
                             type='text'
                             placeholder='Enter a name'
-                            value={props.name}
+                            value={newCharacter.epiId}
                         // onChange={(e) => props.setName(e.target.value)}
                         />
                         <div className='rowContainer'><button className='button' style={{ backgroundColor: 'blue' }}>Add Episode</button></div>
