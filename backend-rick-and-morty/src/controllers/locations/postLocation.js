@@ -15,8 +15,6 @@ exports.postLocation = async (req, res, next) => {
                 dimension: dimension
         })
 
-        console.log(newLocation)
-
         for (let i = 0; i < characterId.length; i++) {
             await newLocation.addCharacters(characterId[i], { through: 'character_location' })
         }
@@ -31,11 +29,9 @@ exports.postLocation = async (req, res, next) => {
             include: 
                 {
                     model: Character,
-                    attributes: ['name']
+                    attributes: ['name', 'id']
                 }
         })
-
-        console.log(location_characters)
 
         return res.status(201).json(location_characters)
 

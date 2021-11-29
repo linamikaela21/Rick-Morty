@@ -15,7 +15,7 @@ exports.getAllEpisodes = async (req, res, next) => {
         let infoDB = await Episode.findAll({
             include: {
                 model: Character,
-                attributes: ['name']
+                attributes: ['id', 'name']
             }
         })
 

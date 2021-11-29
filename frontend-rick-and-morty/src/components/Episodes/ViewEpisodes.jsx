@@ -2,6 +2,8 @@ import './../../styles/Episodes.scss'
 
 export const ViewEpisodes = (props) => {
 
+    console.log(props.episodes.map(x=>x.characters), 'estas aca puta')
+
     return (
         <div className='container'>
             {
@@ -10,10 +12,12 @@ export const ViewEpisodes = (props) => {
                         <div className='rowContainer'><h3>{epi.name}</h3></div>
                         <div className='rowContainer'>
                             {
-                                epi.characters?.map(cha => (
+                                epi?.characters?.map(cha => (
                                     <div className='container'>
                                         <ul>
-                                            <li key={cha?.id}><label>{cha?.name}</label></li>
+                                            <li key={cha?.id}>
+                                                <label>{cha?.name}</label>
+                                                </li>
                                         </ul>
                                     </div>
 

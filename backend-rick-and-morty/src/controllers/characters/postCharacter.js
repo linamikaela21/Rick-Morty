@@ -2,11 +2,11 @@ const { Episode, Character, Location } = require('../../db')
 
 exports.postCharacter = async (req, res, next) => {
 
-    const { name, image, gender, status, species, epiId, locatId } = req.body
+    const { name, image, gender, status, species, episodeId, locationId } = req.body
 
     try {
 
-        if (!name || !image) return res.status(404).json({})
+        if (!name || !image || !gender || !status) return res.status(404).json({})
 
         const newCharacter = await Character.create({
             id: Math.floor(Math.random() * 100000),
@@ -17,13 +17,13 @@ exports.postCharacter = async (req, res, next) => {
             species: species,
         })
 
-        for (let i = 0; i < epiId.length; i++) {
-            await newCharacter.addEpisodes(epiId[i], { through: 'character_episode' })
+        for (let i = 0; i < episodeId.length; i++) {
+            await newCharacter.addEpisodes(episodeId[i], { through: 'character_episode' })
         }
 
-        await newCharacter.setLocation(locatId, { through: 'character_location' })
+        await newCharacter.setLocation(locationId, { through: 'character_location' })
 
-        const characters_episodes = await Character.findAll({
+        const char_epi_loc = await Character.findAll({
             where: {
                 name: name
             },
@@ -43,7 +43,7 @@ exports.postCharacter = async (req, res, next) => {
             ]
         })
 
-        return res.status(201).json({ characters_episodes })
+        return res.status(201).json({ char_epi_loc })
 
     } catch (error) {
         next(error)

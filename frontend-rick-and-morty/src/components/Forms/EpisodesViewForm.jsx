@@ -11,32 +11,35 @@ export const EpisodesViewForm = () => {
     const newEpisode = useSelector(state => state.newEpisode)
 
     const [name, setName] = useState('')
-    const [charId, setCharId] = useState([])
+    const [characterId, setCharacterId] = useState([])
     const [charName, setCharName] = useState('')
     const [charObj, setCharObj] = useState([])
 
     console.log(name, 'name')
-    console.log(charId, 'charId')
+    console.log(characterId, 'characterId')
     console.log(charName, 'charName')
     console.log(charObj, 'charObj')
 
-
-    const unique = [new Set(charObj.map(c => c.id))]
+    let unique = [new Set(charObj.map(c => c.id))]
 
     console.log(unique, 'unii')
 
     useEffect(() => {
         setCharObj([...charObj, ...newEpisode])
-        setCharId([...unique])
-    }, [ newEpisode])
+        setCharacterId(...unique)
+    }, [newEpisode])
 
     useEffect(() => {
-        setCharId([...new Set(charObj.map(c => c.id))])
+        setCharacterId(...unique)
     }, [charObj])
 
+
+    console.log('====================================');
+    console.log(name, characterId);
+    console.log('====================================');
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(postEpisode(name, charId))
+        dispatch(postEpisode(name, characterId))
         alert('Your episode has been created')
         dispatch(getEpisodes())
         window.location.replace('/episodes')
@@ -61,7 +64,7 @@ export const EpisodesViewForm = () => {
     const handleDeleteChar = async (e, id) => {
         e.preventDefault()
         setCharObj(charObj.filter(c => c.id !== id))
-        setCharId([...unique])
+        setCharacterId([...unique])
     }
 
     return (
@@ -82,7 +85,7 @@ export const EpisodesViewForm = () => {
                         <Input
                             type='text'
                             placeholder='Look for your characters'
-                            value={charId}
+                            value={characterId}
                             onChange={(e) => handleCharName(e)}
                         />
                     </div>

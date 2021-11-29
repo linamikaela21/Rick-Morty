@@ -7,9 +7,10 @@ import {
 } from './constants'
 
 export const getEpisodes = () => {
-    return async function (dispatch) {
-        try {
-          const epi = await axios.get(URL_ALL_EPISODES)
+  return async function (dispatch) {
+    try {
+      const epi = await axios.get(URL_ALL_EPISODES)
+      console.log(epi.data, 'episode')
           return dispatch({ type: GET_EPISODES, payload: epi.data })
         } catch (error) {
             console.log(error)
@@ -28,12 +29,12 @@ export const getEpisodeName = (name) => {
   }
 }
 
-export const postEpisode = (name, charId) => {
+export const postEpisode = (name, characterId) => {
   return async function (dispatch) {
     try {
       const newEpisode = await axios.post(URL_ALL_EPISODES, {
         name,
-        charId
+        characterId
       })
       return newEpisode
     } catch (error) {

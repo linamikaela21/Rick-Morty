@@ -13,9 +13,6 @@ export const LocationsViewForm = (props) => {
 
     let location = locations.map(t => t.type)
 
-    let dimension = locations.map(t => t.dimension)
-
-    console.log(dimension)
     let unique = [...new Set(location)]
 
     const [newLocation, setNewLocation] = useState({
@@ -24,6 +21,10 @@ export const LocationsViewForm = (props) => {
         dimension: '',
         charId: []
     })
+
+    console.log(newLocation, 'newLocation')
+
+    const [charId, setCharId] = useState([])
 
     useEffect(() => {
         dispatch(getCharacters())
@@ -64,7 +65,7 @@ export const LocationsViewForm = (props) => {
           dispatch(postLocation(newLocation))
           alert('Your own location has been created!')
         dispatch(getLocations())
-        window.location.replace('/characters')
+        window.location.replace('/locations')
         }
 
     return (

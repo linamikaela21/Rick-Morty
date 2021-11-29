@@ -87,7 +87,7 @@ export const CharactersViewForm = (props) => {
                             type='text'
                             placeholder='Enter a name'
                             value={newCharacter.epiId}
-                        // onChange={(e) => props.setName(e.target.value)}
+                        onChange={(e) => props.setName(e.target.value)}
                         />
                         <div className='rowContainer'><button className='button' style={{ backgroundColor: 'blue' }}>Add Episode</button></div>
                     </div>

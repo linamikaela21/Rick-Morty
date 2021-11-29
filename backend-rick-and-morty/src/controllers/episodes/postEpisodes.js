@@ -27,7 +27,7 @@ exports.postEpisode = async (req, res, next) => {
             include: 
                 {
                     model: Character,
-                    attributes: ['name']
+                    attributes: ['name', 'id']
                 }
         })
 

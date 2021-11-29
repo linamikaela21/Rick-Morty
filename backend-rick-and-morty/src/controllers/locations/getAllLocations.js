@@ -13,8 +13,12 @@ exports.getAllLocations = async (req, res, next) => {
     try {
 
         let infoDB = await Location.findAll({
-            include: Character})
-
+            include: {
+                model: Character,
+                attributes: ['id', 'name']
+            }
+        })
+        
         if(!infoDB.length) await Location.bulkCreate(getAllDataApi)
 
         if(name) {

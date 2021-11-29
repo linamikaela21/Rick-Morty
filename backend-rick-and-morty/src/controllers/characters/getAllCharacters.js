@@ -17,7 +17,7 @@ exports.getAllCharacters = async (req, res, next) => {
             [
                 {
                     model: Episode,
-                    attributes: ['name'],
+                    attributes: ['name', 'id'],
                 },
                 {
                     model: Location,
@@ -53,7 +53,7 @@ exports.getAllCharacters = async (req, res, next) => {
                     },
                     limit: 3,
                     offset: req.query.page,
-                    //order: [['name', req.query.order]], //ASC-DESC
+                    order: [['name', req.query.order]], //ASC-DESC
                     include: { model: Episode }
                 })
                 return res.status(200).json(char)
