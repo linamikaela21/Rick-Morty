@@ -59,7 +59,7 @@ export const EpisodesViewForm = () => {
     const handleDeleteChar = async (e, id) => {
         e.preventDefault()
         setCharObj(charObj.filter(c => c.id !== id))
-        setCharacterId([...[...new Set(charObj.map(c => c.id))]])
+        setCharacterId([...new Set(charObj.map(c => c.id))])
     }
 
     return (
@@ -100,7 +100,7 @@ export const EpisodesViewForm = () => {
                                                 <button className='button'
                                                     onClick={(e) => handleDeleteChar(e, c.id)}
                                                     style={{ backgroundColor: 'red', width:'50px', height:'50px' }}>
-                                                    
+                                                    x
                                                 </button>
                                                 <div className='divCard'><h4 className='cardText'>{c.name}</h4></div>
                                                 <div className='divCard'><h4 className='cardText'>{c.status}</h4></div>

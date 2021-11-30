@@ -16,7 +16,7 @@ export const ViewEpisodes = ({ episodes, episodesPerPage, allEpisodes, pages }) 
                         <div className='rowContainer'><h3>{epi.name}</h3></div>
                         <div className='rowContainer'>
                             {
-                                epi?.episodes?.map(cha => (
+                                epi?.characters?.map(cha => (
                                     <div className='container'>
                                         <ul>
                                             <li key={cha?.id}>

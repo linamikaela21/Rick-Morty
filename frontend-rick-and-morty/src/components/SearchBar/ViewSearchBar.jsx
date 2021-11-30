@@ -10,8 +10,6 @@ export const SearchBarView = ({
     search
 }) => {
 
-    console.log(search, 'veeeeeeeeee')
-
     return (
         <div className='containerSearchBar'>
             <div><FiSearch size={50} style={{ color: 'white' }} /></div>

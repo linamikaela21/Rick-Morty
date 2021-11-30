@@ -1,16 +1,18 @@
 import { Card } from "../Common/Card"
-import  { Pagination }  from "../Common/Pagination/Pagination"
+import { Pagination } from "../Common/Pagination/Pagination"
 
 export const ViewCharacters = ({ characters, charactersPerPage, allCharacters, pages }) => {
 
     return (
-        <div className='columnContainer'>
+        <div style={{ display: 'block', justifyContent: 'center' }}>
             <div className='rowContainer'>
                 <Pagination
                     perPage={charactersPerPage}
                     all={allCharacters}
                     pages={pages}
                 />
+            </div>
+            <div className='rowContainer'>
                 {characters?.map(char => (
                     <div>
                         <Card

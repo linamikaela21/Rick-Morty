@@ -5,7 +5,6 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    border: red solid 5px;
     height: 400px;
     width: 400px;
     border-radius: 50px;
@@ -17,14 +16,13 @@
     display: block;
     width: 400px;
     height: 400px;
-    transition: .5s ease;
+    transition: .3s ease;
     backface-visibility: hidden;
     border-radius: 50px;
   }
 
   .middle {
     display: block;
-    border: 8px black solid;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -46,7 +44,6 @@
   }
   
 .bigCardText {
-    color: $colorCardText;
+    color: #222059;
     padding: 16px 32px;
-    background-color: #4CAF50;
 }

@@ -9,27 +9,25 @@ export const ViewNavBar = () => {
         <div className='navContainer'>
             <div className='navLinks'  style={{border: '2px solid green'}}><NavLink to='/'><img src={logo} alt='No found' width='80px' /></NavLink></div>
             <div className='navLinks' style={{border: '2px solid green'}}>
-                <div style={{border: '2px solid red'}}>
+                <div className='grid'>
                     <NavLink
                         to='/home'
                         className='navLink'
                     >
                         HOME
                     </NavLink>
-                </div>
-                <div style={{border: '2px solid red', padding: '15px'}}>
                     <NavLink
                         to='/about'
                         className='navLink'
                     >
                         ABOUT
                     </NavLink>
-                </div>
-                <button className='button'>
+                <button className='button' style={{border: '2px solid green'}}>
                     <NavLink className='navLink' to='/create'>
                         CREATE YOUR SHOW
                     </NavLink>
                 </button>
+                </div>
             </div>
             <div style={{border: '2px solid green'}}>
             </div>

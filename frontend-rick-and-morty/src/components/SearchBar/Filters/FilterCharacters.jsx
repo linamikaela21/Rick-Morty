@@ -1,8 +1,8 @@
 export const FilterCharacters = (props) => {
 
     return (
-        <div className='container'>
-            <div className='navlink'>
+        <div className='searchContainer'>
+            <div className='columnContainer'>
                 <span className='span' >Order by Order</span>
                 <select onChange={props.changeOrder}>
                     <option value='ASC'>ASCENDENTE</option>
@@ -10,7 +10,7 @@ export const FilterCharacters = (props) => {
                 </select>
             </div>
 
-            <div className='navlink'>
+            <div className='columnContainer'>
                 <span className='span'>Order by Status</span>
                 <select onChange={props.changeStatus}>
                     <option value='Alive'>ALIVE</option>
@@ -19,7 +19,7 @@ export const FilterCharacters = (props) => {
                 </select>
             </div>
 
-            <div className='navlink'>
+            <div className='columnContainer'>
                 <span className='span'>Order by Gender</span>
                 <select onChange={props.changeGender}>
                     <option value='Male'>MALE</option>

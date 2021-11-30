@@ -1,7 +1,7 @@
 export const FilterEpisodes = (props) => {
     return (
-        <div className='container'>
-            <div className='navlink'>
+        <div className='searchContainer'>
+            <div className='columnContainer'>
                 <span className='span'>Order by Name</span>
                 <select onChange={props.changeOrder}>
                     <option value='ASC'>ASCENDENTE</option>
@@ -9,7 +9,7 @@ export const FilterEpisodes = (props) => {
                 </select>
             </div>
 
-            <div className='navlink'>
+            <div className='columnContainer'>
                 <span className='span'>Order by Episode</span>
                 <select onChange={props.orderEpisode}>
                     <option value='A'>A - Z</option>

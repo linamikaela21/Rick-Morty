@@ -11,8 +11,8 @@ export const FilterLocation = (props) => {
     let uniqueDimension = [...new Set(dimension)]
 
     return (
-        <div className='container'>
-            <div className='navlink'>
+        <div className='searchContainer'>
+            <div className='columnContainer'>
                 <span className='span'>Order by Order</span>
                 <select onChange={props.changeOrder}>
                     <option value='ASC'>ASCENDENTE</option>
@@ -20,7 +20,7 @@ export const FilterLocation = (props) => {
                 </select>
             </div>
 
-            <div className='navlink'>
+            <div className='columnContainer'>
                 <span className='span'>Order by Type</span>
                 <select onChange={props.changeType}>
                     <option value=''>All</option>
@@ -34,7 +34,7 @@ export const FilterLocation = (props) => {
                 </select>
             </div>
 
-            <div className='navlink'>
+            <div className='columnContainer'>
                 <span className='span'>Dimension by Order</span>
                 <select onChange={props.changeDimension}>
                     <option value=''>All</option>

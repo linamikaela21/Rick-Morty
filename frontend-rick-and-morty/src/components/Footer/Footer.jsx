@@ -7,7 +7,7 @@ import Sequelize from '../../Images/Sequelize.jpg'
 
 export const Footer = () => {
     return (
-        <div className='footerContainer'>
+        <div className=''>
             <div className='footerElements'>
                 <span className='span'>
                     <strong>POWERED BY:</strong>

@@ -8,7 +8,7 @@ export const BigCard = (props) => {
         <div className='bigCardContent'>
             <img src={props.image} alt='No found' className='image' />
             <div className="middle">
-                <div className='container'>
+                <div className=''>
                     <h2 className='bigCardText'>{props.title}</h2>
                 </div>
                 <div className='container'>
