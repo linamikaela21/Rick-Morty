@@ -2,8 +2,6 @@ import { Pagination } from '../Common/Pagination/Pagination'
 import './../../styles/Episodes.scss'
 
 export const ViewEpisodes = ({ episodes, episodesPerPage, allEpisodes, pages }) => {
-
-    console.log(allEpisodes);
     return (
         <div className='container'>
             <Pagination
@@ -18,7 +16,7 @@ export const ViewEpisodes = ({ episodes, episodesPerPage, allEpisodes, pages }) 
                             {
                                 epi?.characters?.map(cha => (
                                     <div className='container'>
-                                        <ul>
+                                        <ul className='rowDetailsContent'>
                                             <li key={cha?.id}>
                                                 <label>{cha?.name}</label>
                                             </li>

@@ -144,8 +144,6 @@ export const CharactersViewForm = (props) => {
                             value={props.name}
                         // onChange={(e) => props.setName(e.target.value)}
                         />
-
-                        <div className='rowContainer'><button className='button' style={{ backgroundColor: 'blue' }}>Add Location</button></div>
                     </div>
 
                 </div>

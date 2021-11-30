@@ -3,14 +3,26 @@ import { URL_ALL_LOCATIONS, URL_LOCATIONS_NAME } from '../../config/config'
 
 import {
     GET_LOCATION,
+    GET_LOCATION_QUERY,
     GET_LOCATION_NAME
 } from './constants'
 
-export const getLocations = (order, type, dimension) => {
+export const getLocations = () => {
+  return async function (dispatch) {
+      try {
+        const loc = await axios.get(URL_ALL_LOCATIONS)
+        return dispatch({ type: GET_LOCATION, payload: loc.data })
+      } catch (error) {
+          console.log(error)
+      }
+  }
+}
+
+export const getLocationsQuery = (order, type, dimension) => {
     return async function (dispatch) {
         try {
           const loc = await axios.get(URL_ALL_LOCATIONS + `?order=${order}&type=${type}&dimension=${dimension}`)
-          return dispatch({ type: GET_LOCATION, payload: loc.data })
+          return dispatch({ type: GET_LOCATION_QUERY, payload: loc.data })
         } catch (error) {
             console.log(error)
         }

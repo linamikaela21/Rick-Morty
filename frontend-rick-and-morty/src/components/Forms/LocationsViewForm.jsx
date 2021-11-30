@@ -12,30 +12,35 @@ export const LocationsViewForm = (props) => {
     const locations = useSelector(state => state.locations)
 
     let location = locations.map(t => t.type)
-
     let unique = [...new Set(location)]
 
     const [newLocation, setNewLocation] = useState({
         name: '',
         type: '',
         dimension: '',
-        charId: []
+        characterId: []
     })
 
+    console.log(unique, 'typesOptions')
     console.log(newLocation, 'newLocation')
-
-    const [charId, setCharId] = useState([])
 
     useEffect(() => {
         dispatch(getCharacters())
-      }, [dispatch])
+    }, [dispatch])
 
-      const onInputChange = (e) => {
-        setNewLocation({
-            ...newLocation,
-            [e.target.name]: e.target.value
-        })
-
+    const onInputChange = (e) => {
+        if (e.target.name === 'characterId') {
+            const charIdArray = newLocation[e.target.name]
+            setNewLocation({
+                ...newLocation,
+                [e.target.name]: charIdArray.concat(e.target.value)
+            })
+        } else {
+            setNewLocation({
+                ...newLocation,
+                [e.target.name]: e.target.value
+            })
+        }
         console.log(newLocation)
         // setErrors(
         //     validations({
@@ -43,48 +48,57 @@ export const LocationsViewForm = (props) => {
         //       [e.target.name]: e.target.value,
         //     })
         //   )
-      } 
+    }
 
-      const handleCheckbox = (e) => {
+    const handleCheckbox = (e) => {
         if (e.target.checked) {
             setNewLocation({
-            ...newLocation,
-            charId: [...newLocation.charId, e.target.value],
-          });
+                ...newLocation,
+                characterId: [...newLocation.characterId, e.target.value],
+            });
         } else {
             setNewLocation({
-            ...newLocation,
-            charId: newLocation.charId.filter(id => id !== e.target.value),
-          })
+                ...newLocation,
+                characterId: newLocation.characterId.filter(id => id !== e.target.value),
+            })
         }
         console.log(newLocation)
-      }
+    }
 
-      const handleSubmit = (e) => {
-          e.preventDefault()
-          dispatch(postLocation(newLocation))
-          alert('Your own location has been created!')
+    const handleType = (e) => {
+        e.preventDefault()
+        setNewLocation({
+            ...newLocation,
+            type: e.target.value
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        dispatch(postLocation(newLocation))
+        alert('Your own location has been created!')
         dispatch(getLocations())
         window.location.replace('/locations')
-        }
+    }
 
     return (
-        <form className='form'  onSubmit={e => handleSubmit(e)}>
+        <form className='form' onSubmit={e => handleSubmit(e)}>
             <Input
                 label='Name'
                 type='text'
                 placeholder='Enter a name'
+                name='name'
                 value={newLocation.name}
                 onChange={e => onInputChange(e)}
             />
             <div className='inputContainer'>
                 <div className='rowContainer'><label htmlFor=''>Type</label></div>
                 <div className='rowContainer'>
-                    <select name='type' id='type'>
+                    <select value={newLocation.type} onChange={handleType}>
                         {
                             unique.map(ty => {
                                 return (
-                                    <option key={ty} value={ty}>{ty}</option>
+                                    <option key={ty.value} value={ty.value}>{ty}</option>
                                 )
                             })
                         }
@@ -95,11 +109,12 @@ export const LocationsViewForm = (props) => {
                 label='Dimension'
                 type='text'
                 placeholder='Enter Dimension'
+                name='dimension'
                 value={newLocation.dimension}
                 onChange={e => onInputChange(e)}
             />
             <div className='inputContainer'>
-                <fieldset className='columnContainer' style={{width:'100%'}}>
+                <fieldset className='columnContainer' style={{ width: '100%' }}>
                     <legend>Characters</legend>
                     <div className=''>
                         {
@@ -108,19 +123,17 @@ export const LocationsViewForm = (props) => {
                                     <div style={{ width: '350px', display: 'flex', justifyContent: 'center' }}>
                                         <label>{ch.name}</label>
                                         <input
-                                            id={ch.id}
                                             type='checkbox'
                                             placeholder='Enter a character'
                                             value={ch.id}
-                                            name={ch.name}
-                                        onChange={e => handleCheckbox(e)}
+                                            name='characterId'
+                                            onChange={e => handleCheckbox(e)}
                                         />
                                     </div>
                                 )
                             })
                         }
                     </div>
-                    <div className='rowContainer'><button className='button' style={{ backgroundColor: 'blue' }}>Add Character</button></div>
                 </fieldset>
             </div>
             <div className='rowContainer'><input className='button' type='submit' /></div>

@@ -15,12 +15,6 @@ export const EpisodesViewForm = () => {
     const [charName, setCharName] = useState('')
     const [charObj, setCharObj] = useState([])
 
-    console.log(name, 'name')
-    console.log(characterId, 'characterId')
-    console.log(charName, 'charName')
-    console.log(charObj, 'charObj')
-
-
     useEffect(() => {
         setCharObj([...charObj, ...newEpisode])
         setCharacterId([...new Set(charObj.map(c => c.id))])
@@ -30,14 +24,11 @@ export const EpisodesViewForm = () => {
         setCharacterId([...new Set(charObj.map(c => c.id))])
     }, [dispatch, charObj])
 
-
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(postEpisode(name, characterId))
         alert('Your episode has been created')
         dispatch(getEpisodes())
-        // setCharObj([])
-        // setCharacterId([])
         window.location.replace('/episodes')
     }
 
@@ -59,7 +50,7 @@ export const EpisodesViewForm = () => {
     const handleDeleteChar = async (e, id) => {
         e.preventDefault()
         setCharObj(charObj.filter(c => c.id !== id))
-        setCharacterId([...new Set(charObj.map(c => c.id))])
+        setCharacterId([...[...new Set(charObj.map(c => c.id))]])
     }
 
     return (
@@ -97,15 +88,17 @@ export const EpisodesViewForm = () => {
                                     return (
                                         <div key={c.id} className='divCard'>
                                             <div className='divCard'>
-                                                <button className='button'
+                                                <div className='container'>
+                                                    <h4 className='cardText'>{c.name}</h4>
+                                                    <h4 className='cardText'>{c.status}</h4>
+                                                    <h4 className='cardText'>{c.gender}</h4>
+                                                </div>
+                                                <div><iframe className='redo' src={c.image} title={c.name} width='300px' height='300px'></iframe></div>
+                                                <button className='btnClose'
                                                     onClick={(e) => handleDeleteChar(e, c.id)}
-                                                    style={{ backgroundColor: 'red', width:'50px', height:'50px' }}>
-                                                    x
+                                                    style={{ backgroundColor: 'red', width: '2em', height: '2em' }}>
+                                                        X
                                                 </button>
-                                                <div className='divCard'><h4 className='cardText'>{c.name}</h4></div>
-                                                <div className='divCard'><h4 className='cardText'>{c.status}</h4></div>
-                                                <div className='divCard'><h4 className='cardText'>{c.gender}</h4></div>
-                                                <div className=''><iframe src={c.image} title={c.name} width='300px' height='300px'></iframe></div>
                                             </div>
                                         </div>
                                     )

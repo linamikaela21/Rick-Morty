@@ -2,17 +2,29 @@ import axios from 'axios'
 import { URL_ALL_CHARACTERS, URL_CHARACTERS_NAME } from '../../config/config'
 
 import {
-    GET_CHARACTER_NAME,
-    GET_CHARACTERS,
-    GET_CHARACTER_ID,
+  GET_CHARACTERS,
+  GET_CHARACTERS_QUERY,
+  GET_CHARACTER_NAME,
+  GET_CHARACTER_ID,
     GET_CHARACTER_NAME_FORM
 } from './constants'
 
-export const getCharacters = (order, status, gender) => {
+export const getCharacters = () => {
+    return async function (dispatch) {
+        try {
+          const chars = await axios.get(URL_ALL_CHARACTERS)
+          return dispatch({ type: GET_CHARACTERS, payload: chars.data })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+  }
+
+  export const getCharactersQuery = (order, status, gender) => {
     return async function (dispatch) {
         try {
           const chars = await axios.get(URL_ALL_CHARACTERS + `?order=${order}&status=${status}&gender=${gender}` )
-          return dispatch({ type: GET_CHARACTERS, payload: chars.data })
+          return dispatch({ type: GET_CHARACTERS_QUERY, payload: chars.data })
         } catch (error) {
             console.log(error)
         }

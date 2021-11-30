@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { EpisodesViewForm } from "../Forms/EpisodesViewForm"
 import { SearchBar } from "../SearchBar/SearchBar"
 import { FilterEpisodes } from "../SearchBar/Filters/FilterEpisodes"
-import { getEpisodes } from "../../redux/actions/episodesActions"
+import { getEpisodesQuery } from "../../redux/actions/episodesActions"
 
 export const Episodes = () => {
 
@@ -27,12 +27,12 @@ export const Episodes = () => {
     // const [episode, setEpisode] = useState('')
 
     useEffect(() => {
-        dispatch(getEpisodes(order))
+        dispatch(getEpisodesQuery(order))
     }, [dispatch, order])
 
-    const handdleClick = (e) => {
+    const handleClick = (e) => {
         e.preventDefault()
-        dispatch(getEpisodes(order))
+        dispatch(getEpisodesQuery(order))
     }
 
     // //ORDENAMIENTO

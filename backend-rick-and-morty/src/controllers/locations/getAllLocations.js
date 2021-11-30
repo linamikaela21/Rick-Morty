@@ -63,7 +63,6 @@ exports.getAllLocations = async (req, res, next) => {
                     let char = await Location.findAll({
                         where: {
                             dimension: req.query.dimension,
-                            //type: req.query.type
                         },
                         include: {
                             model: Character,

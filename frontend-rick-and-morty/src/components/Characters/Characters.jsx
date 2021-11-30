@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { SearchBar } from "../SearchBar/SearchBar"
 import { ViewCharacters } from "./ViewCharacters"
-import { getCharacters } from "../../redux/actions/characterActions"
+import { getCharactersQuery } from "../../redux/actions/characterActions"
 import { FilterCharacters } from "../SearchBar/Filters/FilterCharacters"
 
 export const Characters = () => {
@@ -27,12 +27,12 @@ export const Characters = () => {
     const [status, setStatus] = useState('')
 
     useEffect(() => {
-        dispatch(getCharacters(order, status, gender))
+        dispatch(getCharactersQuery(order, status, gender))
     }, [dispatch, order, status, gender])
 
     const haldleClick = (e) => {
         e.preventDefault()
-        dispatch(getCharacters(order, status, gender))
+        dispatch(getCharactersQuery(order, status, gender))
     }
 
     //ORDENAMIENTO
