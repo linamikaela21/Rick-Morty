@@ -56,7 +56,7 @@ export const CharactersViewForm = (props) => {
         } else {
             setNewCharacter({
             ...newCharacter,
-            diets: newCharacter.episodes.filter(epi => epi !== e.target.value),
+            episodes: newCharacter.episodes.filter(epi => epi !== e.target.value),
           })
         }
       }

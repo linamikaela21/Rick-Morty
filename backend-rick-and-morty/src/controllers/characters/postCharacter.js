@@ -27,18 +27,18 @@ exports.postCharacter = async (req, res, next) => {
             where: {
                 name: name
             },
-            attributes: {
-                exclude: ['character_episode', 'createdAt', 'updatedAt']
-            },
+                exclude: ['character_episode', 'createdAt', 'updatedAt'],
             include: 
             [
                 {
                     model: Episode,
-                    attributes: ['id', 'name']
+                    attributes: ['id', 'name'],
+                    exclude: ['character_episode', 'createdAt', 'updatedAt']
                 },
                 {
                     model: Location,
-                    attributes: ['id','name']
+                    attributes: ['id','name'],
+                    exclude: ['character_location', 'createdAt', 'updatedAt']
                 }
             ]
         })

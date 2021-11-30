@@ -6,11 +6,10 @@ import {
     GET_EPISODE_NAME,
 } from './constants'
 
-export const getEpisodes = () => {
+export const getEpisodes = (pages, order, episode) => {
   return async function (dispatch) {
     try {
-      const epi = await axios.get(URL_ALL_EPISODES)
-      console.log(epi.data, 'episode')
+      const epi = await axios.get(URL_ALL_EPISODES + `?page=${pages}&order=${order}&episode=${episode}`)
           return dispatch({ type: GET_EPISODES, payload: epi.data })
         } catch (error) {
             console.log(error)

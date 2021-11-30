@@ -12,8 +12,8 @@ exports.getAllCharacters = async (req, res, next) => {
 
     try {
 
-        let infoDB = await Character.findAll(({
-            include: 
+        let infoDB = await Character.findAll({
+            include:
             [
                 {
                     model: Episode,
@@ -23,9 +23,10 @@ exports.getAllCharacters = async (req, res, next) => {
                     model: Location,
                     attributes: ['name']
                 }
-            ]
-        }))
-        
+            ],
+            exclude: ['createdAt', 'updatedAt'],
+        })
+
         if (!infoDB.length) await Character.bulkCreate(getAllDataApi)
 
         if (name) {
@@ -36,9 +37,7 @@ exports.getAllCharacters = async (req, res, next) => {
                             [Op.iLike]: `%${name}%`
                         }
                     },
-                    offset: req.query.page,
-                    order: [['name', req.query.order]], //ASC-DESC
-                        include: 
+                    include:
                         [
                             {
                                 model: Episode,
@@ -64,10 +63,8 @@ exports.getAllCharacters = async (req, res, next) => {
                         status: req.query.status,
                         gender: req.query.gender
                     },
-                    limit: 3,
-                    offset: req.query.page,
                     order: [['name', req.query.order]], //ASC-DESC
-                        include: 
+                    include:
                         [
                             {
                                 model: Episode,
@@ -86,20 +83,18 @@ exports.getAllCharacters = async (req, res, next) => {
         } else {
             try {
                 let char = await Character.findAll({
-                    limit: 4,
-                    offset: req.body.page,
-                    order: [['name']], //ASC-DESC
-                    include: 
-                    [
-                        {
-                            model: Episode,
-                            attributes: ['id', 'name'],
-                        },
-                        {
-                            model: Location,
-                            attributes: ['id', 'name']
-                        }
-                    ]
+                    order: [['name', req.query.order]], //ASC-DESC
+                    include:
+                        [
+                            {
+                                model: Episode,
+                                attributes: ['id', 'name'],
+                            },
+                            {
+                                model: Location,
+                                attributes: ['id', 'name']
+                            }
+                        ]
                 })
                 return res.status(200).json(char)
             } catch (error) {

@@ -1,40 +1,38 @@
-import { ViewCharacters } from "./ViewCharacters"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { SearchBar } from "../SearchBar/SearchBar"
+import { ViewCharacters } from "./ViewCharacters"
 import { getCharacters } from "../../redux/actions/characterActions"
 import { FilterCharacters } from "../SearchBar/Filters/FilterCharacters"
 
 export const Characters = () => {
 
-    const characters = useSelector(state => state.characters)
+
+    //PAGINADO
+    const allCharacters = useSelector(state => state.characters)
+    const [currentPage, setCurrentPage] = useState(1)
+    const charactersPerPage = 3
+    const lastCharacter = currentPage * charactersPerPage
+    const firstCharacter = lastCharacter - charactersPerPage
+    const characters = allCharacters.slice(firstCharacter, lastCharacter)
+
+    const pages = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
 
     const dispatch = useDispatch()
 
-    const [pages, setPages] = useState(0)
-    const [order, setOrder] = useState('ASC')
-    const [filter, setFilter] = useState('')
+    const [order, setOrder] = useState('')
+    const [gender, setGender] = useState('')
+    const [status, setStatus] = useState('')
 
     useEffect(() => {
-        dispatch(getCharacters(pages, order, filter))
-    }, [dispatch, pages, order, filter])
+        dispatch(getCharacters(order, status, gender))
+    }, [dispatch, order, status, gender])
 
-    const handdleClick = (e) => {
+    const haldleClick = (e) => {
         e.preventDefault()
-        dispatch(getCharacters(pages, order, filter))
-    }
-
-    //PAGINADO
-    const prev = (e) => {
-        e.preventDefault()
-        if(pages <= 0) setPages(0)
-        else setPages(pages - 4)
-    }
-
-    const next = (e) => {
-        e.preventDefault()
-        if(characters.length < 4) return
-        else setPages(pages + 4)
+        dispatch(getCharacters(order, status, gender))
     }
 
     //ORDENAMIENTO
@@ -44,28 +42,32 @@ export const Characters = () => {
     }
 
     //FILTRADO
-    const changeFilter = (e) => {
+    const changeStatus = (e) => {
         e.preventDefault()
-        setFilter(e.target.value)
+        setStatus(e.target.value)
     }
 
-    console.log(characters.length)
+    const changeGender = (e) => {
+        e.preventDefault()
+        setGender(e.target.value)
+    }
 
     return (
         <div className=''>
             <div className='navContainer'>
                 <SearchBar />
-                <FilterCharacters 
-                changeFilter={changeFilter}
-                changeOrder={changeOrder}
+                <FilterCharacters
+                    changeStatus={changeStatus}
+                    changeGender={changeGender}
+                    changeOrder={changeOrder}
                 />
             </div>
             <div className='rowContainer'>
-                <ViewCharacters 
-                characters={characters}
-                prev={prev}
-                next={next}
-                pages={pages}
+                <ViewCharacters
+                    characters={characters}
+                    charactersPerPage={charactersPerPage}
+                    allCharacters={allCharacters}
+                    pages={pages}
                 />
             </div>
         </div>

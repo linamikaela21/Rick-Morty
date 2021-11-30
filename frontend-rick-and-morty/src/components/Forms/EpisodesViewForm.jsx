@@ -20,35 +20,30 @@ export const EpisodesViewForm = () => {
     console.log(charName, 'charName')
     console.log(charObj, 'charObj')
 
-    let unique = [new Set(charObj.map(c => c.id))]
-
-    console.log(unique, 'unii')
 
     useEffect(() => {
         setCharObj([...charObj, ...newEpisode])
-        setCharacterId(...unique)
-    }, [newEpisode])
+        setCharacterId([...new Set(charObj.map(c => c.id))])
+    }, [dispatch, newEpisode])
 
     useEffect(() => {
-        setCharacterId(...unique)
-    }, [charObj])
+        setCharacterId([...new Set(charObj.map(c => c.id))])
+    }, [dispatch, charObj])
 
 
-    console.log('====================================');
-    console.log(name, characterId);
-    console.log('====================================');
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(postEpisode(name, characterId))
         alert('Your episode has been created')
         dispatch(getEpisodes())
+        // setCharObj([])
+        // setCharacterId([])
         window.location.replace('/episodes')
     }
 
     const handleName = (e) => {
         e.preventDefault()
         setName(e.target.value)
-        console.log(name, 'nmaeeeeeeeeeee')
     }
 
     const handleCharName = (e) => {
@@ -64,7 +59,7 @@ export const EpisodesViewForm = () => {
     const handleDeleteChar = async (e, id) => {
         e.preventDefault()
         setCharObj(charObj.filter(c => c.id !== id))
-        setCharacterId([...unique])
+        setCharacterId([...[...new Set(charObj.map(c => c.id))]])
     }
 
     return (

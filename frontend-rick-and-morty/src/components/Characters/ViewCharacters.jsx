@@ -1,15 +1,16 @@
 import { Card } from "../Common/Card"
+import  { Pagination }  from "../Common/Pagination/Pagination"
 
-export const ViewCharacters = ({ characters, next, prev, pages }) => {
+export const ViewCharacters = ({ characters, charactersPerPage, allCharacters, pages }) => {
+
     return (
         <div className='columnContainer'>
             <div className='rowContainer'>
-                        <button
-                            onClick={prev}
-                            disabled={pages <= 0}
-                        >
-                            {'<--PREV'}
-                        </button>
+                <Pagination
+                    perPage={charactersPerPage}
+                    all={allCharacters}
+                    pages={pages}
+                />
                 {characters?.map(char => (
                     <div>
                         <Card
@@ -22,12 +23,6 @@ export const ViewCharacters = ({ characters, next, prev, pages }) => {
                         />
                     </div>
                 ))}
-                        <button
-                            onClick={next}
-                            disabled={characters.length < 4}
-                        >
-                            {'NEXT -->'}
-                        </button>
             </div>
         </div>
     )

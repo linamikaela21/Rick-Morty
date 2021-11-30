@@ -1,23 +1,21 @@
 export const FilterEpisodes = (props) => {
     return (
-        <div>
-
-            <div>
-                <h4>Order by Order</h4>
+        <div className='container'>
+            <div className='navlink'>
+                <span className='span'>Order by Name</span>
                 <select onChange={props.changeOrder}>
                     <option value='ASC'>ASCENDENTE</option>
                     <option value='DESC'>DESCENDENTE</option>
                 </select>
             </div>
 
-            <div>
-                <h4>Order by Gender</h4>
-                <select onChange={props.changeFilter}>
-                    <option value='Male'>MALE</option>
-                    <option value='Female'>FEMALE</option>
+            <div className='navlink'>
+                <span className='span'>Order by Episode</span>
+                <select onChange={props.orderEpisode}>
+                    <option value='A'>A - Z</option>
+                    <option value='Z'>Z - A</option>
                 </select>
             </div>
-
         </div>
     )
 }

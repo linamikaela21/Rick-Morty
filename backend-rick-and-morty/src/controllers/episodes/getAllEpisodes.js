@@ -16,7 +16,8 @@ exports.getAllEpisodes = async (req, res, next) => {
             include: {
                 model: Character,
                 attributes: ['id', 'name']
-            }
+            },
+            exclude: ['createdAt', 'updatedAt']
         })
 
         if (!infoDB.length) await Episode.bulkCreate(getAllDataApi)
@@ -30,7 +31,6 @@ exports.getAllEpisodes = async (req, res, next) => {
                         }
                     },
                     offset: req.query.page,
-                    order: [['name', req.query.order]], //ASC-DESC
                     include: {
                         model: Character,
                         attributes: ['id', 'name']

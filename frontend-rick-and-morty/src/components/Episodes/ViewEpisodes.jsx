@@ -1,28 +1,30 @@
+import { Pagination } from '../Common/Pagination/Pagination'
 import './../../styles/Episodes.scss'
 
-export const ViewEpisodes = (props) => {
+export const ViewEpisodes = ({ episodes, episodesPerPage, allEpisodes, pages }) => {
 
-    console.log(props.episodes.map(x=>x.characters), 'estas aca puta')
-
+    console.log(allEpisodes);
     return (
         <div className='container'>
-            {
-                props.episodes?.map(epi => (
+            <Pagination
+                perPage={episodesPerPage}
+                all={allEpisodes}
+                pages={pages}
+            />
+            {episodes?.map(epi => (
                     <div className='columnContainer' style={{ width: '100%' }}>
                         <div className='rowContainer'><h3>{epi.name}</h3></div>
                         <div className='rowContainer'>
                             {
-                                epi?.characters?.map(cha => (
+                                epi?.episodes?.map(cha => (
                                     <div className='container'>
                                         <ul>
                                             <li key={cha?.id}>
                                                 <label>{cha?.name}</label>
-                                                </li>
+                                            </li>
                                         </ul>
                                     </div>
-
-                                ))
-                            }
+                                ))}
                         </div>
                     </div >
                 ))}

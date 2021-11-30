@@ -11,7 +11,7 @@ export const CardDetails = (props) => {
             <div><h2 className='cardTitle'>{props.name}</h2></div>
             <div className='rowDetailsContent'>
                 <div className='columnContent' style={{ height: '350px', width: '350px' }}>
-                    <iframe src={props.image} title={props.name} width='300px' height='300px'></iframe>
+                    <iframe className='iframe' src={props.image} title={props.name} width='300px' height='300px'></iframe>
                 </div>
                 <div className='columnContent' style={{ height: '350px', width: '350px' }}>
                     <h3 className='cardText'>{props.textOne}</h3>

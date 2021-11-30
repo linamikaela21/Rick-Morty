@@ -5,7 +5,6 @@ import './../../styles/Commun/index.scss'
 
 
 export const SearchBarView = ({
-    handleChangeSearchBar,
     handleSubmitSearchBar,
     setSearch,
     search
@@ -23,13 +22,11 @@ export const SearchBarView = ({
                     onChange={e => setSearch(e.target.value)}
                     className='inputSearchBar'
                 />
-            <button
+            <input
                 type='submit'
                 className='button'
                 onClick={(e) => handleSubmitSearchBar(e)}
-            >
-                <span>SEND</span>
-            </button>
+            />
         </div>
     )
 }

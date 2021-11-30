@@ -86,7 +86,7 @@ select {
   display: flex;
   justify-content: center;
   text-align:center;
-  width: 100%;
+  width: 85%;
   padding: 12px;
   border: none;
   border-radius: 5px;
@@ -135,6 +135,7 @@ a {
 .span {
   color: $color-blanco;
   font-size: x-large;
+  padding-bottom: 2px;
 }
 
 /* BOTON */
@@ -163,6 +164,13 @@ a {
     5px 0px 5px 10.5px color-negro;
 }
 
-iframe {
+.iframe {
   border-radius: 40px;
+  inset: 0px;
+  display: block;
+  object-fit: cover;
+}
+
+.iframe:hover {
+transform: scale(1.3);
 }

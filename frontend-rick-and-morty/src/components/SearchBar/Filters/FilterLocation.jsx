@@ -8,18 +8,18 @@ export const FilterLocation = (props) => {
     let unique = [...new Set(location)]
 
     return (
-        <div>
-            <div>
-                <h4>Order by Order</h4>
+        <div className='container'>
+            <div className='navlink'>
+                <span className='span'>Order by Order</span>
                 <select onChange={props.changeOrder}>
                     <option value='ASC'>ASCENDENTE</option>
                     <option value='DESC'>DESCENDENTE</option>
                 </select>
             </div>
 
-            <div>
-                <h4>Order by Type</h4>
-                <select onChange={props.changeFilter}>
+            <div className='navlink'>
+                <span className='span'>Order by Type</span>
+                <select onChange={props.changeType}>
             {
                 unique.map(ty => {
                 return (
@@ -27,6 +27,14 @@ export const FilterLocation = (props) => {
             )})
             }
             </select>
+            </div>
+
+            <div className='navlink'>
+                <span className='span'>Dimension by Order</span>
+                <select onChange={props.changeOrder}>
+                    <option value='A'>ASCENDENTE</option>
+                    <option value='Z'>DESCENDENTE</option>
+                </select>
             </div>
 
         </div>

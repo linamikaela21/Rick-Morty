@@ -9,7 +9,7 @@ export const Card = (props) => {
             <div><h2 className='cardTitle'>{props.name}</h2></div>
             <div className='rowContent'>
                 <div className='divCard'>
-                    <iframe src={props.image} title={props.name} width='300px' height='300px'></iframe>
+                    <iframe className='iframe' src={props.image} title={props.name} width='300px' height='300px'></iframe>
                 </div>
                 <div className='divCard'>
                     <h3 className='cardText'>{props.textOne}</h3>

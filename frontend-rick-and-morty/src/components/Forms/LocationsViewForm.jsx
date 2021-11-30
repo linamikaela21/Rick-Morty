@@ -99,7 +99,7 @@ export const LocationsViewForm = (props) => {
                 onChange={e => onInputChange(e)}
             />
             <div className='inputContainer'>
-                <fieldset >
+                <fieldset className='columnContainer' style={{width:'100%'}}>
                     <legend>Characters</legend>
                     <div className=''>
                         {

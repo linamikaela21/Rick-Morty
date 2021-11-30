@@ -18,21 +18,26 @@ exports.getAllLocations = async (req, res, next) => {
                 attributes: ['id', 'name']
             }
         })
-        
-        if(!infoDB.length) await Location.bulkCreate(getAllDataApi)
 
-        if(name) {
+        if (!infoDB.length) await Location.bulkCreate(getAllDataApi)
+
+        if (name) {
             try {
                 let loc = await Location.findAll({
                     where: {
                         name: {
-                          [Op.iLike]: `%${name}%`
+                            [Op.iLike]: `%${name}%`
                         }
-                      }
+                    },
+                    offset: req.query.page,
+                    include: {
+                        model: Character,
+                        attributes: ['id', 'name']
+                    }
                 })
-    
+
                 return res.json(loc)
-    
+
             } catch (error) {
                 next(error)
             }
