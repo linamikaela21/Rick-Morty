@@ -30,7 +30,6 @@ exports.getAllEpisodes = async (req, res, next) => {
                             [Op.iLike]: `%${name}%`
                         }
                     },
-                    offset: req.query.page,
                     include: {
                         model: Character,
                         attributes: ['id', 'name']
@@ -42,7 +41,21 @@ exports.getAllEpisodes = async (req, res, next) => {
             } catch (error) {
                 next(error)
             }
+        } else if (req.query.order) {
+            try {
+                let char = await Episode.findAll({
+                    order: [['name', req.query.order]], //ASC-DESC
+                    include: {
+                        model: Character,
+                        attributes: ['id', 'name']
+                    }
+                })
+                return res.status(200).json(char)
+            } catch (error) {
+                next(error)
+            }
         }
+
         return res.json(infoDB)
 
     } catch (error) {

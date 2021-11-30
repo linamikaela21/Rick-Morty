@@ -17,11 +17,11 @@ exports.getAllCharacters = async (req, res, next) => {
             [
                 {
                     model: Episode,
-                    attributes: ['name'],
+                    attributes: ['id', 'name'],
                 },
                 {
                     model: Location,
-                    attributes: ['name']
+                    attributes: ['id', 'name']
                 }
             ],
             exclude: ['createdAt', 'updatedAt'],

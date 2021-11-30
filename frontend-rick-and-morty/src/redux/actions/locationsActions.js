@@ -6,10 +6,10 @@ import {
     GET_LOCATION_NAME
 } from './constants'
 
-export const getLocations = (pages, order, type) => {
+export const getLocations = (order, type, dimension) => {
     return async function (dispatch) {
         try {
-          const loc = await axios.get(URL_ALL_LOCATIONS + `?page=${pages}&order=${order}&type=${type}`)
+          const loc = await axios.get(URL_ALL_LOCATIONS + `?order=${order}&type=${type}&dimension=${dimension}`)
           return dispatch({ type: GET_LOCATION, payload: loc.data })
         } catch (error) {
             console.log(error)

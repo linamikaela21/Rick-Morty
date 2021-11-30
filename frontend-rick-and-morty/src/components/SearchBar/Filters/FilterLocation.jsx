@@ -4,8 +4,11 @@ export const FilterLocation = (props) => {
 
     const locations = useSelector(state => state.locations)
 
-    let location = locations.map(t => t.type)
-    let unique = [...new Set(location)]
+    let type = locations.map(t => t?.type)
+    let uniqueType = [...new Set(type)]
+
+    let dimension = locations.map(d => d?.dimension)
+    let uniqueDimension = [...new Set(dimension)]
 
     return (
         <div className='container'>
@@ -20,20 +23,28 @@ export const FilterLocation = (props) => {
             <div className='navlink'>
                 <span className='span'>Order by Type</span>
                 <select onChange={props.changeType}>
-            {
-                unique.map(ty => {
-                return (
-                <option key={ty} value={ty}>{ty}</option>
-            )})
-            }
-            </select>
+                    <option value=''>All</option>
+                    {
+                        uniqueType.map(ty => {
+                            return (
+                                <option key={ty} value={ty}>{ty}</option>
+                            )
+                        })
+                    }
+                </select>
             </div>
 
             <div className='navlink'>
                 <span className='span'>Dimension by Order</span>
-                <select onChange={props.changeOrder}>
-                    <option value='A'>ASCENDENTE</option>
-                    <option value='Z'>DESCENDENTE</option>
+                <select onChange={props.changeDimension}>
+                    <option value=''>All</option>
+                    {
+                        uniqueDimension.map(d => {
+                            return (
+                                <option key={d} value={d}>{d}</option>
+                            )
+                        })
+                    }
                 </select>
             </div>
 
