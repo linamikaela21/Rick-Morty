@@ -6,7 +6,8 @@ import {
   GET_CHARACTERS_QUERY,
   GET_CHARACTER_NAME,
   GET_CHARACTER_ID,
-    GET_CHARACTER_NAME_FORM
+    GET_CHARACTER_NAME_FORM,
+    ORDER_CHARACTERS_GENDER
 } from './constants'
 
 export const getCharacters = () => {
@@ -20,16 +21,23 @@ export const getCharacters = () => {
     }
   }
 
-  export const getCharactersQuery = (order, status, gender) => {
+  export const getCharactersQuery = (order, status) => {
     return async function (dispatch) {
         try {
-          const chars = await axios.get(URL_ALL_CHARACTERS + `?order=${order}&status=${status}&gender=${gender}` )
+          const chars = await axios.get(URL_ALL_CHARACTERS + `?order=${order}&status=${status}` )
           return dispatch({ type: GET_CHARACTERS_QUERY, payload: chars.data })
         } catch (error) {
             console.log(error)
         }
     }
   }
+
+export const orderCharactersGender = (payload) => {
+  return {
+    type: ORDER_CHARACTERS_GENDER,
+    payload,
+  };
+}
 
 export const getCharacterName = (name) => {
   return async function (dispatch) {

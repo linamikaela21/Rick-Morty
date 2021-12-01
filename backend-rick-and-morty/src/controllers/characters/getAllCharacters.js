@@ -56,12 +56,11 @@ exports.getAllCharacters = async (req, res, next) => {
                 next(error)
             }
 
-        } else if (req.query.status || req.query.gender) {
+        } else if (req.query.status) {
             try {
                 let char = await Character.findAll({
                     where: {
                         status: req.query.status,
-                        gender: req.query.gender
                     },
                     order: [['name', req.query.order]], //ASC-DESC
                     include:

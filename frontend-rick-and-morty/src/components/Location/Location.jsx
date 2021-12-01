@@ -4,10 +4,41 @@ import { useEffect, useState } from "react"
 import { LocationsViewForm } from "../Forms/LocationsViewForm"
 import { SearchBar } from "../SearchBar/SearchBar"
 import { FilterLocation } from "../SearchBar/Filters/FilterLocation"
-import { getLocationsQuery } from "../../redux/actions/locationsActions"
+import { getLocationsQuery, orderDimension } from "../../redux/actions/locationsActions"
 
 export const Location = () => {
+    
+    const dispatch = useDispatch()
+    
+    const [order, setOrder] = useState('ASC')
+    const [type, setType] = useState('')
+    const [dimension, setDimension] = useState('')
+    
+    useEffect(() => {
+        dispatch(getLocationsQuery(order, type))
+    }, [dispatch, order, type])
+    
+    //ORDENAMIENTO
+    const changeOrder = (e) => {
+        e.preventDefault()
+        setOrder(e.target.value)
+    }
+    
+    //FILTRADO
+    const changeType = (e) => {
+        e.preventDefault()
+        setType(e.target.value)
+    }
 
+    useEffect(() => {
+        dispatch(orderDimension(dimension))
+    }, [dispatch, dimension])
+    
+    const changeDimension = (e) => {
+        e.preventDefault()
+        setDimension(e.target.value)
+    }
+    
     //PAGINADO
     const allLocations = useSelector(state => state.locations)
 
@@ -21,38 +52,6 @@ export const Location = () => {
         setCurrentPage(pageNumber)
     }
 
-    const dispatch = useDispatch()
-
-    const [order, setOrder] = useState('ASC')
-    const [type, setType] = useState('')
-    const [dimension, setDimension] = useState('')
-
-    useEffect(() => {
-        dispatch(getLocationsQuery(order, type, dimension))
-    }, [dispatch, order, type, dimension])
-
-    const handdleClick = (e) => {
-        e.preventDefault()
-        dispatch(getLocationsQuery(order, type, dimension))
-    }
-
-    //ORDENAMIENTO
-    const changeOrder = (e) => {
-        e.preventDefault()
-        setOrder(e.target.value)
-    }
-
-    //FILTRADO
-    const changeType = (e) => {
-        e.preventDefault()
-        setType(e.target.value)
-    }
-
-    const changeDimension = (e) => {
-        e.preventDefault()
-        setDimension(e.target.value)
-    }
-
     return (
         <div className=''>
             <div className='navContainer'>
@@ -61,7 +60,7 @@ export const Location = () => {
                     changeOrder={changeOrder}
                     changeType={changeType}
                     changeDimension={changeDimension}
-                />
+                    />
             </div>
             <div className='rowContainer'>
                 <div className='columnContainer'>

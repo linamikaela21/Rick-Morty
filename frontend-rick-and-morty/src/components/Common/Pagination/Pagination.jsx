@@ -3,8 +3,6 @@ import '../../../styles/Pagination.scss'
 
 export const Pagination = ({ perPage, all, pages }) => {
 
-  console.log(all)
-
   const pageNumbers = []
 
   for (let i = 0; i < Math.ceil(all?.length / perPage); i++) {

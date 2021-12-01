@@ -10,10 +10,10 @@ export const FilterEpisodes = (props) => {
             </div>
 
             <div className='columnContainer'>
-                <span className='span'>Order by Episode</span>
-                <select onChange={props.orderEpisode}>
-                    <option value='A'>A - Z</option>
-                    <option value='Z'>Z - A</option>
+                <span className='span'>Order by Season</span>
+                <select onChange={props.orderSeason}>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
                 </select>
             </div>
         </div>

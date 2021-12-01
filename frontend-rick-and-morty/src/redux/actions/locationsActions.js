@@ -4,7 +4,8 @@ import { URL_ALL_LOCATIONS, URL_LOCATIONS_NAME } from '../../config/config'
 import {
     GET_LOCATION,
     GET_LOCATION_QUERY,
-    GET_LOCATION_NAME
+    GET_LOCATION_NAME,
+    ORDER_LOCATION_DIMENSION
 } from './constants'
 
 export const getLocations = () => {
@@ -21,11 +22,18 @@ export const getLocations = () => {
 export const getLocationsQuery = (order, type, dimension) => {
     return async function (dispatch) {
         try {
-          const loc = await axios.get(URL_ALL_LOCATIONS + `?order=${order}&type=${type}&dimension=${dimension}`)
+          const loc = await axios.get(URL_ALL_LOCATIONS + `?order=${order}&type=${type}`)
           return dispatch({ type: GET_LOCATION_QUERY, payload: loc.data })
         } catch (error) {
             console.log(error)
         }
+    }
+  }
+
+  export const orderDimension = (payload) => {
+    return {
+      type: ORDER_LOCATION_DIMENSION,
+      payload,
     }
   }
 

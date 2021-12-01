@@ -59,22 +59,6 @@ exports.getAllLocations = async (req, res, next) => {
             } catch (error) {
                 next(error)
             }
-         } else if (req.query.dimension) {
-                try {
-                    let loc = await Location.findAll({
-                        order: [['name', req.query.order]], //ASC-DESC
-                        where: {
-                            dimension: req.query.dimension,
-                        },
-                        include: {
-                            model: Character,
-                            attributes: ['id', 'name']
-                        }
-                    })
-                    return res.status(200).json(loc)
-                } catch (error) {
-                    next(error)
-                }
         } else {
             try {
                 let loc = await Location.findAll({

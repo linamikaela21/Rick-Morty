@@ -2,12 +2,28 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { SearchBar } from "../SearchBar/SearchBar"
 import { ViewCharacters } from "./ViewCharacters"
-import { getCharactersQuery } from "../../redux/actions/characterActions"
+import { getCharactersQuery, orderCharactersGender } from "../../redux/actions/characterActions"
 import { FilterCharacters } from "../SearchBar/Filters/FilterCharacters"
 
 export const Characters = () => {
 
+    const dispatch = useDispatch()
+    
+    //const filtrado = useSelector(state => state.filtrado)
+    
+    const [order, setOrder] = useState('')
+    const [status, setStatus] = useState('')
+    const [gender, setGender] = useState('')
+    
+    useEffect(() => {
+        dispatch(getCharactersQuery(order, status))
+    }, [dispatch, order, status])
 
+    useEffect(() => {
+        dispatch(getCharactersQuery)
+        dispatch(orderCharactersGender(gender))
+    }, [dispatch, gender])
+    
     //PAGINADO
     const allCharacters = useSelector(state => state.characters)
     const [currentPage, setCurrentPage] = useState(1)
@@ -18,21 +34,6 @@ export const Characters = () => {
 
     const pages = (pageNumber) => {
         setCurrentPage(pageNumber)
-    }
-
-    const dispatch = useDispatch()
-
-    const [order, setOrder] = useState('')
-    const [gender, setGender] = useState('')
-    const [status, setStatus] = useState('')
-
-    useEffect(() => {
-        dispatch(getCharactersQuery(order, status, gender))
-    }, [dispatch, order, status, gender])
-
-    const haldleClick = (e) => {
-        e.preventDefault()
-        dispatch(getCharactersQuery(order, status, gender))
     }
 
     //ORDENAMIENTO
