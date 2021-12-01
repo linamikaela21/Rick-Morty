@@ -23,7 +23,7 @@ export const CardDetails = (props) => {
                     <div className="accordion-item">
                 {!isActive && <div className="accordion-content" onClick={() => setIsActive(!isActive)}>{props.textElections}</div>}
                     <div className="accordion-title" onClick={() => setIsActive(!isActive)}>
-                        {isActive && <div className="accordion-content">{props.elections}</div>}
+                        {isActive && <div className="accordion-content"><span>{props.elections}</span></div>}
                     </div>
                 </div>
                 </div>

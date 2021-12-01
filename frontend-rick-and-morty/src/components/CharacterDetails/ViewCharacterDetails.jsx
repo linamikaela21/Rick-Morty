@@ -17,8 +17,8 @@ export const ViewCharacterDetails = () => {
                 textTwo={`Gender: ${details?.gender}`}
                 textThree={`Status: ${details?.status}`}
                 textFour={`Location: ${details?.location?.name}`}
-                elections='Characters'
-                textElections={details?.characters?.map(x => x.name)}
+                textElections='Episodes'
+                elections={details?.episodes?.map(x => x.name)}
                 link='home'
                 buttonText='Go Back'
             />

@@ -45,7 +45,8 @@ exports.getAllLocations = async (req, res, next) => {
 
         } else if (req.query.type) {
             try {
-                let char = await Location.findAll({
+                let loc = await Location.findAll({
+                    order: [['name', req.query.order]], //ASC-DESC
                     where: {
                         type: req.query.type
                     },
@@ -54,13 +55,14 @@ exports.getAllLocations = async (req, res, next) => {
                         attributes: ['id', 'name']
                     }
                 })
-                return res.status(200).json(char)
+                return res.status(200).json(loc)
             } catch (error) {
                 next(error)
             }
          } else if (req.query.dimension) {
                 try {
-                    let char = await Location.findAll({
+                    let loc = await Location.findAll({
+                        order: [['name', req.query.order]], //ASC-DESC
                         where: {
                             dimension: req.query.dimension,
                         },
@@ -69,20 +71,20 @@ exports.getAllLocations = async (req, res, next) => {
                             attributes: ['id', 'name']
                         }
                     })
-                    return res.status(200).json(char)
+                    return res.status(200).json(loc)
                 } catch (error) {
                     next(error)
                 }
         } else {
             try {
-                let char = await Location.findAll({
+                let loc = await Location.findAll({
                     order: [['name', req.query.order]], //ASC-DESC
                     include: {
                         model: Character,
                         attributes: ['id', 'name']
                     }
                 })
-                return res.status(200).json(char)
+                return res.status(200).json(loc)
             } catch (error) {
                 next(error)
             }

@@ -1,15 +1,14 @@
 
   .accordion {
-    max-width: 600px;
+    max-width: 10em;
   }
   
   .accordion-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
     cursor: pointer;
-    background-color: #21aeca;
-    background-color: #39b9d2;
+    background-color: #e208ff;
 }
 
 .accordion-content:hover {
@@ -18,6 +17,6 @@
 
 .accordion-title,
 .accordion-content {
-      padding: 1px;
-      font-size: large;
+      padding: 2rem;
+      font-size: xx-large;
   }

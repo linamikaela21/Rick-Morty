@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { LocationsViewForm } from "../Forms/LocationsViewForm"
 import { SearchBar } from "../SearchBar/SearchBar"
 import { FilterLocation } from "../SearchBar/Filters/FilterLocation"
-import { getLocations } from "../../redux/actions/locationsActions"
+import { getLocationsQuery } from "../../redux/actions/locationsActions"
 
 export const Location = () => {
 
@@ -28,12 +28,12 @@ export const Location = () => {
     const [dimension, setDimension] = useState('')
 
     useEffect(() => {
-        dispatch(getLocations(order, type, dimension))
+        dispatch(getLocationsQuery(order, type, dimension))
     }, [dispatch, order, type, dimension])
 
     const handdleClick = (e) => {
         e.preventDefault()
-        dispatch(getLocations(order, type, dimension))
+        dispatch(getLocationsQuery(order, type, dimension))
     }
 
     //ORDENAMIENTO
