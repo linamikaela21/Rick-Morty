@@ -16,14 +16,15 @@ export const EpisodesViewForm = () => {
     const [charObj, setCharObj] = useState([])
 
     useEffect(() => {
-        setCharObj([...charObj, ...newEpisode])
         setCharacterId([...new Set(charObj.map(c => c.id))])
+        setCharObj([...charObj, ...newEpisode])
     }, [dispatch, newEpisode])
-
+    
     useEffect(() => {
         setCharacterId([...new Set(charObj.map(c => c.id))])
     }, [dispatch, charObj])
-
+    
+    console.log(name, characterId);
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(postEpisode(name, characterId))
@@ -45,6 +46,7 @@ export const EpisodesViewForm = () => {
     const handleGetCharacterName = async (e) => {
         e.preventDefault()
         dispatch(getCharacterNameForm(charName))
+        setCharName('')
     }
 
     const handleDeleteChar = async (e, id) => {
@@ -60,8 +62,8 @@ export const EpisodesViewForm = () => {
             <Input
                 label='Episode Name'
                 type='text'
-                value={name}
                 placeholder='Enter a name'
+                value={name}
                 onChange={(e) => handleName(e)}
             />
             <div className='inputContainer'>
@@ -71,7 +73,7 @@ export const EpisodesViewForm = () => {
                         <Input
                             type='text'
                             placeholder='Look for your characters'
-                            value={characterId}
+                            value={charName}
                             onChange={(e) => handleCharName(e)}
                         />
                     </div>

@@ -7,9 +7,9 @@ import './../../styles/Commun/index.scss'
 export const ViewNavBar = () => {
     return (
         <div className='navContainer'>
-            <div className='navLinks'  style={{border: '2px solid green'}}><NavLink to='/'><img src={logo} alt='No found' width='80px' /></NavLink></div>
-            <div className='navLinks' style={{border: '2px solid green'}}>
-                <div className='grid'>
+            <div className='navLinks' style={{ border: '2px solid green' }}><NavLink to='/'><img src={logo} alt='No found' width='80px' /></NavLink></div>
+            <div className='navLinks' style={{ border: '2px solid green' }}>
+                <div className=''>
                     <NavLink
                         to='/home'
                         className='navLink'
@@ -22,14 +22,12 @@ export const ViewNavBar = () => {
                     >
                         ABOUT
                     </NavLink>
-                <button className='button' style={{border: '2px solid green'}}>
                     <NavLink className='navLink' to='/create'>
-                        CREATE YOUR SHOW
+                        <button className='button' style={{ border: '2px solid green' }}>
+                            CREATE YOUR SHOW
+                        </button>
                     </NavLink>
-                </button>
                 </div>
-            </div>
-            <div style={{border: '2px solid green'}}>
             </div>
         </div>
     )

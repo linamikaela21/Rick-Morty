@@ -21,9 +21,6 @@ export const LocationsViewForm = (props) => {
         characterId: []
     })
 
-    console.log(unique, 'typesOptions')
-    console.log(newLocation, 'newLocation')
-
     useEffect(() => {
         dispatch(getCharacters())
     }, [dispatch])
@@ -94,7 +91,7 @@ export const LocationsViewForm = (props) => {
             <div className='inputContainer'>
                 <div className='rowContainer'><label htmlFor=''>Type</label></div>
                 <div className='rowContainer'>
-                    <select value={newLocation.type} onChange={handleType}>
+                    <select value={newLocation.type} onChange={e => handleType(e)}>
                         {
                             unique.map(ty => {
                                 return (

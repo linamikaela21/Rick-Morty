@@ -12,7 +12,7 @@ export const Location = () => {
     const allLocations = useSelector(state => state.locations)
 
     const [currentPage, setCurrentPage] = useState(1)
-    const locationsPerPage = 4
+    const locationsPerPage = 8
     const lastLocation = currentPage * locationsPerPage
     const firstLocation = lastLocation - locationsPerPage
     const locations = allLocations.slice(firstLocation, lastLocation)

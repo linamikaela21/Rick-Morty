@@ -14,11 +14,12 @@
   .image {
     opacity: 1;
     display: block;
-    width: 400px;
-    height: 400px;
+    width: 25em;
+    height: 25em;
     transition: .3s ease;
     backface-visibility: hidden;
-    border-radius: 50px;
+    border-radius: 3rem;
+    margin: 1rem;
   }
 
   .middle {
@@ -37,6 +38,7 @@
 
   .bigCardContent:hover .image {
     opacity: 0.3;
+    transform: scale(1.2);
   }
   
   .bigCardContent:hover .middle {

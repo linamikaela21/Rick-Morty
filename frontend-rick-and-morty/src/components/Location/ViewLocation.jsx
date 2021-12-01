@@ -11,11 +11,12 @@ export const ViewLocation = ({ locations, locationsPerPage, allLocations, pages 
             {
                 locations?.map(loc => (
                     <div className='columnContainer' style={{ width: '100%' }}>
-                        <div className='rowContainer'><h3>{loc.name}</h3></div>
-                        <div className='rowContainer'><h4>{loc.type}</h4></div>
+                        <div className='rowContainer'>
+                            <h3 className='cardTitle'>{loc.name.toUpperCase()}</h3>
+                        <h4 className='cardText' style={{paddingLeft: '0.5rem'}}>({loc.type} - {loc.dimension})</h4></div>
                         <div className='rowContainer'>
                             {
-                                loc.locations?.map(cha => (
+                                loc.characters?.map(cha => (
                                     <div className='container'>
                                         <ul>
                                             <li key={cha?.id}><label>{cha?.name}</label></li>

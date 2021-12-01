@@ -2,6 +2,7 @@ import { Pagination } from '../Common/Pagination/Pagination'
 import './../../styles/Episodes.scss'
 
 export const ViewEpisodes = ({ episodes, episodesPerPage, allEpisodes, pages }) => {
+    console.log(episodes.map(x=>x.createdAt));
     return (
         <div className='container'>
             <Pagination

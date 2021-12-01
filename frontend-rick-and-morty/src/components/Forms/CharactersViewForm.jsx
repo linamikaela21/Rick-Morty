@@ -8,7 +8,8 @@ import { Input } from '../Common/Input/index'
 export const CharactersViewForm = (props) => {
 
     // {
-    //     "name":"oooo", "image":"image", "gender":"Male", "status":"Alive", "species":"species", "epiId":[8], "locatId":5
+    //     "name":"oooo", "image":"image", "gender":"Male", 
+    //"status":"Alive", "species":"species", "episodeId":[8], "locationId":5
     // }
 
     const dispatch = useDispatch()
@@ -16,140 +17,178 @@ export const CharactersViewForm = (props) => {
     const locations = useSelector(state => state.locations)
     const episodes = useSelector(state => state.episodes)
 
-    let location = locations.map(t => t.type)
-    let unique = [...new Set(location)]
-
     const [newCharacter, setNewCharacter] = useState({
         name: '',
         image: '',
         gender: '',
         status: '',
         species: '',
-        locatId: '',
-        epiId: []
+        locationId: '',
+        episodeId: []
     })
 
     useEffect(() => {
         dispatch(getEpisodes())
         dispatch(getLocations())
-      }, [dispatch])
+    }, [dispatch])
 
-      const onInputChange = (e) => {
-        setNewCharacter({
-            ...newCharacter,
-            [e.target.name]: e.target.value
-        })
+    const onInputChange = (e) => {
+        if (e.target.name === 'episodeId') {
+            const episodeArray = newCharacter[e.target.name]
+            newCharacter({
+                ...newCharacter,
+                [e.target.name]: episodeArray.concat(e.target.value)
+            })
+        } else {
+            setNewCharacter({
+                ...newCharacter,
+                [e.target.name]: e.target.value
+            })
+        }
+        console.log(newCharacter)
         // setErrors(
         //     validations({
         //       ...recipe,
         //       [e.target.name]: e.target.value,
         //     })
         //   )
-      } 
+    }
 
-      const handleCheckbox = (e) => {
+    const handleCheckbox = (e) => {
         if (e.target.checked) {
             setNewCharacter({
-            ...newCharacter,
-            episodes: [...newCharacter.episodes, e.target.value],
-          });
+                ...newCharacter,
+                episodeId: [...newCharacter.episodeId, parseInt(e.target.value)],
+            })
         } else {
             setNewCharacter({
-            ...newCharacter,
-            episodes: newCharacter.episodes.filter(epi => epi !== e.target.value),
-          })
+                ...newCharacter,
+                episodeId: newCharacter.episodeId.filter(epi => parseInt(epi) !== parseInt(e.target.value)),
+            })
         }
-      }
+    }
 
-      const handleSubmit = (e) => {
-          e.preventDefault()
-          dispatch(postCharacter(newCharacter))
-          alert('Your own character has been created!')
-        //   setNewCharacter({
-        //     name: '',
-        //     gender: '',
-        //     location: '',
-        //     status: '',
-        //     episodes: [],
-        //     image: ''
-        // })
+    const handleGender = (e) => {
+        e.preventDefault()
+        setNewCharacter({
+            ...newCharacter,
+            gender: e.target.value
+        })
+    }
+    
+    const handleStatus = (e) => {
+        e.preventDefault()
+        setNewCharacter({
+            ...newCharacter,
+            status: e.target.value
+        })
+    }
+
+    const handleLocation = (e) => {
+        e.preventDefault()
+        setNewCharacter({
+            ...newCharacter,
+            locationId: parseInt(e.target.value)
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        dispatch(postCharacter(newCharacter))
+        alert('Your own character has been created!')
         dispatch(getCharacters())
         window.location.replace('/characters')
-        }
+    }
 
     return (
         <div style={{ border: '5px solid #a8c8c8' }} className='container'>
             <form className='form' onSubmit={e => handleSubmit(e)}>
                 <div className='rowContainer'>
-                    <div style={{ border: '5px solid red' }} className='columnContainer'>
-                        <Input
-                            label='Episode Name'
-                            type='text'
-                            placeholder='Enter a name'
-                            value={newCharacter.epiId}
-                        onChange={(e) => props.setName(e.target.value)}
-                        />
-                        <div className='rowContainer'><button className='button' style={{ backgroundColor: 'blue' }}>Add Episode</button></div>
-                    </div>
-                    <div style={{ border: '5px solid #1c2c2' }} className='columnContainer'>
-                        <Input
-                            label='Name'
-                            type='text'
-                            placeholder='Enter a name'
-                            value={props.name}
-                        // onChange={(e) => props.setName(e.target.value)}
-                        />
-                        <fieldset>
-                            <legend>Gender</legend>
-                            <div className='rowContainer'>
+                    <div className='inputContainer' style={{ border: '5px solid red', width: '100%' }}>
+                        <div className='rowContainer' style={{ width: '100%' }}>
+                            <div style={{ border: '5px solid #1c2c2', width: '100%' }} className='columnContainer'>
                                 <Input
-                                    label='Male'
-                                    type='radio'
-                                    value={props.gender}
-                                // onChange={(e) => props.setName(e.target.value)}
+                                    label='Name'
+                                    type='text'
+                                    placeholder='Enter a Character name'
+                                    name='name'
+                                    value={newCharacter.name}
+                                    onChange={e => onInputChange(e)}
                                 />
                                 <Input
-                                    label='Female'
-                                    type='radio'
-                                    value={props.gender}
-                                // onChange={(e) => props.setName(e.target.value)}
+                                    label='Image'
+                                    type='text'
+                                    placeholder='Enter a Character image'
+                                    name='image'
+                                    value={newCharacter.image}
+                                    onChange={e => onInputChange(e)}
                                 />
+                                <div>
+                                    <h4>Gender</h4>
+                                    <select value={newCharacter.gender} onChange={e => handleGender(e)}>
+                                        <option value='Male'>MALE</option>
+                                        <option value='Female'>FEMALE</option>
+                                    </select>
+                                </div>
                             </div>
-                        </fieldset>
-
-                        <Input
-                            label='Episodes'
-                            type='text'
-                            placeholder='Enter characters'
-                            value={props.name}
-                        // onChange={(e) => props.setName(e.target.value)}
-                        />
-
-                        <div>
-                            <h4>Status</h4>
-                            <select onChange={props.onChange}>
-                                <option value='All'>ALL</option>
-                                <option value='Alive'>ALIVE</option>
-                                <option value='Dead'>DEAD</option>
-                                <option value='unknow'>UNKNOW</option>
-                            </select>
+                            <div className='rowContainer' style={{ width: '100%' }}>
+                                <div className='columnContainer' style={{ border: '5px solid #1c2c2', width: '100%' }}>
+                                    <Input
+                                        label='Specie'
+                                        type='text'
+                                        name='species'
+                                        placeholder='Enter characters'
+                                        value={newCharacter.species}
+                                        onChange={e => onInputChange(e)}
+                                    />
+                                    <div>
+                                        <h4>Status</h4>
+                                        <select value={newCharacter.status} onChange={e => handleStatus(e)}>
+                                            <option value='Alive'>ALIVE</option>
+                                            <option value='Dead'>DEAD</option>
+                                            <option value='unknow'>UNKNOW</option>
+                                        </select>
+                                    </div>
+                                    <div className=''><label htmlFor=''>Location</label></div>
+                                    <select value={newCharacter.locationId} onChange={e => handleLocation(e)}>
+                                        {
+                                            locations.map(ty => {
+                                                return (
+                                                    <option key={ty.id} value={ty.id}>{ty.name}</option>
+                                                )
+                                            })
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='rowContainer'>
+                            <fieldset className='columnContainer' style={{ width: '100%' }}>
+                                <legend>Episodes</legend>
+                                <div className='container'>
+                                    {
+                                        episodes?.map(epi => {
+                                            return (
+                                                <div style={{ width: '350px', display: 'flex', justifyContent: 'center' }}>
+                                                    <label>{epi.name}</label>
+                                                    <input
+                                                        type='checkbox'
+                                                        placeholder='Enter a character'
+                                                        value={epi.id}
+                                                        name='episodeId'
+                                                        onChange={e => handleCheckbox(e)}
+                                                    />
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </fieldset>
                         </div>
                     </div>
-
-                    <div style={{ border: '5px solid blue' }} className='columnContainer'>
-                        <Input
-                            label='Location'
-                            type='text'
-                            placeholder='Enter a Location'
-                            value={props.name}
-                        // onChange={(e) => props.setName(e.target.value)}
-                        />
-                    </div>
-
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}><button className='button'>Add Character</button></div>
             </form>
         </div>
     )
 }
-
