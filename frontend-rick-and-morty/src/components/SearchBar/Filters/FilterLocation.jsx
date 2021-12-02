@@ -11,7 +11,7 @@ export const FilterLocation = (props) => {
     let uniqueDimension = [...new Set(dimension)]
 
     return (
-        <div className='searchContainer'>
+        <div className='searchContainer' style={{padding: '2rem'}}>
             <div className='columnContainer'>
                 <span className='span'>Order by Order</span>
                 <select onChange={props.changeOrder}>

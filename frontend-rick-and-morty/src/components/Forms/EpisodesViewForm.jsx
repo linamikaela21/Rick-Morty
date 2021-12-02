@@ -61,6 +61,11 @@ export const EpisodesViewForm = () => {
         <form
             className='form'
             onSubmit={(e) => handleSubmit(e)}>
+            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                <Link to='/home'>
+                    <button className='button'>Go back</button>
+                </Link>
+            </div>
             <Input
                 label='Episode Name'
                 type='text'
@@ -109,11 +114,6 @@ export const EpisodesViewForm = () => {
                 </fieldset>
             </div>
             <div className='rowContainer'> <input type="submit" className='button' /></div>
-            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <Link to='/home'>
-                    <button className='button'>Go back</button>
-                </Link>
-            </div>
         </form>
     )
 }

@@ -81,6 +81,11 @@ export const LocationsViewForm = (props) => {
 
     return (
         <form className='form' onSubmit={e => handleSubmit(e)}>
+            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                <Link to='/home'>
+                    <button className='button'>Go back</button>
+                </Link>
+            </div>
             <Input
                 label='Name'
                 type='text'
@@ -135,11 +140,6 @@ export const LocationsViewForm = (props) => {
                 </fieldset>
             </div>
             <div className='rowContainer'><input className='button' type='submit' /></div>
-            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <Link to='/home'>
-                    <button className='button'>Go back</button>
-                </Link>
-            </div>
         </form>
     )
 }
