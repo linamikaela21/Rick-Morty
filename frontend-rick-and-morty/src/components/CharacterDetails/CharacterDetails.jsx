@@ -17,11 +17,13 @@ export const CharacterDetails = () => {
     //DELETE
     const handleDeleteCharacter = (e, id) => {
         e.preventDefault()
-        console.log(id)
-        alert(`Do you want to delete ${id} episode ?`)
-        dispatch(deleteCharacter(id, 'id'))
-        dispatch(getCharacters)
-        window.location.replace('/characters')
+        let confirm = window.confirm(`Do you want to delete this character ?`)
+        if(confirm) {
+            dispatch(deleteCharacter(id, 'id'))
+            dispatch(getCharacters)
+            window.location.replace('/characters')
+            alert('You deleted this character successfully')
+        } else  window.location.replace(`/characters/${id}`)
     }
 
     return (

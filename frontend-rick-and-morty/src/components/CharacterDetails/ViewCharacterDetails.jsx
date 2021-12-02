@@ -9,6 +9,7 @@ export const ViewCharacterDetails = ({handleDeleteCharacter}) => {
 
     return (
         <div className='container'>
+            <div width='80%'>
             <div className='divBtnClose'>
                 <button className='btnClose' key={details.id}
                     onClick={e => handleDeleteCharacter(e, details.id)}
@@ -29,6 +30,7 @@ export const ViewCharacterDetails = ({handleDeleteCharacter}) => {
                 link='home'
                 buttonText='Go Back'
             />
+            </div>
             )
         </div>
     )

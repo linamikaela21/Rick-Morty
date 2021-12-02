@@ -56,10 +56,13 @@ export const Location = () => {
     const handleDeleteLocation = (e, id) => {
         e.preventDefault()
         console.log(id)
-        alert(`Do you want to delete ${id} location ?`)
-        dispatch(deleteLocation(id, 'id'))
-        dispatch(getLocations)
-        window.location.replace('/locations')
+        let confirm = window.confirm('Do you want to delete this location ?')
+        if(confirm) {
+            dispatch(deleteLocation(id, 'id'))
+            dispatch(getLocations)
+            window.location.replace('/locations')
+            alert('You deleted this location successfully')
+        }
     }
 
     return (

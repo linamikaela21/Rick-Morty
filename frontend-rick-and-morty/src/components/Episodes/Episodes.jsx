@@ -52,10 +52,13 @@ export const Episodes = () => {
     const handleDeleteEpisode = (e, id) => {
         e.preventDefault()
         console.log(id)
-        alert(`Do you want to delete ${id} episode ?`)
-        dispatch(deleteEpisode(id, 'id'))
-        dispatch(getEpisodes)
-        window.location.replace('/episodes')
+        let confirm = window.confirm('Do you want to delete this episode ?')
+        if(confirm) {
+            dispatch(deleteEpisode(id, 'id'))
+            dispatch(getEpisodes)
+            window.location.replace('/episodes')
+            alert('You deleted this episode successfully')
+        }
     }
 
 
