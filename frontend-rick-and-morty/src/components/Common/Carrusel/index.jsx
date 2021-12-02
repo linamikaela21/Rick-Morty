@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react"
-//import "./Carousel.css"
+import './../../../styles/Carrusel.scss'
 
 export const Carrusel = ({ items, n }) => {
 
-    
   const [slide, setSlide] = useState(1);
   const totalSlides = Math.ceil(items.length / n);
   const [itemsToShow, setItemsToShow] = useState(
-    items.slice((slide - 1) * n, slide * n)
+    items?.slice((slide - 1) * n, slide * n)
   );
   useEffect(() => {
     setItemsToShow(items.slice((slide - 1) * n, slide * n));
@@ -20,10 +19,6 @@ export const Carrusel = ({ items, n }) => {
     if (slide === totalSlides) setSlide(1);
     else setSlide(slide + 1);
   }
-
-  console.log('====================================');
-  console.log(items, n);
-  console.log('====================================');
 
   return (
       itemsToShow.length ? (
