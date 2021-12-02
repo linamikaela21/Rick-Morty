@@ -9,8 +9,6 @@ export const Characters = () => {
 
     const dispatch = useDispatch()
     
-    //const filtrado = useSelector(state => state.filtrado)
-    
     const [order, setOrder] = useState('')
     const [status, setStatus] = useState('')
     const [gender, setGender] = useState('')
