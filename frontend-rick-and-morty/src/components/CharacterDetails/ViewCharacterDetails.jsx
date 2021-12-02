@@ -1,7 +1,7 @@
 import { CardDetails } from "../Common/CardDetails"
 import { useSelector } from 'react-redux'
 
-export const ViewCharacterDetails = () => {
+export const ViewCharacterDetails = ({handleDeleteCharacter}) => {
 
     const details = useSelector(state => state.details)
 
@@ -9,6 +9,13 @@ export const ViewCharacterDetails = () => {
 
     return (
         <div className='container'>
+            <div className='divBtnClose'>
+                <button className='btnClose' key={details.id}
+                    onClick={e => handleDeleteCharacter(e, details.id)}
+                    style={{ width: '3em', height: '3em' }}>
+                    X
+                </button>
+            </div>
             <CardDetails
                 key={details?.id}
                 name={details?.name}

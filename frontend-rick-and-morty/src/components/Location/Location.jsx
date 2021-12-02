@@ -4,26 +4,26 @@ import { useEffect, useState } from "react"
 import { LocationsViewForm } from "../Forms/LocationsViewForm"
 import { SearchBar } from "../SearchBar/SearchBar"
 import { FilterLocation } from "../SearchBar/Filters/FilterLocation"
-import { getLocationsQuery, orderDimension } from "../../redux/actions/locationsActions"
+import { deleteLocation, getLocations, getLocationsQuery, orderDimension } from "../../redux/actions/locationsActions"
 
 export const Location = () => {
-    
+
     const dispatch = useDispatch()
-    
+
     const [order, setOrder] = useState('ASC')
     const [type, setType] = useState('')
     const [dimension, setDimension] = useState('')
-    
+
     useEffect(() => {
         dispatch(getLocationsQuery(order, type))
     }, [dispatch, order, type])
-    
+
     //ORDENAMIENTO
     const changeOrder = (e) => {
         e.preventDefault()
         setOrder(e.target.value)
     }
-    
+
     //FILTRADO
     const changeType = (e) => {
         e.preventDefault()
@@ -33,12 +33,12 @@ export const Location = () => {
     useEffect(() => {
         dispatch(orderDimension(dimension))
     }, [dispatch, dimension])
-    
+
     const changeDimension = (e) => {
         e.preventDefault()
         setDimension(e.target.value)
     }
-    
+
     //PAGINADO
     const allLocations = useSelector(state => state.locations)
 
@@ -52,6 +52,16 @@ export const Location = () => {
         setCurrentPage(pageNumber)
     }
 
+    //DELETE 
+    const handleDeleteLocation = (e, id) => {
+        e.preventDefault()
+        console.log(id)
+        alert(`Do you want to delete ${id} location ?`)
+        dispatch(deleteLocation(id, 'id'))
+        dispatch(getLocations)
+        window.location.replace('/locations')
+    }
+
     return (
         <div className=''>
             <div className='navContainer'>
@@ -60,7 +70,7 @@ export const Location = () => {
                     changeOrder={changeOrder}
                     changeType={changeType}
                     changeDimension={changeDimension}
-                    />
+                />
             </div>
             <div className='rowContainer'>
                 <div className='columnContainer'>
@@ -69,6 +79,7 @@ export const Location = () => {
                         locations={locations}
                         locationsPerPage={locationsPerPage}
                         pages={pages}
+                        handleDeleteLocation={handleDeleteLocation}
                     />
                 </div>
                 <div className='columnContainer'>

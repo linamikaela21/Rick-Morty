@@ -2,6 +2,7 @@ import axios from 'axios'
 import { URL_ALL_EPISODES, URL_EPISODES_NAME } from '../../config/config'
 
 import {
+  DELETE_EPISODE,
   GET_EPISODES,
   GET_EPISODES_QUERY,
   GET_EPISODE_NAME,
@@ -51,15 +52,25 @@ export const getEpisodeName = (name) => {
 export const postEpisode = (name, characterId) => {
   return async function (dispatch) {
     try {
-      const newEpisode = await axios.post(URL_ALL_EPISODES, {
-        name,
-        characterId
-      })
+      const newEpisode = await axios.post(URL_ALL_EPISODES, { name, characterId})
       return newEpisode
     } catch (error) {
       console.log(error)
     }
   }
 }
+
+export const deleteEpisode = (id) => {
+  return async (dispatch) => {
+    try {
+      const charDeleted = await axios.delete(`${URL_ALL_EPISODES}/${id}`)
+      console.log(id)
+      return {type: DELETE_EPISODE, charDeleted}
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 
 

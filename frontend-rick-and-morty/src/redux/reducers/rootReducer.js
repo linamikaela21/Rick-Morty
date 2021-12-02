@@ -15,7 +15,10 @@ import {
   POST_LOCATION,
   ORDER_CHARACTERS_GENDER,
   ORDER_EPISODES_SEASON,
-  ORDER_LOCATION_DIMENSION
+  ORDER_LOCATION_DIMENSION,
+  DELETE_LOCATION,
+  DELETE_EPISODE,
+  DELETE_CHARACTER
 } from '../actions/constants'
 
 const initialState = {
@@ -38,10 +41,10 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, characters: action.payload }
 
     case ORDER_CHARACTERS_GENDER:
-    const allCharacters = state.characters
-    const orderGender = action.payload === '' 
-    ? allCharacters
-    : allCharacters.filter(elem => elem.gender === action.payload)
+      const allCharacters = state.characters
+      const orderGender = action.payload === ''
+        ? allCharacters
+        : allCharacters.filter(elem => elem.gender === action.payload)
       return { ...state, characters: orderGender }
 
     case GET_CHARACTER_NAME:
@@ -56,6 +59,9 @@ const rootReducer = (state = initialState, action) => {
     case POST_CHARACTER:
       return { ...state }
 
+    case DELETE_CHARACTER:
+      return { ...state }
+
     case GET_EPISODES:
       return { ...state, episodes: action.payload }
 
@@ -65,16 +71,19 @@ const rootReducer = (state = initialState, action) => {
     case ORDER_EPISODES_SEASON:
       const allEpisodes = state.episodes
 
-      const orderSeason = 
-      action.payload === ''
-      ? allEpisodes
-      : allEpisodes?.filter(x => x.episode?.charAt(2) === action.payload)
+      const orderSeason =
+        action.payload === ''
+          ? allEpisodes
+          : allEpisodes?.filter(x => x.episode?.charAt(2) === action.payload)
       return { ...state, episodes: orderSeason }
 
     case GET_EPISODE_NAME:
       return { ...state, episodes: action.payload }
 
     case POST_EPISODE:
+      return { ...state }
+
+    case DELETE_EPISODE:
       return { ...state }
 
     case GET_LOCATION:
@@ -85,15 +94,18 @@ const rootReducer = (state = initialState, action) => {
 
     case ORDER_LOCATION_DIMENSION:
       const allLocations = state.locations
-      const orderDimension = action.payload === '' 
-      ? allLocations
-      : allLocations.filter(elem => elem.dimension === action.payload)
+      const orderDimension = action.payload === ''
+        ? allLocations
+        : allLocations.filter(elem => elem.dimension === action.payload)
       return { ...state, locations: orderDimension }
 
     case GET_LOCATION_NAME:
       return { ...state, locations: action.payload }
 
     case POST_LOCATION:
+      return { ...state }
+
+    case DELETE_LOCATION:
       return { ...state }
 
     default:

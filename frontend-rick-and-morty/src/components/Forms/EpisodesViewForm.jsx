@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Input } from '../Common/Input/index'
 import { getEpisodes, postEpisode } from '../../redux/actions/episodesActions'
 import { getCharacterNameForm } from '../../redux/actions/characterActions'
+import { Card } from '../Common/Card'
 
 export const EpisodesViewForm = () => {
 
@@ -19,11 +20,11 @@ export const EpisodesViewForm = () => {
         setCharacterId([...new Set(charObj.map(c => c.id))])
         setCharObj([...charObj, ...newEpisode])
     }, [dispatch, newEpisode])
-    
+
     useEffect(() => {
         setCharacterId([...new Set(charObj.map(c => c.id))])
     }, [dispatch, charObj])
-    
+
     console.log(name, characterId);
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -88,21 +89,16 @@ export const EpisodesViewForm = () => {
                             {
                                 charObj?.map(c => {
                                     return (
-                                        <div key={c.id} className='divCard'>
-                                            <div className='divCard'>
-                                                <div className='container'>
-                                                    <h4 className='cardText'>{c.name}</h4>
-                                                    <h4 className='cardText'>{c.status}</h4>
-                                                    <h4 className='cardText'>{c.gender}</h4>
-                                                </div>
-                                                <div><iframe className='redo' src={c.image} title={c.name} width='300px' height='300px'></iframe></div>
-                                                <button className='btnClose'
-                                                    onClick={(e) => handleDeleteChar(e, c.id)}
-                                                    style={{ backgroundColor: 'red', width: '2em', height: '2em' }}>
-                                                        X
-                                                </button>
-                                            </div>
-                                        </div>
+                                        <>
+                                            <Card
+                                                name={c.name}
+                                                textOne={c.status}
+                                                textTwo={c.gender}
+                                                image={c.image}
+                                                buttonText='X'
+                                                onClick={(e) => handleDeleteChar(e, c.id)}
+                                            />
+                                        </>
                                     )
                                 })
                             }

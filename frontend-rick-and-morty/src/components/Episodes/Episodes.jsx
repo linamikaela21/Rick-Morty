@@ -4,25 +4,25 @@ import { useEffect, useState } from "react"
 import { EpisodesViewForm } from "../Forms/EpisodesViewForm"
 import { SearchBar } from "../SearchBar/SearchBar"
 import { FilterEpisodes } from "../SearchBar/Filters/FilterEpisodes"
-import { getEpisodesQuery, orderEpisodesSeason } from "../../redux/actions/episodesActions"
+import { deleteEpisode, getEpisodes, getEpisodesQuery, orderEpisodesSeason } from "../../redux/actions/episodesActions"
 
 export const Episodes = () => {
 
     const dispatch = useDispatch()
-    
+
     const [order, setOrder] = useState('ASC')
     const [season, setSeason] = useState('')
-    
+
     useEffect(() => {
         dispatch(getEpisodesQuery(order))
     }, [dispatch, order])
-    
+
     // //ORDENAMIENTO
     const changeOrder = (e) => {
         e.preventDefault()
         setOrder(e.target.value)
     }
-    
+
     // //FILTRADO
     const orderSeason = (e) => {
         e.preventDefault()
@@ -47,7 +47,18 @@ export const Episodes = () => {
     const pages = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
-    
+
+    //DELETE
+    const handleDeleteEpisode = (e, id) => {
+        e.preventDefault()
+        console.log(id)
+        alert(`Do you want to delete ${id} episode ?`)
+        dispatch(deleteEpisode(id, 'id'))
+        dispatch(getEpisodes)
+        window.location.replace('/episodes')
+    }
+
+
     return (
         <div className=''>
             <div className='navContainer'>
@@ -63,12 +74,12 @@ export const Episodes = () => {
                         allEpisodes={allEpisodes}
                         episodes={episodes}
                         episodesPerPage={episodesPerPage}
-                        pages={pages} />
+                        pages={pages}
+                        handleDeleteEpisode={handleDeleteEpisode}
+                    />
                 </div>
                 <div className='columnContainer'>
-                    <EpisodesViewForm
-
-                    />
+                    <EpisodesViewForm />
                 </div>
             </div>
         </div>

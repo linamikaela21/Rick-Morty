@@ -5,7 +5,8 @@ import {
     GET_LOCATION,
     GET_LOCATION_QUERY,
     GET_LOCATION_NAME,
-    ORDER_LOCATION_DIMENSION
+    ORDER_LOCATION_DIMENSION,
+    DELETE_LOCATION
 } from './constants'
 
 export const getLocations = () => {
@@ -53,6 +54,17 @@ export const postLocation = (payload) => {
     try {
       const newLocation = await axios.post(URL_ALL_LOCATIONS, payload)
       return newLocation
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const deleteLocation = (id) => {
+  return async (dispatch) => {
+    try {
+      const charDeleted = await axios.delete(`${URL_ALL_LOCATIONS}/${id}`)
+      return {type: DELETE_LOCATION, charDeleted}
     } catch (error) {
       console.log(error)
     }
