@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCharacters } from '../../redux/actions/characterActions'
 import { getLocations, postLocation } from '../../redux/actions/locationsActions'
+import { Link } from 'react-router-dom'
 
 export const LocationsViewForm = (props) => {
 
@@ -134,6 +135,11 @@ export const LocationsViewForm = (props) => {
                 </fieldset>
             </div>
             <div className='rowContainer'><input className='button' type='submit' /></div>
+            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                <Link to='/home'>
+                    <button className='button'>Go back</button>
+                </Link>
+            </div>
         </form>
     )
 }

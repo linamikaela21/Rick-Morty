@@ -9,13 +9,12 @@ import './../../styles/Commun/index.scss'
 
 export const About = () => {
   return (
-    <div className='cardContainer'>
-      <div className='content' style={{backgroundColor:'#fdfd'}}>
-        <h1>THANK YOU FOR VISITING <br /> 'RICK AND MORTY PROYECT'</h1>
-        <br />
+    <div style={{ display:'flex', justifyContent:'center' }}>
+      <div className='columnContainer' style={{ backgroundColor: '#000', width:'70%' }}>
+        <h1 style={{color: 'green'}}>THANK YOU FOR VISITING <br /> RICK AND MORTY PROYECT</h1>
         <div className='ulLi'>
           <p>
-            The technologies used here: <br /> 
+            The technologies used here: <br />
           </p>
           <ul>
             <li>
@@ -39,6 +38,7 @@ export const About = () => {
               >
                 Sequelize
               </a>
+              {' '}
               <a
                 href='https://expressjs.com/'
                 target='_blank'
@@ -58,7 +58,9 @@ export const About = () => {
               >
                 React
               </a>
+              {' '}
               y
+              {' '}
               <a
                 href='https://redux.js.org/'
                 target='_blank'
@@ -66,7 +68,9 @@ export const About = () => {
               >
                 Redux
               </a>
-              and frameworks like..
+              {' '}
+              and frameworks like.. Redux Persistor and
+              {' '}
               <a
                 href='https://axios-http.com/docs/intro'
                 target='_blank'
@@ -77,73 +81,77 @@ export const About = () => {
             </li>
           </ul>
           <p>
-            There are no design libraries, just CSS and SASS
+            About the desing, there aren't any desing library. It's make it just using CSS and SASS
+          </p>
+          <br />
+          <p>
+            This app uses 
+            <a
+              href='https://rickandmortyapi.com/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              {` RICK AND MORTY - Public API `}
+            </a>
+             to get different characters, episodes and location. I got the data based in Rick and Morty serie and push it
+            into the my database to work with my own API doing the relationship between 3 tables
           </p>
         </div>
-        <br />
-        <p>
-          This app uses
-          <a
-            href='https://rickandmortyapi.com/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            RICK AND MORTY - Public API
-          </a>
-          to get different characters, episodes and location. I got the data based in Rick and Morty serie and push it
-          into the database to work with my own API.
-        </p>
-      
-        <br />
-        <h2>CONTACT</h2>
-        <div className='contact'>
-          <div className='contact_item'>
-            <img
-              src={linkedin}
-              alt='Not found'
-              className='contact_item_img'
-            />
-            <a
-              href='https://www.linkedin.com/in/lina-mikaela-gutierrez-arribas'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              LinkedIn
-            </a>
-          </div>
-          <div className='contact_item'>
-            <img
-              src={github}
-              alt='Not found'
-              className='contact_item_img'
-            />
-            <a
-              href='https://github.com/linamikaela21'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              GitHub
-            </a>
-          </div>
-          <div className='contact_item'>
-            <img
-              src={gmail}
-              alt='Not found'
-              className='contact_item_img'
-            />
-            <a
-              href='mailto:mikaelagutierrezarribas@gmail.com'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              E-mail
-            </a>
+        <div className='content'>
+          <br />
+          <h2>CONTACT</h2>
+          <div className='contact'>
+            <div className='contact_item'>
+              <img
+                src={linkedin}
+                alt='Not found'
+                className='contact_item_img'
+              />
+              <a
+                href='https://www.linkedin.com/in/lina-mikaela-gutierrez-arribas'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                LinkedIn
+              </a>
+            </div>
+            <div className='contact_item'>
+              <img
+                src={github}
+                alt='Not found'
+                className='contact_item_img'
+              />
+              <a
+                href='https://github.com/linamikaela21'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                GitHub
+              </a>
+            </div>
+            <div className='contact_item'>
+              <img
+                src={gmail}
+                alt='Not found'
+                className='contact_item_img'
+              />
+              <a
+                href='mailto:mikaelagutierrezarribas@gmail.com'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                E-mail
+              </a>
+            </div>
           </div>
         </div>
+        <div>
+          <Link to='/home'>
+            <button className='button'>Go back</button>
+          </Link>
+        </div>
       </div>
-      <Link to='/home'>
-        <button className='button'>Go back</button>
-      </Link>
     </div>
+
   )
 }

@@ -4,6 +4,7 @@ import { Input } from '../Common/Input/index'
 import { getEpisodes, postEpisode } from '../../redux/actions/episodesActions'
 import { getCharacterNameForm } from '../../redux/actions/characterActions'
 import { Card } from '../Common/Card'
+import { Link } from 'react-router-dom'
 
 export const EpisodesViewForm = () => {
 
@@ -108,6 +109,11 @@ export const EpisodesViewForm = () => {
                 </fieldset>
             </div>
             <div className='rowContainer'> <input type="submit" className='button' /></div>
+            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                <Link to='/home'>
+                    <button className='button'>Go back</button>
+                </Link>
+            </div>
         </form>
     )
 }

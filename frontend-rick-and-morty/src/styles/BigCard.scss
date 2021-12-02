@@ -24,6 +24,7 @@
 
   .middle {
     display: block;
+    background-color: lightgray;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -41,15 +42,12 @@
     transform: scale(1.2);
   }
   
-  .bigCardContent:hover .middle {
-    opacity: 1;
+ .middle:hover {
+    opacity: 0.9;
+    border-radius: 2rem;
   }
   
 .bigCardText {
     color: #222059;
     padding: 16px 32px;
-}
-
-.redo {
-  border-radius: 2rem;
 }

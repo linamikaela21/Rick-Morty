@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getCharacters, postCharacter } from '../../redux/actions/characterActions'
 import { getEpisodes } from '../../redux/actions/episodesActions'
 import { getLocations } from '../../redux/actions/locationsActions'
@@ -75,7 +76,7 @@ export const CharactersViewForm = (props) => {
             gender: e.target.value
         })
     }
-    
+
     const handleStatus = (e) => {
         e.preventDefault()
         setNewCharacter({
@@ -187,7 +188,12 @@ export const CharactersViewForm = (props) => {
                         </div>
                     </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-around' }}><button className='button'>Add Character</button></div>
+                <div style={{ display: 'flex', justifyContent: 'space-around' }}><button className='button' style={{ backgroundColor: 'blue' }}>Add Character</button></div>
+                <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                    <Link to='/home'>
+                        <button className='button'>Go back</button>
+                    </Link>
+                </div>
             </form>
         </div>
     )
