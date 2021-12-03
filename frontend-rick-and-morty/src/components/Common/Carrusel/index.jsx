@@ -23,14 +23,14 @@ export const Carrusel = ({ items, n }) => {
   return (
       itemsToShow.length ? (
         <div className="carousel-container">
-          <div className="carousel-button-item">
+          <div>
             <button onClick={previous} className="button">{"<"}</button>
           </div>
-          <div className="carousel-items-container">
+          <div>
             <div className="carousel-items-items">{itemsToShow}</div>
-            <div className="carousel-items-pages">{`${slide} de ${totalSlides}`}</div>
+            <div className="carousel-items-pages">{`${slide} of ${totalSlides}`}</div>
           </div>
-          <div className="carousel-button-item">
+          <div>
             <button onClick={next} className="button">{">"}</button>
           </div>
         </div>

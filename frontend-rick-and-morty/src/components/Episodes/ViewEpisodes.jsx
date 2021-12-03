@@ -11,7 +11,7 @@ export const ViewEpisodes = ({ episodes, episodesPerPage, allEpisodes, pages, ha
                 pages={pages}
             />
             {episodes?.map(epi => (
-                <div className='columnContainer' style={{ width: '100%' }}>
+                <div className='columnContainer' style={{ width: '80%' }}>
                     <div className='divBtnClose'>
                         <button className='btnClose' key={epi.id}
                             onClick={e => handleDeleteEpisode(e, epi.id)}

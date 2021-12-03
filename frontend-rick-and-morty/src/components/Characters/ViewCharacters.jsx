@@ -9,20 +9,19 @@ export const ViewCharacters = ({ characters, charactersPerPage, allCharacters, p
                 key={char.id}
                 title={char.name}
                 image={char.image}
-                buttonText='Show me more'
+                buttonText='See more'
                 link={`characters/${char.id}`}
-                height='320vh'
+                height='350vh'
+                fontSize='2rem'
             />
     ))
 
     return (
-        <div className='container'>
-            <div className='rowContainer'>
+            <div>
                 <Carrusel 
                 items={carouselItems}
                 n={3}
                 />
             </div>
-        </div>
     )
 }

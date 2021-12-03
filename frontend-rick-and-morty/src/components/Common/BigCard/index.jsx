@@ -9,7 +9,7 @@ export const BigCard = (props) => {
             <img src={props.image} alt='No found' className='iframe' height={props.height} width={props.width}/>
             <div className="middle">
                 <div className=''>
-                    <h2 className='bigCardText'>{props.title}</h2>
+                    <h2 className='bigCardText' style={{fontSize:`${props.fontSize}`}}>{props.title}</h2>
                 </div>
                 <div className='container'>
                     <Link to={`/${props.link}`}>

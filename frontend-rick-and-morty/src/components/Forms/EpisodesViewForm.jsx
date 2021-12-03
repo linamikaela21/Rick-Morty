@@ -59,6 +59,7 @@ export const EpisodesViewForm = () => {
 
     return (
         <form
+        style={{ width: '90%' }}
             className='form'
             onSubmit={(e) => handleSubmit(e)}>
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -73,10 +74,10 @@ export const EpisodesViewForm = () => {
                 value={name}
                 onChange={(e) => handleName(e)}
             />
-            <div className='inputContainer'>
-                <fieldset style={{ width: '90%', display: 'flex', justifyContent: 'center' }}>
+            <div className='inputContainer' style={{ width: '100%' }}>
+                <fieldset style={{ display: 'flex', justifyContent: 'center', width: '90%' }}>
                     <legend>Characters</legend>
-                    <div style={{ width: '100%' }}>
+                    <div style={{ width: '80%' }}>
                         <Input
                             type='text'
                             placeholder='Look for your characters'
@@ -84,19 +85,22 @@ export const EpisodesViewForm = () => {
                             onChange={(e) => handleCharName(e)}
                         />
                     </div>
-                    <div className=''>
-                        <button
+                    <div>
+                        <div style={{ display: 'flex', justifyContent: 'center'}}>
+                            <button
                             className='button'
                             style={{ backgroundColor: 'blue' }}
                             onClick={(e) => handleGetCharacterName(e)}
                         >Search
                         </button>
-                        <div className='columnContent'>
+                        </div>
+                        <div>
                             {
                                 charObj?.map(c => {
                                     return (
                                         <>
                                             <Card
+                                             style={{ width: '100%' }}
                                                 name={c.name}
                                                 textOne={c.status}
                                                 textTwo={c.gender}

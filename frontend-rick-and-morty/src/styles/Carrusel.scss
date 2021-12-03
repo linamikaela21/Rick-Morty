@@ -1,18 +1,19 @@
 .carousel-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    padding: 3%;
   }
-  
-  .carousel-items-container {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-  }
+
   
   .carousel-items-items {
     display: flex;
     justify-content: center;
-    margin: auto;
-    font-size: .5rem;
+  }
+
+  .carousel-items-pages {
+    font-size: large;
+    color: lightgrey;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
   }

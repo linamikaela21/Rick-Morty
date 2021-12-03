@@ -3,7 +3,7 @@ import './../../../styles/Commun/index.scss'
 
 export const Card = (props) => {
     return (
-        <div className='columnContent' width='800wv'>
+        <div className='columnContent' style={{margin:'1em', fontSize:'large'}}>
                 <div className='divBtnClose'>
                 <button className='btnClose'
                     onClick={props.onClick}

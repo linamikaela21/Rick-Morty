@@ -24,7 +24,7 @@ export const SearchBar = () => {
 
     return (
         <div className='searchContainer'>
-            <div style={{ border: '2px solid red', padding: '15px' }}>
+            <div>
                 <SearchBarView
                     handleSubmitSearchBar={handleSubmitSearchBar}
                     search={search}

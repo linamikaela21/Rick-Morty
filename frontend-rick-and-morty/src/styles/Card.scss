@@ -4,10 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    margin: 20px;
-    background-color: rebeccapurple;
+    margin: 4rem;
+    background-color: rgb(35, 37, 35);
     border-radius: 50px;
     font-size: x-large;
 }
@@ -20,5 +18,5 @@
 .rowContent {
     display: flex;
     justify-content: center;
-    width: 300px;
+    width: 80vh;
 }

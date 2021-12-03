@@ -1,5 +1,6 @@
 import { CardDetails } from "../Common/CardDetails"
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 export const ViewCharacterDetails = ({handleDeleteCharacter}) => {
 
@@ -8,13 +9,16 @@ export const ViewCharacterDetails = ({handleDeleteCharacter}) => {
     console.log(details)
 
     return (
-        <div className='container'>
-            <div width='80%'>
-            <div className='divBtnClose'>
+        <div className='container' style={{ backgroundColor:'red', paddingTop: '5rem', paddingBottom: '5rem'}}>
+            <div className='columnDetailsContent'>
+                <Link to={'/characters'}>
+                    <button className='button' style={{marginBottom: '1rem'}}>Go Back</button>
+                </Link>
+            <div>
                 <button className='btnClose' key={details.id}
                     onClick={e => handleDeleteCharacter(e, details.id)}
-                    style={{ width: '3em', height: '3em' }}>
-                    X
+                    style={{ width: '15rem', height: '3rem' }}>
+                    <h3>DELETE CHARACTER</h3>
                 </button>
             </div>
             <CardDetails

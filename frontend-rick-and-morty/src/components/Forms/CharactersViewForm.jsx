@@ -102,12 +102,12 @@ export const CharactersViewForm = (props) => {
     }
 
     return (
-        <div style={{ border: '5px solid #a8c8c8' }} className='container'>
+        <div className='container'>
             <form className='form' onSubmit={e => handleSubmit(e)}>
-                <div className='rowContainer'>
-                    <div className='inputContainer' style={{ border: '5px solid red', width: '100%' }}>
+                <div className=''>
+                    <div className='inputContainer' style={{ border: '5px solid grey', width: '100%' }}>
                         <div className='rowContainer' style={{ width: '100%' }}>
-                            <div style={{ border: '5px solid #1c2c2', width: '100%' }} className='columnContainer'>
+                            <div style={{ border: '5px solid #1c2c2', width: '100%' }}>
                                 <Input
                                     label='Name'
                                     type='text'
@@ -124,8 +124,8 @@ export const CharactersViewForm = (props) => {
                                     value={newCharacter.image}
                                     onChange={e => onInputChange(e)}
                                 />
-                                <div>
-                                    <h4>Gender</h4>
+                                <div className='columnContainer' style={{ width: '100%' }}>
+                                    <span>Gender</span>
                                     <select value={newCharacter.gender} onChange={e => handleGender(e)}>
                                         <option value='Male'>MALE</option>
                                         <option value='Female'>FEMALE</option>
@@ -133,7 +133,7 @@ export const CharactersViewForm = (props) => {
                                 </div>
                             </div>
                             <div className='rowContainer' style={{ width: '100%' }}>
-                                <div className='columnContainer' style={{ border: '5px solid #1c2c2', width: '100%' }}>
+                            <div style={{ border: '5px solid #1c2c2', width: '100%' }}>
                                     <Input
                                         label='Specie'
                                         type='text'
@@ -142,14 +142,15 @@ export const CharactersViewForm = (props) => {
                                         value={newCharacter.species}
                                         onChange={e => onInputChange(e)}
                                     />
-                                    <div>
-                                        <h4>Status</h4>
+                                     <div className='columnContainer' style={{width: '100%' }}>
+                                        <span>Status</span>
                                         <select value={newCharacter.status} onChange={e => handleStatus(e)}>
                                             <option value='Alive'>ALIVE</option>
                                             <option value='Dead'>DEAD</option>
                                             <option value='unknow'>UNKNOW</option>
                                         </select>
                                     </div>
+                                    <div className='columnContainer' style={{ width: '100%' }}>
                                     <div className=''><label htmlFor=''>Location</label></div>
                                     <select value={newCharacter.locationId} onChange={e => handleLocation(e)}>
                                         {
@@ -161,6 +162,7 @@ export const CharactersViewForm = (props) => {
                                         }
                                     </select>
                                 </div>
+                                </div>
                             </div>
                         </div>
                         <div className='rowContainer'>
@@ -170,7 +172,7 @@ export const CharactersViewForm = (props) => {
                                     {
                                         episodes?.map(epi => {
                                             return (
-                                                <div style={{ width: '350px', display: 'flex', justifyContent: 'center' }}>
+                                                <div style={{ width: '28em', display: 'flex', justifyContent: 'flex-start' }}>
                                                     <label>{epi.name}</label>
                                                     <input
                                                         type='checkbox'

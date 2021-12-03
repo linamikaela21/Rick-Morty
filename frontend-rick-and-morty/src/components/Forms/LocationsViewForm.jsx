@@ -123,7 +123,7 @@ export const LocationsViewForm = (props) => {
                         {
                             characters?.map(ch => {
                                 return (
-                                    <div style={{ width: '350px', display: 'flex', justifyContent: 'center' }}>
+                                    <div style={{ width: '300wv', display: 'flex', justifyContent: 'center' }}>
                                         <label>{ch.name}</label>
                                         <input
                                             type='checkbox'
