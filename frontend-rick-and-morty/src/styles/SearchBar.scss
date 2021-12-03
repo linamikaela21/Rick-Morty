@@ -2,7 +2,7 @@
 
 .containerSearchBar {
     display: flex;
-    margin-top: 20px;
+    margin-top: 0.1rem;
 }
 
 .inputSearchBar {
@@ -10,8 +10,8 @@
     color: $color-negro;
     font-size: x-large;
     font-weight: 200;
-    padding: 10px;
-    border-radius: 12px;
+    padding: 0.2rem;
+    border-radius: 2rem;
     border-color: $color-negro;
     border-style: solid;
 }
@@ -20,7 +20,7 @@
     display: flex;
     justify-content: space-evenly;
     background-color: $color-negro;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 15px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 6rem;
   }

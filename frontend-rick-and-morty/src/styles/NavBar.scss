@@ -4,25 +4,25 @@
     display: flex;
     justify-content: space-evenly;
     background-color: $color-negro;
-    padding-right: 0.5em;
-    padding-left: 0.5em;
+    padding-right: 0.2em;
+    padding-left: 0.2em;
     padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
   }
-  
+
   .navLinks {
     width: 100%;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // padding-right: 4em;
-    // padding-left: 4em;
   }
 
   .navLinks img {
-    margin-left: 3em;
-    width: 5em;
-    height: 5em;
+    margin-left: 5rem;
+    margin-top: 1rem;
+    width: 4em;
+    height: 4em;
     border-radius: 50%;
     border: 0.1rem solid $color-gris;
   }
@@ -35,11 +35,4 @@
     margin: 2em;
   }
   
-  .LinklinkMakeRecipe {
-    text-decoration: none;
-    color: $color-blanco;
-    font-size: xx-large;
-    font-family: fantasy;
-    font-variant: inherit;
-  }
-  
+ 

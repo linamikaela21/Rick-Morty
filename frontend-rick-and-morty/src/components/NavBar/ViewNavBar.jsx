@@ -7,7 +7,7 @@ import './../../styles/Commun/index.scss'
 export const ViewNavBar = () => {
     return (
         <div className='navContainer'>
-            <div className='navLinks'><NavLink to='/'><img src={logo} alt='No found' width='80px' /></NavLink></div>
+            <div className='navLinks'><NavLink to='/'><img src={logo} alt='No found'/></NavLink></div>
             <div className='navLinks'>
                 <div className=''>
                     <NavLink

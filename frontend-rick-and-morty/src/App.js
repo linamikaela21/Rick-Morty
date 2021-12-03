@@ -20,7 +20,7 @@ export const App = () => {
   }, [dispatch])
 
   return (
-    <div className='App' style={{backgroundColor: 'rgb(100, 80, 100)', height: '100'}}>
+    <div>
       <NavBar />
       <RouterWeb />
       <Footer />

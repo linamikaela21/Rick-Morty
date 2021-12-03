@@ -105,9 +105,9 @@ export const CharactersViewForm = (props) => {
         <div className='container'>
             <form className='form' onSubmit={e => handleSubmit(e)}>
                 <div className=''>
-                    <div className='inputContainer' style={{ border: '5px solid grey', width: '100%' }}>
+                    <div className='inputContainer' style={{ border: '1rem solid grey', width: '100%' }}>
                         <div className='rowContainer' style={{ width: '100%' }}>
-                            <div style={{ border: '5px solid #1c2c2', width: '100%' }}>
+                            <div style={{ border: '1rem solid #1c2c2', width: '100%' }}>
                                 <Input
                                     label='Name'
                                     type='text'
@@ -133,7 +133,7 @@ export const CharactersViewForm = (props) => {
                                 </div>
                             </div>
                             <div className='rowContainer' style={{ width: '100%' }}>
-                            <div style={{ border: '5px solid #1c2c2', width: '100%' }}>
+                            <div style={{ border: '1rem solid #1c2c2', width: '100%' }}>
                                     <Input
                                         label='Specie'
                                         type='text'

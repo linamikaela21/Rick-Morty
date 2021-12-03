@@ -11,24 +11,24 @@ export const ViewHome = () => {
                 title='Episodes'
                 image={episodes}
                 link='episodes'
-                height='400em'
-                width='400em'
+                height='380em'
+                width='380em'
                 buttonText='GO'
             />
             <BigCard
                 title='Characters'
                 image={characters}
                 link='characters'
-                height='400em'
-                width='400em'
+                height='380em'
+                width='380em'
                 buttonText='GO'
             />
             <BigCard
                 title='Locations'
                 image={locations}
                 link='locations'
-                height='400em'
-                width='400em'
+                height='380em'
+                width='380em'
                 buttonText='GO'
             />
         </div>

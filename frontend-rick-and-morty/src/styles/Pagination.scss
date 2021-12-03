@@ -1,17 +1,17 @@
 .pagination {
-    padding: 8px;
+    padding: 4rem;
   }
   
   .number {
     display: inline-flex;
     flex-direction: row;
-    margin: 5px;
+    margin: 2rem;
   }
   
   .numberA {
     float: left;
-    padding: 10px 20px;
-    border: solid 2px rgb(255, 255, 255);
+    padding: 4rem 8rem;
+    border: solid 2rem rgb(255, 255, 255);
     background-color: rgb(147, 15, 8);
     font-weight: 700;
     font-size: large;
@@ -22,5 +22,5 @@
 
   .numberA:hover:not(.number) {
     background-color: #613dc1;
-    border-radius: 5px;
+    border-radius: 2rem;
   }

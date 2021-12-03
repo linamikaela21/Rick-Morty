@@ -2,29 +2,29 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: solid 5px red;
+    border: solid 1rem red;
 }
 
 .epiContent {
     display: block;
-    height: 200px;
+    height: 50rem;
     font-size: small;
-    border: solid 5px blue;
-    margin: 25px;
+    border: solid 1rem blue;
+    margin: 12rem;
 }
 
 .epiDiv {
-    width: 250px;
-    height: 100px;
-    border: solid 5px forestgreen;
+    width: 120rem;
+    height: 120rem;
+    border: solid 1rem forestgreen;
 }
 
 .epiDiv h1 {
-    font-size: 30px;
+    font-size: 15rem;
     background-color: burlywood;
 }
 
 .epiDiv ul li {
-    font-size: 15px;
+    font-size: 4rem;
 }
 
