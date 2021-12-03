@@ -1,5 +1,7 @@
+@import './variables.scss';
+
 .pagination {
-    padding: 8px;
+    padding: 1rem;
   }
   
   .number {
@@ -11,16 +13,15 @@
   .numberA {
     float: left;
     padding: 10px 20px;
-    border: solid 2px rgb(255, 255, 255);
-    background-color: rgb(147, 15, 8);
+    border: solid 2px $color-blanco;
+    background-color: $color-azul;
     font-weight: 700;
     font-size: large;
     text-decoration: none;
     border-radius: 1rem;
-    color: white;
+    color: $color-blanco;
   }
 
   .numberA:hover:not(.number) {
-    background-color: #613dc1;
     border-radius: 5px;
   }

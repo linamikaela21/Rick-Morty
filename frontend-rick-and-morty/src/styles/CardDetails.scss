@@ -1,7 +1,5 @@
 @import "./variables.scss";
 
-
-
 .columnDetailsContent {
     width: auto;
     display: flex;
@@ -13,7 +11,7 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     height: 50em;
-    background-color: orange;
+    background-color: $color-gris;
 }
 
 .rowDetailsContent {
@@ -22,9 +20,5 @@
 }
 
 .cardText {
-    color: $colorCardText;
-}
-
-.cardTitle {
-    color: $colorCardTitle;
+    color: $color-blanco;
 }

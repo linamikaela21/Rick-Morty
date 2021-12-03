@@ -6,8 +6,8 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    padding-top: 2rem;
-    padding-bottom: 6.4rem;
+    padding-top: 1.5rem;
+    padding-bottom: 5rem;
     width: 100%;
 }
 
@@ -17,16 +17,17 @@
     align-items: center;
     height: 70%;
     width: 70%;
-    background-color: $color-verde;
+    background-color: $color-celeste;
     padding: 3%;
     border-radius: 50px;
 }
 
 .title {
-    font-size: 115px;
+    font-size: 7rem;
     color: $color-blanco;
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    text-shadow: 10px 10px $color-negro;
+    text-shadow: 10px 10px $color-celeste;
+    background-color: $color-verde;
 }
 
 .buttonWelcome {
@@ -40,16 +41,16 @@
     font-weight: bold;
     border-radius: 10px;
     border: solid 8px $color-blanco;
-    background-color: $color-negro;
+    background-color: $color-verde;
     color: $color-blanco;
     cursor: pointer;
     transition: 0.5s ease-in-out;
 }
 
 .buttonWelcome:hover {
-    color: $color-negro;
-    background-color: $color-verde;
-    border: solid 8px $color-negro;
+    color: $color-verde;
+    background-color: $color-celeste;
+    border: solid 8px $color-verde;
     box-shadow: 0px 0px 0px 4px $color-blanco, 0px 2px 8px 8px $color-verde, 0px 0px 0px 10px $color-negro,
-        0px 0px 0px 10.5px $color-verde;
+        0px 0px 0px 10.5px $color-celeste;
 }

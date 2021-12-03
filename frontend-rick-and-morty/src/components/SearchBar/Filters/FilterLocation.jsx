@@ -12,7 +12,7 @@ export const FilterLocation = (props) => {
 
     return (
         <div className='searchContainer' style={{padding: '2rem'}}>
-            <div className='columnContainer' style={{width:'13rem'}}>
+            <div className='columnContainer' style={{width:'13rem', borderColor:'transparent'}}>
                 <span className='span'>Order by Order</span>
                 <select onChange={props.changeOrder}>
                     <option value='ASC'>ASCENDENTE</option>
@@ -20,7 +20,7 @@ export const FilterLocation = (props) => {
                 </select>
             </div>
 
-            <div className='columnContainer' style={{width:'13rem'}}>
+            <div className='columnContainer' style={{width:'13rem', borderColor:'transparent'}}>
                 <span className='span'>Order by Type</span>
                 <select onChange={props.changeType}>
                     <option value=''>All</option>
@@ -34,7 +34,7 @@ export const FilterLocation = (props) => {
                 </select>
             </div>
 
-            <div className='columnContainer'>
+            <div className='columnContainer' style={{borderColor:'transparent'}}>
                 <span className='span'>Dimension by Order</span>
                 <select onChange={props.changeDimension}>
                     <option value=''>All</option>

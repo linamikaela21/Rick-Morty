@@ -1,5 +1,4 @@
 import { Pagination } from '../Common/Pagination/Pagination'
-import './../../styles/Episodes.scss'
 
 export const ViewEpisodes = ({ episodes, episodesPerPage, allEpisodes, pages, handleDeleteEpisode }) => {
 
@@ -11,7 +10,7 @@ export const ViewEpisodes = ({ episodes, episodesPerPage, allEpisodes, pages, ha
                 pages={pages}
             />
             {episodes?.map(epi => (
-                <div className='columnContainer' style={{ width: '80%' }}>
+                <div className='columnContainer' style={{ width: '80%', backgroundColor:'#a9a4b9', borderColor:'#222059' }}>
                     <div className='divBtnClose'>
                         <button className='btnClose' key={epi.id}
                             onClick={e => handleDeleteEpisode(e, epi.id)}
@@ -19,7 +18,7 @@ export const ViewEpisodes = ({ episodes, episodesPerPage, allEpisodes, pages, ha
                             X
                         </button>
                     </div>
-                    <div className='rowContainer'><h3>{epi.name} - {epi?.episode?.charAt(2)}</h3></div>
+                    <div className='rowContainer'><h3 style={{ color:'#222059' }}>{epi.name} - {epi?.episode?.charAt(2)}</h3></div>
                     <div className='rowContainer'>
                         {
                             epi?.characters?.map(cha => (

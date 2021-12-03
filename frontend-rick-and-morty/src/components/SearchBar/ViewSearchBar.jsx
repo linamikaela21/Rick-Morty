@@ -12,7 +12,7 @@ export const SearchBarView = ({
 
     return (
         <div className='containerSearchBar'>
-            <div><FiSearch size={50} style={{ color: 'white' }} /></div>
+            <div style={{display:'flex', justifyContent:'flex-end', alignContent: 'flex-end'}}><FiSearch size={100} style={{ color: 'white' }} />
                 <input
                     type='text'
                     placeholder='Search..'
@@ -24,7 +24,8 @@ export const SearchBarView = ({
                 type='submit'
                 className='button'
                 onClick={(e) => handleSubmitSearchBar(e)}
-            />
+                />
+                </div>
         </div>
     )
 }

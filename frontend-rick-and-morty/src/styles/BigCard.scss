@@ -23,7 +23,7 @@
   .middle {
     display: block;
     width: 15em;
-    background-color: lightgray;
+    background-color: $color-gris;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -38,7 +38,7 @@
   }
 
   .bigCardContent:hover .image {
-    opacity: 0.3;
+    opacity: 0.4;
     transform: scale(1.2);
   }
   
@@ -48,6 +48,6 @@
   }
   
 .bigCardText {
-    color: #222059;
+    color: $color-azul;
     padding: 16px 32px;
 }

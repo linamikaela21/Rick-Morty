@@ -4,8 +4,8 @@
     display: flex;
     justify-content: space-evenly;
     background-color: $color-negro;
-    padding-right: 0.5em;
-    padding-left: 0.5em;
+    padding-right: 0.2em;
+    padding-left: 0.2em;
     padding-top: 0.2rem;
   }
   
@@ -15,16 +15,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // padding-right: 4em;
-    // padding-left: 4em;
   }
 
   .navLinks img {
+    margin-top: 1em;
     margin-left: 3em;
-    width: 5em;
-    height: 5em;
+    width: 3.5em;
+    height: 3.5em;
     border-radius: 50%;
-    border: 0.1rem solid $color-gris;
+    border: 0.3rem solid $color-gris;
   }
   
   .navLink {
