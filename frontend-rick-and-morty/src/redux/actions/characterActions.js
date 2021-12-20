@@ -77,7 +77,7 @@ export const postCharacter = (payload) => {
   return async function (dispatch) {
     try {
       const newCharacter = await axios.post(URL_ALL_CHARACTERS, payload)
-      console.log(payload, 'PAYLOAD', newCharacter)
+      console.log(payload, 'PAYLOAD', newCharacter, 'newCharacter')
       return newCharacter
     } catch (error) {
       console.log(error)

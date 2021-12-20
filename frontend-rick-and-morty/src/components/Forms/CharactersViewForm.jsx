@@ -125,7 +125,7 @@ export const CharactersViewForm = (props) => {
                                     onChange={e => onInputChange(e)}
                                 />
                                 <div className='columnContainer' style={{ width: '100%', borderColor:'transparent' }}>
-                                    <span>Gender</span>
+                                    <label>Gender</label>
                                     <select value={newCharacter.gender} onChange={e => handleGender(e)}>
                                         <option value='Male'>MALE</option>
                                         <option value='Female'>FEMALE</option>
@@ -143,7 +143,7 @@ export const CharactersViewForm = (props) => {
                                         onChange={e => onInputChange(e)}
                                     />
                                      <div className='columnContainer' style={{width: '100%', borderColor:'transparent' }}>
-                                        <span>Status</span>
+                                     <label>Status</label>
                                         <select value={newCharacter.status} onChange={e => handleStatus(e)}>
                                             <option value='Alive'>ALIVE</option>
                                             <option value='Dead'>DEAD</option>
@@ -151,7 +151,7 @@ export const CharactersViewForm = (props) => {
                                         </select>
                                     </div>
                                     <div className='columnContainer' style={{ width: '100%', borderColor:'transparent' }}>
-                                    <div className=''><label htmlFor=''>Location</label></div>
+                                    <div className=''><label>Location</label></div>
                                     <select value={newCharacter.locationId} onChange={e => handleLocation(e)}>
                                         {
                                             locations.map(ty => {

@@ -1,4 +1,4 @@
-export const URL_BASE = 'http://localhost:3001/api'
+export const URL_BASE = process.env.DATABASE_URL || 'http://localhost:3001/api'
 
 export const URL_ALL_CHARACTERS = URL_BASE + '/characters'
 export const URL_ALL_EPISODES = URL_BASE + '/episodes'
