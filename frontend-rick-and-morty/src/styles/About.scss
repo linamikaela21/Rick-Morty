@@ -1,4 +1,6 @@
- p {
+@import "variables.scss";
+
+p {
   padding: 2rem;
   color: rgb(255, 255, 255);
   background-color: black;
@@ -9,7 +11,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 10px;
+  padding: 0.2rem 0.2rem 2rem 0.2rem;
+  margin-top: 0.2rem;
 }
 
 .about h2 {
@@ -22,7 +25,7 @@
   flex-direction: column;
   margin: auto;
   text-align: center;
-  background-color: #ccc;
+  background-color: $color-celeste;
   border-radius: 10px;
   padding: 1rem;
 }
@@ -38,8 +41,9 @@
   font-weight: bold;
   padding: 0.2rem;
   text-decoration: none;
+  color: $color-blanco;
 }
 
 .ulLi {
-  background-color: rgb(0, 146, 44);
+  background-color: $color-gris;
 }

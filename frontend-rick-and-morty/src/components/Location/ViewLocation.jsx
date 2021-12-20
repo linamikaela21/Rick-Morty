@@ -10,7 +10,7 @@ export const ViewLocation = ({ locations, locationsPerPage, allLocations, pages,
             />
             {
                 locations?.map(loc => (
-                    <div className='columnContainer' style={{ width: '100%' }}>
+                    <div className='columnContainer' style={{ width: '100%', backgroundColor:'#cacaca', borderColor:'#3B4DA9' }}>
                         <div className='divBtnClose'>
                             <button className='btnClose' key={loc.id}
                                 onClick={e => handleDeleteLocation(e, loc.id)}
@@ -18,9 +18,9 @@ export const ViewLocation = ({ locations, locationsPerPage, allLocations, pages,
                                 X
                             </button>
                         </div>
-                        <div className='rowContainer'>
-                            <h3 className='cardTitle'>{loc.name.toUpperCase()}</h3>
-                            <h4 className='cardText' style={{ paddingLeft: '0.5rem' }}>({loc.type} - {loc.dimension})</h4></div>
+                        <div className='rowContainer' >
+                            <h3 className='cardTitle' style={{ color:'#3B4DA9' }}>{loc.name.toUpperCase()}</h3>
+                            <h4 className='cardText' style={{ paddingLeft: '0.5rem', color:'#3B4DA9' }}>({loc.type} - {loc.dimension})</h4></div>
                         <div className='rowContainer'>
                             {
                                 loc.characters?.map(cha => (

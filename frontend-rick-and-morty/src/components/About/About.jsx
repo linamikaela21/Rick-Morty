@@ -11,7 +11,7 @@ export const About = () => {
   return (
     <div style={{ display:'flex', justifyContent:'center' }}>
       <div className='columnContainer' style={{ backgroundColor: '#000', width:'70%' }}>
-        <h1 style={{color: 'green'}}>THANK YOU FOR VISITING <br /> RICK AND MORTY PROYECT</h1>
+        <h1 style={{backgroundColor: '#004445'}}>THANK YOU FOR VISITING <br /> RICK AND MORTY PROYECT</h1>
         <div className='ulLi'>
           <p>
             The technologies used here: <br />
@@ -97,7 +97,7 @@ export const About = () => {
             into the my database to work with my own API doing the relationship between 3 tables
           </p>
         </div>
-        <div className='content'>
+        <div className='content' style={{ background: '#cacaca', color: '#004445'}}> 
           <br />
           <h2>CONTACT</h2>
           <div className='contact'>

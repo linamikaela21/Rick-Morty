@@ -89,7 +89,7 @@ export const EpisodesViewForm = () => {
                         <div style={{ display: 'flex', justifyContent: 'center'}}>
                             <button
                             className='button'
-                            style={{ backgroundColor: '#2f2b91' }}
+                            style={{ backgroundColor: '#3B4DA9' }}
                             onClick={(e) => handleGetCharacterName(e)}
                         >Search
                         </button>

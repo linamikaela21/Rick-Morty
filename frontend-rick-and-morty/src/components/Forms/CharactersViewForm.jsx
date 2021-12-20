@@ -105,7 +105,7 @@ export const CharactersViewForm = (props) => {
         <div className='container'>
             <form className='form' onSubmit={e => handleSubmit(e)} >
                 <div>
-                    <div className='inputContainer' style={{ border: '5px solid #a9a4b9', width: '100%', borderRadius: '2rem'}}>
+                    <div className='inputContainer' style={{ border: '5px solid #3B4DA9', width: '100%', borderRadius: '2rem'}}>
                         <div className='rowContainer' style={{ width: '100%' }}>
                             <div style={{ border: '5px solid #1c2c2', width: '100%' }}>
                                 <Input
@@ -166,7 +166,7 @@ export const CharactersViewForm = (props) => {
                             </div>
                         </div>
                         <div className='rowContainer'>
-                            <fieldset className='columnContainer' style={{ width: '100%', backgroundColor:'#2f2b91' }}>
+                            <fieldset className='columnContainer' style={{ width: '100%', backgroundColor:'#3B4DA9' }}>
                                 <legend>Episodes</legend>
                                 <div className='container'>
                                     {
@@ -190,7 +190,7 @@ export const CharactersViewForm = (props) => {
                         </div>
                     </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-around' }}><button className='button' style={{ backgroundColor: '#2f2b91' }}>Add Character</button></div>
+                <div style={{ display: 'flex', justifyContent: 'space-around' }}><button className='button' style={{ backgroundColor: '#3B4DA9' }}>Add Character</button></div>
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <Link to='/home'>
                         <button className='button'>Go back</button>

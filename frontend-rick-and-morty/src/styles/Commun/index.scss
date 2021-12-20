@@ -66,6 +66,7 @@
   border-radius: 1rem;
   height: 2rem;
   width: 2rem;
+  background-color: $color-azul;
 }
 
 fieldset {
@@ -77,10 +78,14 @@ fieldset {
 .rowContainer label {
   font-size: large;
   padding-right: 2rem;
+  color: $color-azul;
+  font-weight: bold;
 }
 
 .rowContainer legend {
   font-size: large;
+  color: $color-azul;
+  font-weight: bold;
 }
 
 select {
@@ -100,6 +105,7 @@ select option {
   margin: 1rem;
   font-size: large;
   padding: 1rem;
+  background-color: $color-azul;
 }
 
 .content {

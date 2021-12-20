@@ -1,19 +1,19 @@
 @import "./variables.scss";
 
-@media (max-width: 640px) {
-  .homeContent:before {
-    display: block;
-    width: 100%;
-    background-color: aqua;
-  }
-}
+// @media (max-width: 640px) {
+//   .homeContent:before {
+//     display: block;
+//     width: 100%;
+//     background-color: aqua;
+//   }
+// }
 
-@media (min-width: 640px) and (max-width: 800px) {
-  .homeContent:after {
-    display: flex;
-    background-color: gold;
-  }
-}
+// @media (min-width: 640px) and (max-width: 800px) {
+//   .homeContent:after {
+//     display: flex;
+//     background-color: gold;
+//   }
+// }
 
 .homeContent {
   display: flex;
