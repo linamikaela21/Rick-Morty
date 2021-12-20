@@ -13,17 +13,17 @@ const path = require('path')
 //   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 // })
 
-const { DB_PG_USER, DB_PG_PASSWORD, DB_PG_HOST, PORT, DB_PG_DATABASE, NODE_ENV } = process.env
-  process.env;
+const { DB_PG_USER, DB_PG_PASSWORD, DB_PG_HOST, DB_PG_DIALECT, DB_PG_DATABASE, NODE_ENV } = process.env
 
 const sequelize =
   NODE_ENV === "production"
     ? new Sequelize({
-        database: DB_NAME,
-        host: DB_HOST,
+        database: DB_PG_DATABASE,
+        dialect: DB_PG_DIALECT,
+        host: DB_PG_HOST,
         port: 5432,
-        username: DB_USERNAME,
-        password: DB_PASSWORD,
+        username: DB_PG_USER,
+        password: DB_PG_PASSWORD,
         pool: {
           max: 3,
           min: 1,
@@ -40,7 +40,7 @@ const sequelize =
         ssl: true,
       })
     : new Sequelize(
-        `${DB_DIALECT}://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+        `${DB_PG_DIALECT}://${DB_PG_USER}:${DB_PG_PASSWORD}@${DB_PG_HOST}/${DB_PG_DATABASE}`,
         {
           logging: false, // set to console.log to see the raw SQL queries
           native: false, // lets Sequelize know we can use pg-native for ~30% more speed
