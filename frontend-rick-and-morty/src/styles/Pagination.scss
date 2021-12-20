@@ -1,26 +1,23 @@
-.pagination {
-    padding: 4rem;
-  }
-  
+@import './variables.scss';
+
   .number {
     display: inline-flex;
     flex-direction: row;
-    margin: 2rem;
+    margin: 0.5rem;
   }
   
   .numberA {
     float: left;
-    padding: 4rem 8rem;
-    border: solid 2rem rgb(255, 255, 255);
-    background-color: rgb(147, 15, 8);
+    padding: 10px 20px;
+    border: solid 2px $color-blanco;
+    background-color: $color-azul;
     font-weight: 700;
     font-size: large;
     text-decoration: none;
     border-radius: 1rem;
-    color: white;
+    color: $color-blanco;
   }
 
   .numberA:hover:not(.number) {
-    background-color: #613dc1;
-    border-radius: 2rem;
+    border-radius: 5px;
   }

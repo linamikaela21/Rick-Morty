@@ -103,9 +103,9 @@ export const CharactersViewForm = (props) => {
 
     return (
         <div className='container'>
-            <form className='form' onSubmit={e => handleSubmit(e)}>
-                <div className=''>
-                    <div className='inputContainer' style={{ border: '1rem solid grey', width: '100%' }}>
+            <form className='form' onSubmit={e => handleSubmit(e)} >
+                <div>
+                    <div className='inputContainer' style={{ border: '5px solid #3B4DA9', width: '100%', borderRadius: '2rem'}}>
                         <div className='rowContainer' style={{ width: '100%' }}>
                             <div style={{ border: '1rem solid #1c2c2', width: '100%' }}>
                                 <Input
@@ -124,7 +124,7 @@ export const CharactersViewForm = (props) => {
                                     value={newCharacter.image}
                                     onChange={e => onInputChange(e)}
                                 />
-                                <div className='columnContainer' style={{ width: '100%' }}>
+                                <div className='columnContainer' style={{ width: '100%', borderColor:'transparent' }}>
                                     <span>Gender</span>
                                     <select value={newCharacter.gender} onChange={e => handleGender(e)}>
                                         <option value='Male'>MALE</option>
@@ -142,7 +142,7 @@ export const CharactersViewForm = (props) => {
                                         value={newCharacter.species}
                                         onChange={e => onInputChange(e)}
                                     />
-                                     <div className='columnContainer' style={{width: '100%' }}>
+                                     <div className='columnContainer' style={{width: '100%', borderColor:'transparent' }}>
                                         <span>Status</span>
                                         <select value={newCharacter.status} onChange={e => handleStatus(e)}>
                                             <option value='Alive'>ALIVE</option>
@@ -150,7 +150,7 @@ export const CharactersViewForm = (props) => {
                                             <option value='unknow'>UNKNOW</option>
                                         </select>
                                     </div>
-                                    <div className='columnContainer' style={{ width: '100%' }}>
+                                    <div className='columnContainer' style={{ width: '100%', borderColor:'transparent' }}>
                                     <div className=''><label htmlFor=''>Location</label></div>
                                     <select value={newCharacter.locationId} onChange={e => handleLocation(e)}>
                                         {
@@ -166,8 +166,8 @@ export const CharactersViewForm = (props) => {
                             </div>
                         </div>
                         <div className='rowContainer'>
-                            <fieldset className='columnContainer' style={{ width: '100%' }}>
-                                <legend>Episodes</legend>
+                            <fieldset className='columnContainer' style={{ width: '100%', backgroundColor:'#cacaca' }}>
+                                <legend style={{ color: '#3B4DA9' }}>Episodes</legend>
                                 <div className='container'>
                                     {
                                         episodes?.map(epi => {
@@ -190,7 +190,7 @@ export const CharactersViewForm = (props) => {
                         </div>
                     </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-around' }}><button className='button' style={{ backgroundColor: 'blue' }}>Add Character</button></div>
+                <div style={{ display: 'flex', justifyContent: 'space-around' }}><button className='button' style={{ backgroundColor: '#3B4DA9' }}>Add Character</button></div>
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <Link to='/home'>
                         <button className='button'>Go back</button>

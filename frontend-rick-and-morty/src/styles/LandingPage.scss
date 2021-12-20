@@ -1,55 +1,57 @@
 @import "variables.scss";
 
 .fondo {
-  //   background-image: url("../../Images/Landind.jpg");
-  background-color: $color-negro;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  padding-top: 5rem;
-  padding-bottom: 6.8rem;
+    //   background-image: url("../../Images/Landind.jpg");
+    background-color: $color-negro;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-top: 1.5rem;
+    padding-bottom: 5rem;
+    width: 100%;
 }
 
 .divTitle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 70%;
-  width: 75%;
-  background-color: $color-verde;
-  padding: 1.5%;
-  border-radius: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70%;
+    width: 70%;
+    background-color: $color-celeste;
+    padding: 3%;
+    border-radius: 50px;
 }
 
 .title {
-  font-size: 6rem;
-  color: $color-blanco;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  text-shadow: 1rem 1rem $color-negro;
+    font-size: 7rem;
+    color: $color-blanco;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    text-shadow: 10px 10px $color-celeste;
+    background-color: $color-verde;
 }
 
 .buttonWelcome {
-  display: flex;
-  padding-top: 1rem;
-  padding-left: 3rem;
-  padding-bottom: 1rem;
-  padding-right: 3rem;
-  font-size: 3rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  font-weight: bold;
-  border-radius: 2rem;
-  border: solid 0.5rem $color-blanco;
-  background-color: $color-negro;
-  color: $color-blanco;
-  cursor: pointer;
-  transition: 0.5s ease-in-out;
+    display: flex;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-bottom: 20px;
+    padding-right: 50px;
+    font-size: 50px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+    border: solid 8px $color-blanco;
+    background-color: $color-verde;
+    color: $color-blanco;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
 }
 
 .buttonWelcome:hover {
-  color: $color-negro;
-  background-color: $color-verde;
-  border: solid 0.5rem $color-negro;
-  box-shadow: 0rem 0rem 0rem 0.2rem $color-blanco, 0rem 0.2rem 0.5rem 0.5rem $color-verde, 0rem 0rem 0rem 0.8rem $color-negro,
-  0rem 0rem 0rem 1rem $color-verde;
+    color: $color-verde;
+    background-color: $color-celeste;
+    border: solid 8px $color-verde;
+    box-shadow: 0px 0px 0px 4px $color-blanco, 0px 2px 8px 8px $color-verde, 0px 0px 0px 10px $color-negro,
+        0px 0px 0px 10.5px $color-negro;
 }
 

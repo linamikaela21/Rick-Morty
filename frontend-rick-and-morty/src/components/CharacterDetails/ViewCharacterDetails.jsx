@@ -9,10 +9,10 @@ export const ViewCharacterDetails = ({handleDeleteCharacter}) => {
     console.log(details)
 
     return (
-        <div className='container' style={{ backgroundColor:'red', paddingTop: '5rem', paddingBottom: '5rem'}}>
+        <div className='container' style={{ paddingTop: '3rem', paddingBottom: '3rem'}}>
             <div className='columnDetailsContent'>
                 <Link to={'/characters'}>
-                    <button className='button' style={{marginBottom: '1rem'}}>Go Back</button>
+                    <button className='button'>Go Back</button>
                 </Link>
             <div>
                 <button className='btnClose' key={details.id}

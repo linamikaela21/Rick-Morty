@@ -37,15 +37,34 @@
   -ms-transform: translate(-50%, -50%);
 }
 
-.bigCardContent:hover .image {
-  opacity: 0.3;
-  transform: scale(1.2);
-}
+  .middle {
+    display: block;
+    width: 15em;
+    background-color: $color-gris;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 2rem;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
 
-.middle:hover {
-  opacity: 0.9;
-}
-
+  .bigCardContent:hover .image {
+    opacity: 0.4;
+    transform: scale(1.2);
+  }
+  
+ .middle:hover {
+    opacity: 0.9;
+    
+  }
+  
 .bigCardText {
-  color: #222059;
+    color: $color-azul;
+    padding: 16px 32px;
 }

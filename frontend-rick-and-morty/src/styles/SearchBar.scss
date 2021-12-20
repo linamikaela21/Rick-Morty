@@ -2,7 +2,6 @@
 
 .containerSearchBar {
     display: flex;
-    margin-top: 0.1rem;
 }
 
 .inputSearchBar {
@@ -10,10 +9,11 @@
     color: $color-negro;
     font-size: x-large;
     font-weight: 200;
-    padding: 0.2rem;
+    padding: 1rem;
     border-radius: 2rem;
     border-color: $color-negro;
     border-style: solid;
+    margin: auto;
 }
 
 .searchContainer {
@@ -22,5 +22,5 @@
     background-color: $color-negro;
     padding-right: 2rem;
     padding-left: 2rem;
-    padding-top: 6rem;
+    padding-top: 3.5rem;
   }
