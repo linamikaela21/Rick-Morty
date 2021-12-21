@@ -17,7 +17,7 @@ export const ViewCharacterDetails = ({handleDeleteCharacter}) => {
             <div>
                 <button className='btnClose' key={details.id}
                     onClick={e => handleDeleteCharacter(e, details.id)}
-                    style={{ width: '15rem', height: '3rem' }}>
+                    style={{ width: '15rem', height: '4rem'}}>
                     <h3>DELETE CHARACTER</h3>
                 </button>
             </div>
