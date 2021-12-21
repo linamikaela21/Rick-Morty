@@ -6,6 +6,7 @@ import { Footer } from './components/Footer/Footer'
 import { getCharacters } from './redux/actions/characterActions'
 import { getEpisodes } from './redux/actions/episodesActions'
 import { getLocations } from './redux/actions/locationsActions'
+import './App.css'
 
 export const App = () => {
   const dispatch = useDispatch()
@@ -20,7 +21,7 @@ export const App = () => {
   }, [dispatch])
 
   return (
-    <div className='App' style={{backgroundColor: '#004445', maxHeight: '20vh'}}>
+    <div className='App'>
       <NavBar />
       <RouterWeb />
       <Footer />

@@ -63,7 +63,7 @@ export const Episodes = () => {
 
 
     return (
-        <div className=''>
+        <>
             <div className='navContainer'>
                 <SearchBar />
                 <FilterEpisodes
@@ -71,7 +71,7 @@ export const Episodes = () => {
                     orderSeason={orderSeason}
                 />
             </div>
-            <div className='rowContainer'>
+            <div className='rowContainer' style={{padding: '2rem'}}>
                 <div className='columnContainer'>
                     <ViewEpisodes
                         allEpisodes={allEpisodes}
@@ -85,6 +85,6 @@ export const Episodes = () => {
                     <EpisodesViewForm />
                 </div>
             </div>
-        </div>
+        </>
     )
 }

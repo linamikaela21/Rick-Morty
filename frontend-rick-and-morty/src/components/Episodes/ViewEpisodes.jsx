@@ -13,8 +13,7 @@ export const ViewEpisodes = ({ episodes, episodesPerPage, allEpisodes, pages, ha
                 <div className='columnContainer' style={{ width: '80%', backgroundColor:'#cacaca', borderColor:'#3B4DA9' }}>
                     <div className='divBtnClose'>
                         <button className='btnClose' key={epi.id}
-                            onClick={e => handleDeleteEpisode(e, epi.id)}
-                            style={{ width: '3em', height: '3em' }}>
+                            onClick={e => handleDeleteEpisode(e, epi.id)}>
                             X
                         </button>
                     </div>

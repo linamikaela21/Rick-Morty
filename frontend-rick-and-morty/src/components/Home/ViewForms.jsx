@@ -6,7 +6,7 @@ import locations from '../../Images/rick-morty-location.jpg'
 
 export const ViewForms = () => {
     return (
-        <div className='homeContent'>
+        <div className='homeContent' style={{ height: '54vh'}}>
             <BigCard
                 title='Create your episodes'
                 image={episodes}

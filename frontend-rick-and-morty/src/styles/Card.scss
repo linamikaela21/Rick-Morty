@@ -4,20 +4,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 4rem;
-    background-color: $color-gris;
-    border-radius: 50px;
+    margin: 1rem;
+    background-color: $color-azul;
+    border-radius: 5rem;
     font-size: x-large;
     color: $color-azul;
+    padding: 2rem;
 }
 
-.divCard {
-    display: flex;
-    justify-content: center;
-}
-
-.rowContent {
-    display: flex;
-    justify-content: center;
-    width: 80vh;
+.cardTitle {
+    color: $color-blanco;
 }

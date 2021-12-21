@@ -9,7 +9,7 @@ import './../../styles/Commun/index.scss'
 
 export const About = () => {
   return (
-    <div style={{ display:'flex', justifyContent:'center' }}>
+    <div className='homeContent'>
       <div className='columnContainer' style={{ backgroundColor: '#000', width:'70%' }}>
         <h1 style={{backgroundColor: '#004445'}}>THANK YOU FOR VISITING <br /> RICK AND MORTY PROYECT</h1>
         <div className='ulLi'>

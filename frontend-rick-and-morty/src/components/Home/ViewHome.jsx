@@ -6,7 +6,7 @@ import locations from '../../Images/rick-morty-location.jpg'
 
 export const ViewHome = () => {
     return (
-        <div className='homeContent'>
+        <div className='homeContent' style={{ height: '54vh'}}>
             <BigCard
                 title='Episodes'
                 image={episodes}

@@ -1,4 +1,10 @@
 .App {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
     color: white;
+    background: #004445;
+    height: 15vh;
+}
+
+body {
+    margin: 0px;
 }
