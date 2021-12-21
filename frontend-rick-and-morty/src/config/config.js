@@ -1,10 +1,3 @@
-import dotenv from 'dotenv'
-import axios from 'axios'
-
-dotenv.config()
-
-axios.defaults.URL_BASE = process.env.DATABASE_URL || "http://localhost:3001"
-
 export const URL_BASE = process.env.DATABASE_URL || 'http://localhost:3001'
 
 export const URL_ALL_CHARACTERS = URL_BASE + '/api/characters'
