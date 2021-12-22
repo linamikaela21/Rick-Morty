@@ -19,7 +19,8 @@ exports.postEpisode = async (req, res, next) => {
 
         const episodes_characters = await Episode.findAll({
             where: {
-                name: name
+                name: name,
+                episode: episode
             },
             attributes: {
                 exclude: ['character_episode', 'createdAt', 'updatedAt']
@@ -27,7 +28,7 @@ exports.postEpisode = async (req, res, next) => {
             include: 
                 {
                     model: Character,
-                    attributes: ['name', 'id']
+                    attributes: ['name', 'episode', 'id']
                 }
         })
 

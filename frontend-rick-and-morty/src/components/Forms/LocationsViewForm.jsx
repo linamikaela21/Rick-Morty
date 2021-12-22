@@ -95,7 +95,7 @@ export const LocationsViewForm = (props) => {
                 onChange={e => onInputChange(e)}
             />
             <div className='inputContainer'>
-                <div className='rowContainer'><label htmlFor=''>Type</label></div>
+                <div className='rowContainer'><label>Type</label></div>
                 <div className='rowContainer'>
                     <select value={newLocation.type} onChange={e => handleType(e)}>
                         {

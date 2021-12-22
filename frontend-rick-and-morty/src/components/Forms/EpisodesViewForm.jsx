@@ -13,6 +13,7 @@ export const EpisodesViewForm = () => {
     const newEpisode = useSelector(state => state.newEpisode)
 
     const [name, setName] = useState('')
+    const [season, setSeason] = useState('')
     const [characterId, setCharacterId] = useState([])
     const [charName, setCharName] = useState('')
     const [charObj, setCharObj] = useState([])
@@ -26,12 +27,17 @@ export const EpisodesViewForm = () => {
         setCharacterId([...new Set(charObj.map(c => c.id))])
     }, [dispatch, charObj])
 
-    console.log(name, characterId);
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(postEpisode(name, characterId))
+        const episode = `S0${season}`
+        dispatch(postEpisode(name, episode, characterId))
         alert('Your episode has been created')
         dispatch(getEpisodes())
+        setName('')
+        setSeason('')
+        setCharacterId([])
+        setCharName('')
+        setCharObj([])
         window.location.replace('/episodes')
     }
 
@@ -43,6 +49,11 @@ export const EpisodesViewForm = () => {
     const handleCharName = (e) => {
         e.preventDefault()
         setCharName(e.target.value)
+    }
+
+    const handleEpisode = (e) => {
+        e.preventDefault()
+        setSeason(e.target.value)
     }
 
     const handleGetCharacterName = async (e) => {
@@ -59,7 +70,7 @@ export const EpisodesViewForm = () => {
 
     return (
         <form
-        style={{ width: '90%' }}
+            style={{ width: '90%' }}
             className='form'
             onSubmit={(e) => handleSubmit(e)}>
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -74,6 +85,15 @@ export const EpisodesViewForm = () => {
                 value={name}
                 onChange={(e) => handleName(e)}
             />
+            <div className='rowContainer '>
+                <label>Season</label>
+            </div>
+            <div className='rowContainer'>
+                <select value={season} onChange={e => handleEpisode(e)} style={{ display: 'flex', justifyContent: 'center', width: '40%' }}>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                </select>
+            </div>
             <div className='inputContainer' style={{ width: '100%' }}>
                 <fieldset style={{ display: 'flex', justifyContent: 'center', width: '90%' }}>
                     <legend>Characters</legend>
@@ -82,17 +102,17 @@ export const EpisodesViewForm = () => {
                             type='text'
                             placeholder='Look for your characters'
                             value={charName}
-                            onChange={(e) => handleCharName(e)}
+                            onChange={e => handleCharName(e)}
                         />
                     </div>
                     <div>
-                        <div style={{ display: 'flex', justifyContent: 'center'}}>
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <button
-                            className='button'
-                            style={{ backgroundColor: '#3B4DA9' }}
-                            onClick={(e) => handleGetCharacterName(e)}
-                        >Search
-                        </button>
+                                className='button'
+                                style={{ backgroundColor: '#3B4DA9' }}
+                                onClick={(e) => handleGetCharacterName(e)}
+                            >Search
+                            </button>
                         </div>
                         <div>
                             {
@@ -100,7 +120,7 @@ export const EpisodesViewForm = () => {
                                     return (
                                         <>
                                             <Card
-                                             style={{ width: '100%' }}
+                                                style={{ width: '100%' }}
                                                 name={c.name}
                                                 textOne={c.status}
                                                 textTwo={c.gender}

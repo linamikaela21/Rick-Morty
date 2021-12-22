@@ -49,10 +49,11 @@ export const getEpisodeName = (name) => {
   }
 }
 
-export const postEpisode = (name, characterId) => {
+export const postEpisode = (name, episode, characterId) => {
   return async function (dispatch) {
     try {
-      const newEpisode = await axios.post(URL_ALL_EPISODES, { name, characterId})
+      const newEpisode = await axios.post(URL_ALL_EPISODES, { name, episode, characterId})
+      console.log(newEpisode, 'newEpisode');
       return newEpisode
     } catch (error) {
       console.log(error)

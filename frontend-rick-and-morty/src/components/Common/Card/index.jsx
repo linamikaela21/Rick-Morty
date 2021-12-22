@@ -3,11 +3,10 @@ import './../../../styles/Commun/index.scss'
 
 export const Card = (props) => {
     return (
-        <div className='columnContent'>
-            <div className='divBtnClose'>
+        <div className='columnContent' style={{ margin: '0rem', padding: '0rem', borderRadius: '3rem' }}>
+            <div className='divBtnClose' style={{ paddingRight: '6rem' }}>
                 <button className='btnClose'
-                    onClick={props.onClick}
-                    style={{  marginRight: '0.5rem', marginTop: '0.5rem' }}>
+                    onClick={props.onClick}>
                     X
                 </button>
             </div>

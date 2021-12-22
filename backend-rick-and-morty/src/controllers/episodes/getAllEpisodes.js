@@ -15,7 +15,7 @@ exports.getAllEpisodes = async (req, res, next) => {
         let infoDB = await Episode.findAll({
             include: {
                 model: Character,
-                attributes: ['id', 'name']
+                attributes: ['id', 'name', 'episode']
             },
             exclude: ['createdAt', 'updatedAt']
         })
@@ -32,7 +32,7 @@ exports.getAllEpisodes = async (req, res, next) => {
                     },
                     include: {
                         model: Character,
-                        attributes: ['id', 'name']
+                        attributes: ['id', 'name', 'episode']
                     }
                 })
 
@@ -47,7 +47,7 @@ exports.getAllEpisodes = async (req, res, next) => {
                     order: [['name', req.query.order]], //ASC-DESC
                     include: {
                         model: Character,
-                        attributes: ['id', 'name']
+                        attributes: ['id', 'name', 'episode']
                     }
                 })
                 return res.status(200).json(char)
