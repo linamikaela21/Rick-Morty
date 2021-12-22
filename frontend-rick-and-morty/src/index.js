@@ -5,16 +5,10 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
 import Store from './redux/store/'
-//import dotenv from 'dotenv';
-//import axios from 'axios';
 
 const { persistor, store } = Store
 
 persistor.purge()
-
-//dotenv.config();
-
-//axios.defaults.URL_BASE = process.env.REACT_APP_DATABASE_URL || "http://localhost:3001"
 
 ReactDOM.render(
   <React.StrictMode>

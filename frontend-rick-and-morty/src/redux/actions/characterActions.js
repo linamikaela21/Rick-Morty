@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { URL_ALL_CHARACTERS, URL_CHARACTERS_NAME } from '../../config/config'
+import { URL_ALL_CHARACTERS, URL_CHARACTERS_NAME } from './UrlConstants'
 
 import {
   GET_CHARACTERS,

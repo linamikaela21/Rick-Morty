@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { URL_ALL_EPISODES, URL_EPISODES_NAME } from '../../config/config'
+import { URL_ALL_EPISODES, URL_EPISODES_NAME } from './UrlConstants'
 
 import {
   DELETE_EPISODE,

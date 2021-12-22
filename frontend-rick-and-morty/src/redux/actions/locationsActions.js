@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { URL_ALL_LOCATIONS, URL_LOCATIONS_NAME } from '../../config/config'
+import { URL_ALL_LOCATIONS, URL_LOCATIONS_NAME } from './UrlConstants'
 
 import {
     GET_LOCATION,
