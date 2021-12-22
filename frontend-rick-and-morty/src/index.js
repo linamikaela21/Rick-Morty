@@ -8,7 +8,7 @@ import Store from './redux/store/'
 
 const { persistor, store } = Store
 
-persistor.purge()
+//persistor.purge()
 
 ReactDOM.render(
   <React.StrictMode>
