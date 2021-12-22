@@ -20,7 +20,7 @@ export const EpisodesViewForm = () => {
     useEffect(() => {
         setCharacterId([...new Set(charObj.map(c => c.id))])
         setCharObj([...charObj, ...newEpisode])
-    }, [dispatch, newEpisode])
+    }, [newEpisode])
 
     useEffect(() => {
         setCharacterId([...new Set(charObj.map(c => c.id))])
