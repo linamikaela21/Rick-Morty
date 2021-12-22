@@ -1,4 +1,7 @@
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 export const URL_BASE = 'http://localhost:3001' || process.env.REACT_APP_DATABASE_URL
 
 export const URL_ALL_CHARACTERS = URL_BASE + '/api/characters'
