@@ -15,10 +15,12 @@ exports.getAllEpisodes = async (req, res, next) => {
         let infoDB = await Episode.findAll({
             include: {
                 model: Character,
-                attributes: ['id', 'name', 'episode']
+                attributes: ['id', 'name']
             },
             exclude: ['createdAt', 'updatedAt']
         })
+
+        console.log(infoDB, 'infoDB');
 
         if (!infoDB.length) await Episode.bulkCreate(getAllDataApi)
 
@@ -32,7 +34,7 @@ exports.getAllEpisodes = async (req, res, next) => {
                     },
                     include: {
                         model: Character,
-                        attributes: ['id', 'name', 'episode']
+                        attributes: ['id', 'name']
                     }
                 })
 
@@ -47,7 +49,7 @@ exports.getAllEpisodes = async (req, res, next) => {
                     order: [['name', req.query.order]], //ASC-DESC
                     include: {
                         model: Character,
-                        attributes: ['id', 'name', 'episode']
+                        attributes: ['id', 'name']
                     }
                 })
                 return res.status(200).json(char)
