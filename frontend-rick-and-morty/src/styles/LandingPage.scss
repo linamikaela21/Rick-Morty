@@ -1,12 +1,11 @@
 @import "variables.scss";
 
 .fondo {
-    //   background-image: url("../../Images/Landind.jpg");
     background-color: $color-negro;
     display: flex;
     justify-content: center;
     align-content: center;
-    padding-top: 0.5rem;
+    padding-top: 1.2rem;
     padding-bottom: 2rem;
     width: 100%;
 }
@@ -18,7 +17,7 @@
     height: 70%;
     width: 70%;
     background-color: $color-celeste;
-    padding: 3%;
+    padding: 2%;
     border-radius: 50px;
 }
 
@@ -28,6 +27,7 @@
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     text-shadow: 10px 10px $color-celeste;
     background-color: $color-verde;
+    padding: 1.2%;
 }
 
 .buttonWelcome {
