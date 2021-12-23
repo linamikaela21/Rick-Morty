@@ -1,4 +1,4 @@
-export const URL_BASE = 'http://localhost:3001' || 'https://lali-rick-and-morty.herokuapp.com'
+export const URL_BASE = 'https://lali-rick-and-morty.herokuapp.com' || 'http://localhost:3001'
 //export const URL_BASE = 'http://localhost:3001'
 
 export const URL_ALL_CHARACTERS = `${URL_BASE}/api/characters`
