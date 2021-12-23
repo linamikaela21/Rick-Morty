@@ -9,7 +9,8 @@ export const ViewCharacterDetails = ({handleDeleteCharacter}) => {
     console.log(details)
 
     return (
-        <div className='container' style={{ paddingTop: '3rem', paddingBottom: '3rem'}}>
+        <div className='container' 
+        style={{ paddingTop: '3rem', paddingBottom: '3rem'}}>
             <div className='columnDetailsContent'>
                 <Link to={'/characters'}>
                     <button className='button'>Go Back</button>
@@ -39,4 +40,3 @@ export const ViewCharacterDetails = ({handleDeleteCharacter}) => {
         </div>
     )
 }
-

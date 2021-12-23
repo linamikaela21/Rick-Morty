@@ -32,6 +32,7 @@ const initialState = {
 }
 
 const rootReducer = (state = initialState, action) => {
+  console.log('state', state, 'action =>', action.type, 'payload =>', action.payload)
   switch (action.type) {
 
     case GET_CHARACTERS:
@@ -50,8 +51,8 @@ const rootReducer = (state = initialState, action) => {
     case GET_CHARACTER_NAME:
       return { ...state, characters: action.payload }
 
-    case GET_CHARACTER_ID:
-      return { ...state, details: action.payload }
+      case GET_CHARACTER_ID:
+        return { ...state, details: action.payload }
 
     case GET_CHARACTER_NAME_FORM:
       return { ...state, newEpisode: action.payload }

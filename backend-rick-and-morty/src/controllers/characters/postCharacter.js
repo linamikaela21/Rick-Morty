@@ -4,9 +4,11 @@ exports.postCharacter = async (req, res, next) => {
 
     const { name, image, gender, status, species, episodeId, locationId } = req.body
 
+    console.log(name, image, gender, status, species, episodeId, locationId);
+
     try {
 
-        if (!name || !image || !gender || !status) return res.status(404).json({})
+        if (!name || !image || !gender || !status) return res.status(404).json({}, 'Faltan datos en el back')
 
         const newCharacter = await Character.create({
             id: Math.floor(Math.random() * 100000),

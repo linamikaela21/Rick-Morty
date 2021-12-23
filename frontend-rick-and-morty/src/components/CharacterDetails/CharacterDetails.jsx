@@ -28,9 +28,7 @@ export const CharacterDetails = () => {
 
     return (
         <div>
-            <ViewCharacterDetails 
-            handleDeleteCharacter={handleDeleteCharacter}
-            />
+            <ViewCharacterDetails handleDeleteCharacter={handleDeleteCharacter}/>
         </div>
     )
 }
