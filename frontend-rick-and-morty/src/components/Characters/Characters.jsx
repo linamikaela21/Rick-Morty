@@ -7,7 +7,7 @@ import { FilterCharacters } from "../SearchBar/Filters/FilterCharacters"
 
 export const Characters = () => {
 
-    const dispatch = useDispatch()
+  
     
     const [order, setOrder] = useState('')
     const [status, setStatus] = useState('')
