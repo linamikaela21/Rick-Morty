@@ -13,7 +13,12 @@ const path = require('path')
 //   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 // })
 
-const { DB_PG_USER, DB_PG_PASSWORD, DB_PG_HOST, DB_PG_DIALECT, DB_PG_DATABASE, NODE_ENV } = process.env
+const { DB_PG_USER, 
+  DB_PG_PASSWORD, 
+  DB_PG_HOST, 
+  DB_PG_DIALECT, 
+  DB_PG_DATABASE, 
+  NODE_ENV } = process.env
 
 const sequelize =
   NODE_ENV === "production"
