@@ -1,7 +1,7 @@
 import { BigCard } from "../Common/BigCard"
 import { Carrusel } from "../Common/Carrusel"
 
-export const ViewCharacters = ({ characters, charactersPerPage, allCharacters, pages }) => {
+export const ViewCharacters = ({ allCharacters, pages }) => {
 
     const carouselItems = 
     allCharacters?.map(char => (
