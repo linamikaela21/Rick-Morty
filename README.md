@@ -1,5 +1,5 @@
-<p align='left'>
-    <img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fimgur.com%2Fgallery%2FdVswCaP&psig=AOvVaw3oGRNm49Cv4i55N5SI0svj&ust=1642815370122000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPjUk6jawfUCFQAAAAAdAAAAABAD' </img>
+<p align='center'>
+    <img src='https://i.imgur.com/t2gZFoh.jpeg' </img>
 </p>
 
 # Rick And Morty Proyect
@@ -71,33 +71,33 @@ DB_PG_DATABASE=rickymorty
 - [ ] Sass
 
 __Home page__: landing page with
-- [ ] Background image representative of the project
-- [ ] Button to enter home (`Main path`)
+    - Background image representative of the project
+    - Button to enter home (`Main path`)
 
 __Main path__:
-- [ ] Three ways to access to the differents parts of the proyect: Characters - Episodes - Locations 
+    - Three ways to access to the differents parts of the proyect: Characters - Episodes - Locations 
 
 __Details path__:
 
 - __Episodes:__ 
-- [ ] Show a list of episodes
-- [ ] Controlled form for create a new episode
-- [ ] Buttons to order episodes by Order and Season
-- [ ] Input to search episode by Name
+    - Show a list of episodes
+    - Controlled form for create a new episode
+    - Buttons to order episodes by Order and Season
+    - Input to search episode by Name
 
 - __Characters:__ 
-- [ ] Show a list of character
-- [ ] Buttons to order character by Order, Status and Gender
-- [ ] Input to search character by Name
+    - Show a list of character
+    - Buttons to order character by Order, Status and Gender
+    - Input to search character by Name
 
 - __CharacterDetail:__ 
-- [ ] Details of the character: Specie, Status, Gender, Location and Episodes
+    - Details of the character: Specie, Status, Gender, Location and Episodes
 
 - __CharacterForm:__ 
-- [ ] Controlled form for create a new character
+    - Controlled form for create a new character
 
 - __Locations:__ 
-- [ ] Show a list of location
-- [ ] Controlled form for create a new location,
-- [ ] Buttons to order location by Order, Type and Dimension
-- [ ] Input to search location by Name
+    - Show a list of location
+    - Controlled form for create a new location,
+    - Buttons to order location by Order, Type and Dimension
+    - Input to search location by Name
