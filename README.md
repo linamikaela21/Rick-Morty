@@ -29,6 +29,8 @@ DB_PG_DATABASE=rickymorty
  
  ### API https://rickandmortyapi.com/
  
+ ## DEPLOYMENT https://lali-rick-and-morty.vercel.app/
+ 
  ## Technologies:
  
  ##__DataBase__: 
